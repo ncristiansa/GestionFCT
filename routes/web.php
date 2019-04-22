@@ -14,3 +14,6 @@
 Route::get('/login', function () {
     return view('login.login');
 });
+Route::get('/home', function () {
+    return view('home.home');
+});

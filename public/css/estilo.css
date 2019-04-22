@@ -1,6 +1,6 @@
 .formulario-login{
-    width:30%;
-    height:50%;
+    width:40%;
+    height:auto;
     margin:0 auto;
     margin-top:5%;
     border:1px solid;
@@ -9,3 +9,154 @@
     padding:3%;
     background-color:white;
 }
+.contenedor{
+    text-align: center;
+    margin:0 auto;
+    margin-top:60px;
+    width:900px;
+    font-size:35px;
+}
+.estilo-empresa{
+    background-color: blueviolet;
+    padding:20px;
+    width:300px;
+    height:200px;
+    float: left;
+}
+.estilo-empresa:hover{    
+    background-color: darkmagenta;
+}
+.estilo-acuerdo{
+    background-color: greenyellow;
+    padding:20px;
+    width:300px;
+    height:200px;
+    float: left;
+}
+.estilo-acuerdo:hover{
+    background-color: chartreuse;
+}
+
+.estilo-alumno{
+    background-color: orange;
+    padding:20px;
+    width:300px;
+    height:200px;
+    float: left;
+}
+.estilo-alumno:hover{
+    background-color: darkorange;
+}
+.estilo-general{
+    padding:20px;
+    margin-top:60px;
+}
+
+@media only screen and (max-width:800px){
+    .formulario-login{
+        width:500px;
+        margin-top:20%;
+        padding:4%;
+    }
+    .contenedor{
+        width: 300px;
+        height: 300px;
+    }
+    .estilo-empresa{
+        width: 200px;
+        height: 150px;
+        margin: 5px auto;
+    }
+    .estilo-alumno{
+        width: 200px;
+        height: 150px;
+        margin: 5px auto;
+        
+    }
+    .estilo-acuerdo{
+        width: 200px;
+        height: 150px;
+        margin: 5px auto;
+    }
+
+}
+
+@media only screen and (max-width:768px){
+    .formulario-login{
+        width:500px;
+        margin-top:20%;
+        padding:4%;
+    }
+}
+
+@media only screen and (max-width:414px){
+    .formulario-login{
+        width:250px;
+        margin-top:30%;
+        padding:5%;
+    }
+    .contenedor{
+        width: 300px;
+        height: 300px;
+    }
+    .estilo-empresa{
+        width: 200px;
+        height: 150px;
+        margin: 5px auto;
+    }
+    .estilo-alumno{
+        width: 200px;
+        height: 150px;
+        margin: 5px auto;
+        
+    }
+    .estilo-acuerdo{
+        width: 200px;
+        height: 150px;
+        margin: 5px auto;
+    }
+}
+
+@media only screen and (max-width:375px){
+    .formulario-login{
+        width:250px;
+        margin-top:30%;
+        padding:5%;
+    }
+}
+
+@media only screen and (max-width:360px){
+    .formulario-login{
+        width:250px;
+        margin-top:30%;
+        padding:5%;
+    }
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+    text-decoration: none;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
