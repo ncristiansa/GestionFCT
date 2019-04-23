@@ -5,3 +5,4 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css.map')}}">
     <script type="text/javascript" src="{{asset('js/jquery-3.4.0.min.js')}}"></script>
+    

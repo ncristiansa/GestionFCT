@@ -1,4 +1,3 @@
-
 <!doctype <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +8,10 @@
     <ul>
         <li style="float:right"><a class="active" href="#about">Cerrar sessión</a></li>
     </ul>
-        @yield('content')
+        <div class="contenedor-empresa">
+                <div class="contenido">
+                    @yield('content')
+                </div>
+        </div>
 </body>
 </html>
