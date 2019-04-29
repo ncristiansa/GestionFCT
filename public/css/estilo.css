@@ -95,6 +95,10 @@
     img{
         width: 170px;
     }
+    .img-iconos {
+        width:21px;
+        height:21px;
+    }
 
 }
 
@@ -128,6 +132,10 @@
     img{
         width: 170px;
     }
+    .img-iconos {
+        width:21px;
+        height:21px;
+    }
 }
 @media only screen and (max-width:768px){
     .formulario-login{
@@ -159,6 +167,10 @@
     }
     img{
         width: 170px;
+    }
+    .img-iconos {
+        width:21px;
+        height:21px;
     }
 }
 
@@ -194,6 +206,10 @@
         width: 90px;
         height:90px;
     }
+    .img-iconos {
+        width:21px;
+        height:21px;
+    }
 }
 
 @media only screen and (max-width:375px){
@@ -227,6 +243,16 @@
     img{
         width: 90px;
         height:90px;
+    }
+    .img-iconos {
+        width:16px;
+        height:16px;
+    }
+    td{
+        font-size:12px;
+    }
+    th{
+        font-size:12px;
     }
 }
 

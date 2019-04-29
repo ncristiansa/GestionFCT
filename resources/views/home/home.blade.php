@@ -10,9 +10,5 @@
         Alumno
         <img src="{{URL::asset('images/icono-alumno.png')}}" alt="icono-alumno" width="200px" height="200px">
     </div>
-    <div class="estilo-acuerdo" onclick="location.href = '{{url('home/acuerdo')}}'">
-        Acuerdo
-        <img src="{{URL::asset('images/icono-acuerdo.jpg')}}" alt="icono-acuerdo" width="200px" height="200px">
-    </div>
 </div>
 @stop
