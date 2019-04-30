@@ -14,6 +14,11 @@ class GestorFct extends Migration
     public function up()
     {
         //
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->increments('id');
+            $table->String('Nombre');
+            $table->String('Clave');
+        });
         Schema::create('empresa', function (Blueprint $table) {
             $table->increments('id');
             $table->String('Nombre');
@@ -53,7 +58,8 @@ class GestorFct extends Migration
         Schema::create('seguimiento', function (Blueprint $table) {
             $table->increments('id');
             $table->String('Descripcion');
-            $table->foreing('acuerdo_id')->references('id')->on('acuerdo');
+            $table->integer('acuerdo_id')->unsigned();
+            $table->foreign('acuerdo_id')->references('id')->on('acuerdo');
         });
     }
 
@@ -64,6 +70,12 @@ class GestorFct extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('empresa');
+        Schema::dropIfExists('persona');
+        Schema::dropIfExists('alumno');
+        Schema::dropIfExists('tutor');
+        Schema::dropIfExists('acuerdo');
+        Schema::dropIfExists('seguimiento');
     }
 }
