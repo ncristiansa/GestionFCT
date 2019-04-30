@@ -2,7 +2,7 @@
 @section('pageTitle', 'Login')
 @section('content')
 <div class="formulario-login">
-    <h1 class="h2">Iniciar Sessión</h1>
+    <h1 class="h2">Iniciar Sesión</h1>
     <form method="POST">
         <div class="form-group">
             <label for="usuario">

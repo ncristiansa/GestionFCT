@@ -13,10 +13,10 @@
 .contenedor{
     text-align: center;
     margin:0 auto;
-    margin-top:100px;
-    margin-left:650px;
+    margin-top:40px;
     font-size:35px;
-    height:auto;
+    display:flex;
+    justify-content: center;
 }
 
 .estilo-empresa{
@@ -70,18 +70,15 @@
         margin-top:20%;
         padding:4%;
     }
-    .contenedor{
-        width: 430px;
 
-    }
     .estilo-empresa{
-        width: 200px;
+        width: 300px;
         height: 450px;
         border-radius:5px;
         margin:4px;
     }
     .estilo-alumno{
-        width: 200px;
+        width: 300px;
         height: 450px;
         border-radius:5px;
         margin:4px;
@@ -93,7 +90,7 @@
         margin:4px;
     }
     img{
-        width: 170px;
+        width: 200px;
     }
     .img-iconos {
         width:21px;
@@ -108,12 +105,7 @@
         margin-top:30px;
         padding:5%;
     }
-    .contenedor{
-        margin-top:60px;
-        width: 530px;
-        height: 300px;
-        margin-left:100px;
-    }
+
     .estilo-empresa{
         width: 200px;
         height: 180px;
@@ -145,11 +137,7 @@
         padding:4%;
         
     }
-    .contenedor{
-        width: 630px;
-        margin-left:170px;
 
-    }
     .estilo-empresa{
         width: 200px;
         height: 380px;
@@ -184,19 +172,16 @@
         padding:5%;
     }
     .contenedor{
-        margin-top:70px;
-        margin-left:100px;
-        width: 300px;
-        height: 300px;
+        padding:10px;
     }
     .estilo-empresa{
         width: 200px;
-        height: 180px;
+        height: 320px;
         margin: 5px auto;
     }
     .estilo-alumno{
         width: 200px;
-        height: 180px;
+        height: 320px;
         margin: 5px auto;
         
     }
@@ -206,8 +191,8 @@
         margin: 5px auto;
     }
     img{
-        width: 90px;
-        height:90px;
+        width: 150px;
+        height:160px;
     }
     .img-iconos {
         width:21px;
@@ -222,34 +207,26 @@
         padding:5%;
     }
     .contenedor{
-        margin-top:75px;
-        margin-left:90px;
-        width: 280px;
-        height: 300px;
+        padding:10px;
     }
     .estilo-empresa{
-        width: 200px;
-        height: 180px;
+        width: 190px;
+        height: 320px;
         margin: 5px auto;
     }
     .estilo-alumno{
-        width: 200px;
-        height: 180px;
-        margin: 5px auto;
-        
+        width: 190px;
+        height: 320px;
+        margin: 5px auto;   
     }
-    .estilo-acuerdo{
-        width: 200px;
-        height: 180px;
-        margin: 5px auto;
-    }
+
     img{
-        width: 90px;
-        height:90px;
+        width: 150px;
+        height:160px;
     }
     .img-iconos {
-        width:16px;
-        height:16px;
+        width:18px;
+        height:18px;
     }
     td{
         font-size:12px;
