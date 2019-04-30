@@ -6,7 +6,7 @@
 </head>
 <body style="background-color: #5d90ff;">
 <div class="dropdown" align="right" style="margin-right:20px;">
-      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img class="img-iconos" src="{{URL::asset('images/globe.svg')}}" alt="icono-clave" width="25px" height="25px">
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

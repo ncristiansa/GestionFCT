@@ -3,20 +3,21 @@
 @section('content')
 <div class="formulario-login">
     <h1 class="h2">{{ trans('traduccion.open') }}</h1>
-    <form method="POST">
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
         <div class="form-group">
             <label for="usuario">
             <span><img class="img-iconos" src="{{URL::asset('images/person.svg')}}" alt="icono-usuario" width="25px" height="25px"><b>&nbsp;{{ trans('traduccion.user') }}</b></span>
             </label>
-            <input type="text" class="form-control" name="usuario" id="usuario">
+            <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="usuario" id="usuario">
         </div>
         <div class="form-group">
             <label for="usuario">
             <span><img class="img-iconos" src="{{URL::asset('images/key.svg')}}" alt="icono-clave" width="25px" height="25px"><b>&nbsp;{{ trans('traduccion.password') }}:</b></span>
             </label>
-            <input type="password" class="form-control" name="usuario" id="usuario">
+            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="usuario" id="usuario" required>
         </div>
-        <input type="button" class="btn btn-primary" value="{{ trans('traduccion.toaccess') }}" onclick="location.href = '{{url('home')}}'">   
+        <input type="submit" class="btn btn-primary" value="{{ trans('traduccion.toaccess') }}">   
     </form>
 </div>
 @stop
