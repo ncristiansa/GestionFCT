@@ -15,6 +15,7 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="{{ url('lang', ['en'])}}">EN</a>
         <a class="dropdown-item" href="{{ url('lang', ['es'])}}">ES</a>
+        <a class="dropdown-item" href="{{ url('lang', ['cat'])}}">CAT</a>
       </div>
     </div>
     @yield('content')
