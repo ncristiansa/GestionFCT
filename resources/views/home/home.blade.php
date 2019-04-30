@@ -1,6 +1,7 @@
 @extends('layouts/principal')
 @section('pageTitle', 'Home')
 @section('content')
+<p>{{ trans('traduccion.home') }}</p>
 <div class="contenedor">
     <div class="estilo-empresa" onclick="location.href = '{{url('home/empresa')}}'">
         Empresa
