@@ -14,6 +14,7 @@
 /**
  * Ruta LANG
  */
+Route::get('/pruebas','PruebaController@index');
 Route::group(['middleware' => ['web']], function () {
  
     /**
