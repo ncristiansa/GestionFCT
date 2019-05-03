@@ -15,11 +15,16 @@
         <a class="dropdown-item" href="{{ url('lang', ['cat'])}}">CAT</a>
       </div>
     </div>
-
+    @if (session()->has('flash'))
+    <div class="alert alert-info">
+        {{session('flash')}}
+    </div>
+    @endif
     @yield('content')
-
+    <!-- 
     <footer class="row">
-      @include('includes.footer')
-    </footer>   
+      
+    </footer>
+    -->   
 </body>
 </html>

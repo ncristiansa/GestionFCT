@@ -6,7 +6,7 @@
 </head>
 <body style="background-color: #5d90ff;">
     <ul>
-        <li style="float:right"><a class="active" href="#about"><img width="35px" height="35px" class="img-iconos" src="{{URL::asset('images/sign-out.svg')}}"></a></li>
+        <li style="float:right"><a class="active" href="{{ route('logout')}}"><img width="35px" height="35px" class="img-iconos" src="{{URL::asset('images/sign-out.svg')}}"></a></li>
     </ul>
     <div class="dropdown" align="right" style="margin-right:20px;">
       <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,8 +19,6 @@
       </div>
     </div>
     @yield('content')
-    <footer class="row">
-      @include('includes.footer')
-    </footer>
+    
 </body>
 </html>

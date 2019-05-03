@@ -14,21 +14,16 @@
 /**
  * Ruta LANG
  */
-Route::get('/pruebas','PruebaController@index');
+
 Route::group(['middleware' => ['web']], function () {
  
     /**
     * Ruta Login
     */
-    Route::get('/', function () {
-        return view('login.login');
-    });
-    /**
-     * Ruta Home
-     */
-    Route::get('/home', function () {
-        return view('home.home');
-    });
+    Route::get('/', 'Auth\LoginController@showLoginForm');
+    Route::get('home', 'PrincipalController@index')->name('home');
+    Route::post('login', 'Auth\LoginController@login')->name('login');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
     /**
      * Ruta Empresa
      */
@@ -56,6 +51,6 @@ Route::group(['middleware' => ['web']], function () {
     ]);
  
 });
-Auth::routes();
+
 
 
