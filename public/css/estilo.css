@@ -258,6 +258,7 @@ ul {
   li {
     float: left;
     text-decoration: none;
+
   }
   
   li a {
@@ -267,9 +268,14 @@ ul {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
-  li a:hover:not(.active) {
-    background-color: #111;
+
+  .nombre-usuario
+  {
+      background-color:#DFB943;
+  }
+  .nombre-usuario:hover
+  {
+      color:white;
   }
   
   .active {

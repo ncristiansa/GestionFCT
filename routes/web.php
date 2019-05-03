@@ -27,15 +27,11 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Ruta Empresa
      */
-    Route::get('/home/empresa', function () {
-        return view('empresa.empresa');
-    });
+    Route::get('/home/empresa', 'EmpresaController@index')->name('empresa');
     /**
      * Ruta Alumno
      */
-    Route::get('/home/alumno', function () {
-        return view('alumno.alumno');
-    });
+    Route::get('/home/alumno', 'AlumnoController@index')->name('alumno');
     /**
      * Ruta Acuerdo
      */
