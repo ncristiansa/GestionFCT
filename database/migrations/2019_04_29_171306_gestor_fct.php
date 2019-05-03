@@ -13,12 +13,6 @@ class GestorFct extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->increments('id');
-            $table->String('Nombre');
-            $table->String('Clave');
-        });
         Schema::create('acuerdo', function (Blueprint $table) {
             $table->increments('id');
             $table->date('Fecha_alta');
