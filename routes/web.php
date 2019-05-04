@@ -16,7 +16,9 @@
  */
 
 Route::group(['middleware' => ['web']], function () {
- 
+    Route::get('/pruebas', function(){
+        return view("pruebas");
+    });
     /**
     * Ruta Login
     */

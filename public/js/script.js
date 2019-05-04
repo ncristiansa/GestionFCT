@@ -54,3 +54,11 @@ function crearTh(texto, attrscope)
     }
     return $("<th>").text(texto);
 }
+function mensajeError(situado, mensaje)
+{
+    return $(situado).after($("<div>").attr({"class": "alert alert-danger", "role":"alert"}).append("<p>").text(mensaje));
+}
+$(document).ready(function(){
+    console.log("empieza");
+    $("button[name='boton']").on("click", Comprobar);
+});

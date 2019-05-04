@@ -21,10 +21,10 @@
     </div>
     @endif
     @yield('content')
-    <!-- 
+
     <footer class="row">
-      
+
     </footer>
-    -->   
+  
 </body>
 </html>
