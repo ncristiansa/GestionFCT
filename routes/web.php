@@ -16,9 +16,7 @@
  */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/pruebas', function(){
-        return view("pruebas");
-    });
+    Route::get('/pruebas', "PruebaController@index");
     /**
     * Ruta Login
     */
