@@ -21,7 +21,7 @@ class GestorFct extends Migration
         });
         Schema::create('empresa', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('Nombre');
+            $table->String('Empresa');
             $table->String('NIF');
             $table->String('Topologia');
             $table->String('Perfil');

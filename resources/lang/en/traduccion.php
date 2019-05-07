@@ -9,5 +9,6 @@ return [
     'password' => 'Password',
     'toaccess' => 'To access',
     'titlelogin' => 'Login',
+    'titles' => "List of Companies",
 ]
 ?>

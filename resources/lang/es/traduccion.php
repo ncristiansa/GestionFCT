@@ -9,5 +9,6 @@ return [
     'password' => 'Contraseña',
     'toaccess' => 'Acceder',
     'titlelogin' => 'Iniciar sesión',
+    'titles' => "Lista de Empresas",
 ]
 ?>

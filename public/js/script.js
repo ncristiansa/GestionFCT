@@ -1,10 +1,27 @@
 /**
  * Funciones
  */
+function crearFilas(elementoAnterior, consulta, enlace, botones)
+{   
+    var elementoPadre = $(elementoAnterior);
+    for(var datos in consulta)
+    {
+        var trvalores = $("<tr>");
+        var valores = Object.values(consulta[datos]);
+        for(var valor in valores)
+        {
+            if(botones == true)
+            {
+                
+            }
+            trvalores.append(crearTd(valores[valor], undefined, enlace+consulta[datos]["id"]))
+        }
+    }
+    return elementoPadre.append(trvalores);
 
+}
 function crearTabla(elementoAnterior, tableClass, theadClass, Consulta, enlace)
 {
-    console.log(Consulta);
     if(Consulta.length <= 0)
     {
         var mensaje = $("<div>").attr({"class":"alert alert-warning", "role":"alert"}).append($("<p>").text("No se han encontrado registros."));
