@@ -6,14 +6,15 @@
     <table class="table">
         <thead class="thead-dark">
             <tr>
+                <th scope="col"></th>
                 <th scope="col">id</th>
-                <th scope="col">Empresa</th>
+                <th scope="col">{{ trans('traduccion.tdCompany') }}</th>
                 <th scope="col">NIF</th>
-                <th scope="col">Topologia</th>
-                <th scope="col">Perfil</th>
-                <th scope="col">Idiomas</th>
-                <th scope="col">Horario</th>
-                <th scope="col">Seguimiento</th>
+                <th scope="col">{{ trans('traduccion.tdTopology') }}</th>
+                <th scope="col">{{ trans('traduccion.tdProfile') }}</th>
+                <th scope="col">{{ trans('traduccion.tdLanguages') }}</th>
+                <th scope="col">{{ trans('traduccion.tdSchedule') }}</th>
+                <th scope="col">{{ trans('traduccion.tdTracing') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,6 @@
 <script>
     var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
     //crearTabla("h1", "table", "thead-dark", infoEmpresa, "/home/empresa/");
-    crearFilas("tbody", infoEmpresa, "/home/empresa/");
+    crearFilas("table", infoEmpresa, "/home/empresa/");
 </script>
 @stop

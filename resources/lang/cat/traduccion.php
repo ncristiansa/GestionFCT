@@ -10,5 +10,11 @@ return [
     'toaccess' => 'Accedir',
     'titlelogin' => 'Iniciar sessió',
     'titles' => "Llistats d'Empreses",
+    'tdCompany' => 'Empresa',
+    'tdTopology' => 'Topologia',
+    'tdProfile' => 'Perfil',
+    'tdLanguages' => 'Idiomes',
+    'tdSchedule' => 'Horari',
+    'tdTracing' => 'Seguimient',
 ]
 ?>

@@ -1,24 +1,40 @@
 /**
  * Funciones
  */
-function crearFilas(elementoAnterior, consulta, enlace, botones)
-{   
-    var elementoPadre = $(elementoAnterior);
+function crearInput(tipo, nombre, valor, clase, imagen)
+{
+    if(clase != undefined && imagen != undefined)
+    {
+        return $("<input>").append($("<img>").attr({"src":imagen})).attr({"type":tipo, "name":nombre, "value":valor, "class":clase});
+    }
+    return $("<input>").attr({"type":tipo, "name":nombre, "value":valor});
+}
+function crearBoton(nombre, icono, clase, enlace, ruta)
+{
+    if(enlace != undefined) 
+    {
+        return $("<button>").attr({"href":enlace, "name":nombre, "class":clase}).append($("<a>").attr({"href": enlace}).append($("<img>").attr({"src":icono})));
+    }
+    return $("<button>").attr({"name":nombre, "class":clase}).append($("<img>").attr({"src":icono}));
+}
+
+function crearFilas(elementoAnterior, consulta)
+{
+    var tbody = $("<tbody>");
     for(var datos in consulta)
     {
-        var trvalores = $("<tr>");
+        var trvalores = $("<tr>");   
         var valores = Object.values(consulta[datos]);
+        trvalores.append(crearBoton("mostrar", "../images/eye.svg", "btn btn-warning", "/home/empresa/"+consulta[datos]["id"]));
+        trvalores.append(crearBoton("eliminar", "../images/trashcan.svg", "btn btn-danger", "/home/empresa/"+consulta[datos]["id"]));
+        trvalores.append(crearBoton("editar", "../images/pencil.svg", "btn btn-info", "/home/empresa/"+consulta[datos]["id"]));
         for(var valor in valores)
-        {
-            if(botones == true)
-            {
-                
-            }
-            trvalores.append(crearTd(valores[valor], undefined, enlace+consulta[datos]["id"]))
+        {   
+            trvalores.append(crearTd(valores[valor]));    
         }
+        tbody.append(trvalores);
     }
-    return elementoPadre.append(trvalores);
-
+    $(elementoAnterior).append(tbody);
 }
 function crearTabla(elementoAnterior, tableClass, theadClass, Consulta, enlace)
 {
@@ -58,22 +74,8 @@ function crearTabla(elementoAnterior, tableClass, theadClass, Consulta, enlace)
         
     }
 }
-function crearTd(texto, attr, url, agregarBoton)
+function crearTd(texto)
 {
-    if(attr != undefined)
-    {
-        if(agregarBoton == true)
-        {
-            return $("<td>").text(texto).attr(attr);
-        }else{
-            return $("<td>").text(texto).attr(attr);
-        }
-        
-    }
-    if(url != undefined)
-    {
-        return $("<td>").append($("<a>").text(texto).attr({'href': url}));
-    }
     return $("<td>").text(texto);
 }
 function crearTh(texto, attrscope)
@@ -139,12 +141,4 @@ function crearLabel(texto, clase)
         return $("<label>").text(texto).attr("class", clase);
     }
     return $("<div>").attr({"class":"form-group col-md-6"}).append($("<label>").text(texto));
-}
-function crearInput(tipo, nombre, valor, clase, enlaceimagen)
-{
-    if(clase != undefined && imagen != undefined)
-    {
-        return $("<input>").append($("<img>").attr({"src":enlaceimagen})).attr({"type":tipo, "name":nombre, "value":valor, "class":clase});
-    }
-    return $("<input>").attr({"type":tipo, "name":nombre, "value":valor});
 }

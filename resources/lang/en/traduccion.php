@@ -10,5 +10,11 @@ return [
     'toaccess' => 'To access',
     'titlelogin' => 'Login',
     'titles' => "List of Companies",
+    'tdCompany' => 'Company',
+    'tdTopology' => 'Topology',
+    'tdProfile' => 'Profile',
+    'tdLanguages' => 'Languages',
+    'tdSchedule' => 'Schedule',
+    'tdTracing' => 'Tracing',
 ]
 ?>
