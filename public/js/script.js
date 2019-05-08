@@ -13,7 +13,7 @@ function crearBoton(nombre, icono, clase, enlace, ruta)
 {
     if(enlace != undefined) 
     {
-        return $("<button>").attr({"href":enlace, "name":nombre, "class":clase}).append($("<a>").attr({"href": enlace}).append($("<img>").attr({"src":icono})));
+        return $("<button>").attr({"href":enlace, "name":nombre, "class":clase}).append($("<a>").attr({"href": enlace}).append($("<img>").attr({"src":icono, "class":"img-iconos"})));
     }
     return $("<button>").attr({"name":nombre, "class":clase}).append($("<img>").attr({"src":icono}));
 }
