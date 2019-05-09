@@ -9,13 +9,13 @@ function crearInput(tipo, nombre, valor, clase, imagen)
     }
     return $("<input>").attr({"type":tipo, "name":nombre, "value":valor});
 }
-function crearBoton(nombre, icono, clase, enlace, otroAttr)
+function crearBoton(nombre, icono, clase, enlace, otroAttr, _function, form)
 {
     if(enlace != undefined) 
     {
         return $("<button>").attr({"href":enlace, "name":nombre, "class":clase, "data-id":otroAttr}).append($("<a>").attr({"href": enlace}).append($("<img>").attr({"src":icono, "class":"img-iconos"})));
     }
-    return $("<button>").attr({"name":nombre, "class":clase,"data-id":otroAttr}).append($("<img>").attr({"src":icono, "class":"img-iconos"}));
+    return $("<button>").attr({"name":nombre, "class":clase,"data-id":otroAttr, "onclick":_function}).append($("<img>").attr({"src":icono, "class":"img-iconos"}));
 }
 
 function crearFilas(elementoAnterior, consulta)
@@ -26,7 +26,7 @@ function crearFilas(elementoAnterior, consulta)
         var trvalores = $("<tr>");   
         var valores = Object.values(consulta[datos]);
         trvalores.append(crearBoton("mostrar", "../images/eye.svg", "btn btn-warning", "/home/empresa/"+consulta[datos]["Empresa"]));
-        trvalores.append(crearBoton("eliminar", "../images/trashcan.svg", "btn btn-danger", undefined, consulta[datos]["id"]));
+        trvalores.append(crearBoton("eliminar", "../images/trashcan.svg", "btn btn-danger", undefined, consulta[datos]["id"], "eliminarEmpresa(this);"));
         trvalores.append(crearBoton("editar", "../images/pencil.svg", "btn btn-info", "/home/empresa/"+consulta[datos]["Empresa"]));
         for(var valor in valores)
         {   
@@ -143,19 +143,23 @@ function crearLabel(texto, clase)
     return $("<div>").attr({"class":"form-group col-md-6"}).append($("<label>").text(texto));
 }
 //Funcion AJAX
-$("button[name='eliminar']").click(function(){
-    console.log("entra aqui")
-    var id = $(this).data("id");
+function eliminarEmpresa(btn)
+{
+    var id = $(btn).attr("data-id");
+    var ruta = window.location.origin+"/home/empresa/"+id;
+    console.log("entra en la funcion del")
+    console.log(ruta)
     $.ajax({
-        url: "/home/empresa",
-        type: 'PUT',
-        dataType: 'JSON',
-        data:{
-            "id": id,
-            "_method": 'DELETE',
+        url: ruta,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
+        type: 'PUT',
+        dataType: 'json',
         success: function(){
-            console.log("Empresa borrada")
+            console.log("empresa eliminada");
         }
-    })
-});
+    });
+    
+    
+}

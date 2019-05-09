@@ -4,8 +4,19 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Empresa;
+use Illuminate\Routing\Route;
 class EmpresaController extends Controller
 {
+    /*
+    public function __construct()
+    {
+        $this->beforeFilter('@find', ['only' => ['index', 'show', 'delete']]);
+    }
+    public function find(Route $route)
+    {
+        $this->empresa = Empresa::find($route->getParameter('empresa'));
+    }
+    */
     public function index(Request $request)
     {
         $request->user()->authorizeRoles("Administrador");
@@ -21,11 +32,8 @@ class EmpresaController extends Controller
     }
     public function delete($id)
     {
-        $empresa = Empresa::find($id);
-        $empresa->delete();
-        return response()->json([
-            'success' => 'Record has been deleted successfully!'
-        ]);
+        $this->empresa->delete();
+        return response()->json(["mensaje"=>"borrado"]);
     }
 
 }
