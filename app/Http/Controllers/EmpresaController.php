@@ -19,4 +19,13 @@ class EmpresaController extends Controller
         $perfilempresa = DB::table('empresa')->where('Empresa', $empresa)->get();
         return view("empresa.perfil")->with('perfilempresa', $perfilempresa);
     }
+    public function delete($id)
+    {
+        $empresa = Empresa::find($id);
+        $empresa->delete();
+        return response()->json([
+            'success' => 'Record has been deleted successfully!'
+        ]);
+    }
+
 }
