@@ -28,6 +28,7 @@ Route::group(['middleware' => ['web']], function () {
      * Ruta Empresa
      */
     Route::get('/home/empresa', 'EmpresaController@index')->name('empresa');
+    Route::get('/home/empresa/{empresa}', 'EmpresaController@show')->name('perfil');
     /**
      * Ruta Alumno
      */

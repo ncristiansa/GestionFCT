@@ -20,8 +20,6 @@
         <a class="dropdown-item" href="{{ url('lang', ['cat'])}}">CAT</a>
       </div>
     </div>
-    
     @yield('content')
-    
 </body>
 </html>

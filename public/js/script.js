@@ -25,9 +25,9 @@ function crearFilas(elementoAnterior, consulta)
     {
         var trvalores = $("<tr>");   
         var valores = Object.values(consulta[datos]);
-        trvalores.append(crearBoton("mostrar", "../images/eye.svg", "btn btn-warning", "/home/empresa/"+consulta[datos]["id"]));
-        trvalores.append(crearBoton("eliminar", "../images/trashcan.svg", "btn btn-danger", "/home/empresa/"+consulta[datos]["id"]));
-        trvalores.append(crearBoton("editar", "../images/pencil.svg", "btn btn-info", "/home/empresa/"+consulta[datos]["id"]));
+        trvalores.append(crearBoton("mostrar", "../images/eye.svg", "btn btn-warning", "/home/empresa/"+consulta[datos]["Empresa"]));
+        trvalores.append(crearBoton("eliminar", "../images/trashcan.svg", "btn btn-danger", "/home/empresa/"+consulta[datos]["Empresa"]));
+        trvalores.append(crearBoton("editar", "../images/pencil.svg", "btn btn-info", "/home/empresa/"+consulta[datos]["Empresa"]));
         for(var valor in valores)
         {   
             trvalores.append(crearTd(valores[valor]));    
@@ -107,7 +107,7 @@ function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton)
                 var ValoresDatos = Object.values(Consulta[datos]);
                 for(var clave in ClavesDatos)
                 {
-                    divrow.append(crearLabelInput(ClavesDatos[clave], "text", ClavesDatos[clave], ValoresDatos[clave]));
+                    divrow.append(crearLabelInput(ClavesDatos[clave], "text", ClavesDatos[clave], ValoresDatos[clave], "disabled"));
                     crearInput("button", "eliminar", undefined, "btn btn-danger", "{{URL::asset('images/trashcan.svg')}}");
                 }
             }
@@ -121,13 +121,13 @@ function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton)
         }
     }
 }
-function crearLabelInput(textLabel, typeInput, nameInput, valueInput)
+function crearLabelInput(textLabel, typeInput, nameInput, valueInput, estado)
 {
     var div = $("<div>").attr({"class":"form-group col-md-6"});
     if(valueInput != undefined)
     {
         div.append($("<label>").text(textLabel));
-        div.append($("<input>").attr({"type":typeInput, "name": nameInput, "value": valueInput, "class":"form-control"}));
+        div.append($("<input>").attr({"type":typeInput, "name": nameInput, "value": valueInput, "class":"form-control", 'disabled': estado}));
         return div;
     }
     div.append($("<label>").text(textLabel));

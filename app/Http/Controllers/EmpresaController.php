@@ -12,4 +12,11 @@ class EmpresaController extends Controller
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento')->get();
         return view("empresa.empresa")->with('empresa', $empresa);
     }
+    public function show($empresa)
+    {
+        //$request->user()->authorizeRoles("Administrador");
+
+        $perfilempresa = DB::table('empresa')->where('Empresa', $empresa)->get();
+        return view("empresa.perfil")->with('perfilempresa', $perfilempresa);
+    }
 }

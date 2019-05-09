@@ -1,4 +1,5 @@
 <nav style="justify-content: center;text-align: center;margin:0 auto;padding:10px;">
+   <ul>
    <li style="list-style-type: none; background-color:#00334e;text-decoration: none;">
        <i class="fa fa-home"></i>
        <a href="#" onclick="location.href = '{{ url('/')}}'">HOME</a>
@@ -11,4 +12,5 @@
          </a>
       </li>
    @endfor
+   </ul>
 </nav>
