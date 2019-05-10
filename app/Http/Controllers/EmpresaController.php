@@ -30,10 +30,25 @@ class EmpresaController extends Controller
         $perfilempresa = DB::table('empresa')->where('Empresa', $empresa)->get();
         return view("empresa.perfil")->with('perfilempresa', $perfilempresa);
     }
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
-        $this->empresa->delete();
-        return response()->json(["mensaje"=>"borrado"]);
+        if($request->ajax())
+        {
+            $empresa = Empresa::find($id);
+            if(!is_null($empresa))
+            {
+                $empresa->delete();
+                return response()->json([
+                    'response' => true,
+                    'id' => $empreas->id,
+                    'message' => 'Empresa eliminada correctamente.',
+                ]);
+            }
+            return response()->json([
+                'response' => false,
+                'menssage' => 'Ha ocurrido un erro interno de nuevo.',
+            ]);
+        }
     }
 
 }

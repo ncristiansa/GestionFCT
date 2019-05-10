@@ -13,9 +13,9 @@ function crearBoton(nombre, icono, clase, enlace, otroAttr, _function, form)
 {
     if(enlace != undefined) 
     {
-        return $("<button>").attr({"href":enlace, "name":nombre, "class":clase, "data-id":otroAttr}).append($("<a>").attr({"href": enlace}).append($("<img>").attr({"src":icono, "class":"img-iconos"})));
+        return $("<button>").attr({"href":enlace, "name":nombre, "class":clase, "data-id":otroAttr,}).append($("<a>").attr({"href": enlace}).append($("<img>").attr({"src":icono, "class":"img-iconos"})));
     }
-    return $("<button>").attr({"name":nombre, "class":clase,"data-id":otroAttr, "onclick":_function}).append($("<img>").attr({"src":icono, "class":"img-iconos"}));
+    return $("<button>").attr({"name":nombre, "class":clase,"data-id":otroAttr, "onclick":_function, "href":enlace}).append($("<img>").attr({"src":icono, "class":"img-iconos"}));
 }
 
 function crearFilas(elementoAnterior, consulta)
@@ -143,23 +143,3 @@ function crearLabel(texto, clase)
     return $("<div>").attr({"class":"form-group col-md-6"}).append($("<label>").text(texto));
 }
 //Funcion AJAX
-function eliminarEmpresa(btn)
-{
-    var id = $(btn).attr("data-id");
-    var ruta = window.location.origin+"/home/empresa/"+id;
-    console.log("entra en la funcion del")
-    console.log(ruta)
-    $.ajax({
-        url: ruta,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        type: 'PUT',
-        dataType: 'json',
-        success: function(){
-            console.log("empresa eliminada");
-        }
-    });
-    
-    
-}
