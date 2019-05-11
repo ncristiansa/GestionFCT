@@ -30,9 +30,9 @@ Route::group(['middleware' => ['web']], function () {
     //Route::resource('empresa', 'EmpresaController');
     
     Route::get('/home/empresa', 'EmpresaController@index')->name('empresa');
-    
+    Route::delete('/home/empresa/{id}', 'EmpresaController@destroy')->name('empresa.destroy');
     Route::get('/home/empresa/{empresa}', 'EmpresaController@show')->name('perfil');
-    Route::get('/home/empresa/{id}', 'EmpresaController@delete')->name('empresa.delete');
+    
     
     /**
      * Ruta Alumno

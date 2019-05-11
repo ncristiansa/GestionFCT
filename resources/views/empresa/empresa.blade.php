@@ -20,11 +20,11 @@
         </thead>
         <tbody>
             @foreach($empresa as $emp)
-                <tr>
+            <tr data-id="{{$emp->id}}">
                     <td>
-                        <a href="{{route('empresa.delete',$emp->id)}}" class="btn btn-danger delete-record"><img class="img-iconos" src="../images/trashcan.svg"></img></a>
-                        <a href="#" class="btn btn-warning"><img class="img-iconos" src="../images/eye.svg"></img></a>
-                        <a href="#" class="btn btn-info"><img class="img-iconos" src="../images/pencil.svg"></img></a>
+                        <a href="{{route('empresa.destroy',$emp->id)}}" class="btn btn-danger delete-record"><img class="img-iconos" src="../images/trashcan.svg"></a>
+                        <a href="#" class="btn btn-warning"><img class="img-iconos" src="../images/eye.svg"></a>
+                        <a href="#" class="btn btn-info"><img class="img-iconos" src="../images/pencil.svg"></a>
                     </td>
                     <td>{{$emp->id}}</td>
                     <td>{{$emp->Empresa}}</td>
@@ -37,7 +37,6 @@
 <button type="button" class="btn btn-success"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></button>
 
 <script>
-    var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
     //crearTabla("h1", "table", "thead-dark", infoEmpresa, "/home/empresa/");
     //crearFilas("table", infoEmpresa, "/home/empresa/");
 </script>

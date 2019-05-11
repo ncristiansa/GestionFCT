@@ -9,13 +9,12 @@
       </div>
       <div class="modal-body">
         <p>¿Estás seguro de eiminar éste registro?</p>
-            <form id ="form-delete" method="DELETE">
-                @csrf
-            </form>
+        {!! Form::open(['id' => 'form-delete', 'method' => 'DELETE']) !!}
+        {!! Form::close() !!}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger">Si estoy seguro</button>
+        <button id="si-seguro" type="button" class="btn btn-danger">Si estoy seguro</button>
       </div>
     </div>
   </div>
