@@ -23,8 +23,8 @@
             <tr data-id="{{$emp->id}}">
                     <td>
                         <a href="{{route('empresa.destroy',$emp->id)}}" class="btn btn-danger delete-record"><img class="img-iconos" src="../images/trashcan.svg"></a>
-                        <a href="#" class="btn btn-warning"><img class="img-iconos" src="../images/eye.svg"></a>
-                        <a href="#" class="btn btn-info"><img class="img-iconos" src="../images/pencil.svg"></a>
+                        <a href="{{route('empresa.show', $emp->id)}}" class="btn btn-warning"><img class="img-iconos" src="../images/eye.svg"></a>
+                        <a href="{{route('empresa.edit', $emp->id)}}" class="btn btn-info"><img class="img-iconos" src="../images/pencil.svg"></a>
                     </td>
                     <td>{{$emp->id}}</td>
                     <td>{{$emp->Empresa}}</td>

@@ -23,6 +23,26 @@ class EmpresaController extends Controller
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento')->get();
         return view("empresa.empresa")->with('empresa', $empresa);
     }
+    public function edit(Request $request, $id)
+    {
+        $empresa = Empresa::find($id);
+        if($request->ajax())
+        {
+            $empresa = Empresa::findOrFail($id);
+            if(!is_null($empresa))
+            {
+                $empresa->update([
+                    'Empresa' => $request->input('empresa'),
+                    'NIF' => $request->input('nif'),
+                    'Topologia' => $request->input('topologia'),
+                    'Perfil' => $request->input('perfil'),
+                    'Horario' => $request->input('horario'),
+                    'Seguimiento' => $request->input('seguimiento'),
+                ]);
+            }
+        }
+
+    }
     public function show($empresa)
     {
         //$request->user()->authorizeRoles("Administrador");
