@@ -23,32 +23,24 @@ class EmpresaController extends Controller
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento')->get();
         return view("empresa.empresa")->with('empresa', $empresa);
     }
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $empresa)
     {
-        $empresa = Empresa::find($id);
+        $perfilempresa = DB::table('empresa')->select('id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento')->where('Empresa', $empresa)->get();
+        return view("empresa.perfil")->with('perfilempresa', $perfilempresa);
+    }
+    public function update(Request $request, $id)
+    {
         if($request->ajax())
         {
-            $empresa = Empresa::findOrFail($id);
-            if(!is_null($empresa))
-            {
-                $empresa->update([
-                    'Empresa' => $request->input('empresa'),
-                    'NIF' => $request->input('nif'),
-                    'Topologia' => $request->input('topologia'),
-                    'Perfil' => $request->input('perfil'),
-                    'Horario' => $request->input('horario'),
-                    'Seguimiento' => $request->input('seguimiento'),
-                ]);
-            }
+            $empresa = Empresa::findOrFail($id)->update($request->all());
+            return response()->json($empresa);
         }
-
     }
-    public function show($empresa)
+    public function show($id)
     {
         //$request->user()->authorizeRoles("Administrador");
 
-        $perfilempresa = DB::table('empresa')->where('Empresa', $empresa)->get();
-        return view("empresa.perfil")->with('perfilempresa', $perfilempresa);
+        //
     }
     public function destroy(Request $request, $id)
     {

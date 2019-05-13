@@ -23,8 +23,7 @@
             <tr data-id="{{$emp->id}}">
                     <td>
                         <a href="{{route('empresa.destroy',$emp->id)}}" class="btn btn-danger delete-record"><img class="img-iconos" src="../images/trashcan.svg"></a>
-                        <a href="{{route('empresa.show', $emp->id)}}" class="btn btn-warning"><img class="img-iconos" src="../images/eye.svg"></a>
-                        <a href="{{route('empresa.edit', $emp->id)}}" class="btn btn-info"><img class="img-iconos" src="../images/pencil.svg"></a>
+                        <a href="{{route('empresa.edit', $emp->Empresa)}}" class="btn btn-warning"><img class="img-iconos" src="../images/eye.svg"></a>
                     </td>
                     <td>{{$emp->id}}</td>
                     <td>{{$emp->Empresa}}</td>
@@ -36,8 +35,26 @@
 </div>
 <button type="button" class="btn btn-success"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></button>
 
-<script>
-    //crearTabla("h1", "table", "thead-dark", infoEmpresa, "/home/empresa/");
-    //crearFilas("table", infoEmpresa, "/home/empresa/");
-</script>
+<div class="modal" tabindex="-1" role="dialog" id="modal-edit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminando registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de eiminar éste registro?</p>
+        {!! Form::open(['id' => 'form-delete', 'method' => 'DELETE']) !!}
+        {!! Form::close() !!}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button id="si-seguro" type="button" class="btn btn-danger">Si estoy seguro</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @stop

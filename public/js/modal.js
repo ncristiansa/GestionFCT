@@ -1,4 +1,19 @@
 $(document).ready(function(){
+    $('#form-perfil').on('click', 'a.save-record', function(event){
+        event.preventDefault();
+        $.ajax({
+            type: $("#form-perfil").attr('method'),
+            url: $("#form-perfil").attr('action'),
+            data: $("#form-perfil").serialize(),
+        }).done(function(data){
+            console.log(data);
+        }).fail(function(data){
+            console.log("Error al editar");
+            console.log(data);
+        })
+    });
+});
+$(document).ready(function(){
     $('#table-empresa').on('click', 'a.delete-record', function(event){
         event.preventDefault();
 

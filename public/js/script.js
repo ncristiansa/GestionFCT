@@ -9,7 +9,7 @@ function crearInput(tipo, nombre, valor, clase, imagen)
     }
     return $("<input>").attr({"type":tipo, "name":nombre, "value":valor});
 }
-function crearBoton(nombre, icono, clase, enlace, otroAttr, _function, form)
+function crearBoton(nombre, icono, clase, enlace, otroAttr, _function)
 {
     if(enlace != undefined) 
     {
@@ -90,36 +90,46 @@ function mensajeError(situado, mensaje)
 {
     return $(situado).after($("<div>").attr({"class": "alert alert-danger", "role":"alert"}).append("<p>").text(mensaje));
 }
-function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton)
+function crearAImg(icono, nombre, clase, funcion)
+{
+    if(funcion != undefined)
+    {
+        return $("<a>").attr({"name": nombre, "class":clase,"onclick": funcion}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
+    }
+    return $("<a>").attr({"name": nombre, "class":clase}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
+}
+function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton, id)
 {
     if(Consulta != undefined)
     {
-        if(Consulta instanceof Array)
+        var divGeneral = $("<div>").attr({'class':'container'});
+        var formulario = $("<form>").attr({"action":_action, "id":id, "method": metodo});
+        var divrow = $("<div>").attr({"class": "form-row"});
+        for(var datos in Consulta)
         {
-            var divGeneral = $("<div>").attr({'class':'container'});
-            console.log("Es una array");
-            var formulario = $("<form>").attr({"action":_action});
-            var divrow = $("<div>").attr({"class": "form-row"});
-            console.log(Consulta);
-            for(var datos in Consulta)
+            var ClavesDatos = Object.keys(Consulta[datos]);
+            var ValoresDatos = Object.values(Consulta[datos]);
+            for(var clave in ClavesDatos)
             {
-                var ClavesDatos = Object.keys(Consulta[datos]);
-                var ValoresDatos = Object.values(Consulta[datos]);
-                for(var clave in ClavesDatos)
+                if(ClavesDatos[clave] != "id")
                 {
                     divrow.append(crearLabelInput(ClavesDatos[clave], "text", ClavesDatos[clave], ValoresDatos[clave], "disabled"));
-                    crearInput("button", "eliminar", undefined, "btn btn-danger", "{{URL::asset('images/trashcan.svg')}}");
                 }
             }
-            formulario.append(divrow);
-            if(boton == true)
-            {
-                formulario.append(crearInput("submit", "enviar", "Agregar", "btn btn-success"));
-            }
-            divGeneral.append(formulario);
-            return $(elementoAnterior).after(divGeneral);
         }
+        formulario.append(divrow);
+        if(boton == true)
+        {
+            formulario.append(crearAImg("/../images/icono-guardar.png", "guardar", "btn btn-success save-record", undefined));
+            formulario.append(crearAImg("/../images/pencil.svg", "editar", "btn btn-info", "formEditable('#form-perfil');"));
+        }
+        divGeneral.append(formulario);
+        return $(elementoAnterior).after(divGeneral);
     }
+}
+function formEditable(idform)
+{
+    $(idform).find('input[type=text]').removeAttr('disabled');
 }
 function crearLabelInput(textLabel, typeInput, nameInput, valueInput, estado)
 {
@@ -142,4 +152,3 @@ function crearLabel(texto, clase)
     }
     return $("<div>").attr({"class":"form-group col-md-6"}).append($("<label>").text(texto));
 }
-//Funcion AJAX
