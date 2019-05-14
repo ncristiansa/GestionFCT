@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Empresa;
 use Illuminate\Routing\Route;
 use Response;
+use App\Acuerdo;
 class EmpresaController extends Controller
 {
     /*
@@ -27,6 +28,11 @@ class EmpresaController extends Controller
     public function edit(Request $request, $empresa)
     {
         $perfilempresa = Empresa::where('Empresa', $empresa)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        
+        $idEmpresa = Empresa::where('Empresa', $empresa)->get(["id"]);
+        
+        $acuerdo = Acuerdo::where('empresa_id', $idEmpresa)->get(['id', 'Fecha_alta', 'Acabada', 'Fin', 'empresa_id', 'alumno_id']);
+        dd($acuerdo);
         if($request->ajax())
         {
             Empresa::findOrFail($empresa)
@@ -41,7 +47,7 @@ class EmpresaController extends Controller
             ]);
             return response()->json(array('perfilempresa' => $perfilempresa));
         }
-        return view('empresa.perfil', compact('perfilempresa', $perfilempresa));
+        return view('empresa.perfil')->with('perfilempresa', $perfilempresa)->with('acuerdo', $acuerdo);
         
     }
     public function update($id)
