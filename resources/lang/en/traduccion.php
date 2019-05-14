@@ -16,5 +16,7 @@ return [
     'tdLanguages' => 'Languages',
     'tdSchedule' => 'Schedule',
     'tdTracing' => 'Tracing',
+    'h1CompanyData' => 'Company Data',
+    'h2Agreementof' => 'Agreement of'
 ]
 ?>

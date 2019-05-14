@@ -5,6 +5,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Empresa;
 use Illuminate\Routing\Route;
+use Response;
 class EmpresaController extends Controller
 {
     /*
@@ -25,16 +26,27 @@ class EmpresaController extends Controller
     }
     public function edit(Request $request, $empresa)
     {
-        $perfilempresa = DB::table('empresa')->select('id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento')->where('Empresa', $empresa)->get();
-        return view("empresa.perfil")->with('perfilempresa', $perfilempresa);
-    }
-    public function update(Request $request, $id)
-    {
+        $perfilempresa = Empresa::where('Empresa', $empresa)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
         if($request->ajax())
         {
-            $empresa = Empresa::findOrFail($id)->update($request->all());
-            return response()->json($empresa);
+            Empresa::findOrFail($empresa)
+            ->update([
+                'Empresa' => $request->input('Empresa'),
+                'NIF' => $request->input('NIF'),
+                'Topologia' => $request->input('Topologia'),
+                'Perfil' => $request->input('Perfil'),
+                'Idiomas' => $request->input('Idiomas'),
+                'Horario' => $request->input('Horario'),
+                'Seguimiento' => $request->input('Seguimiento'),
+            ]);
+            return response()->json(array('perfilempresa' => $perfilempresa));
         }
+        return view('empresa.perfil', compact('perfilempresa', $perfilempresa));
+        
+    }
+    public function update($id)
+    {
+        //
     }
     public function show($id)
     {

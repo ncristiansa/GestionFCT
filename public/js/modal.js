@@ -4,12 +4,20 @@ $(document).ready(function(){
         $.ajax({
             type: $("#form-perfil").attr('method'),
             url: $("#form-perfil").attr('action'),
-            data: $("#form-perfil").serialize(),
-        }).done(function(data){
-            console.log(data);
-        }).fail(function(data){
-            console.log("Error al editar");
-            console.log(data);
+            dataType: 'json',
+            data: $("#form-perfil").first().serialize(),
+            success: function(data){
+                formNoEditable("#form-perfil");
+            },
+            error: function(data){
+                var errores = data.responseJSON;
+                if(errores)
+                {
+                    $.each(errores, function(i){
+                        console.log(errores[i]);
+                    })
+                }
+            }
         })
     });
 });

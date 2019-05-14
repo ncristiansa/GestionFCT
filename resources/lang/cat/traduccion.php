@@ -16,5 +16,7 @@ return [
     'tdLanguages' => 'Idiomes',
     'tdSchedule' => 'Horari',
     'tdTracing' => 'Seguimient',
+    'h1CompanyData' => 'Dades Empresa',
+    'h2Agreementof' => 'Acords de ',
 ]
 ?>

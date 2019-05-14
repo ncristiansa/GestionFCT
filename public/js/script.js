@@ -115,6 +115,7 @@ function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton, id)
                 {
                     divrow.append(crearLabelInput(ClavesDatos[clave], "text", ClavesDatos[clave], ValoresDatos[clave], "disabled"));
                 }
+                
             }
         }
         formulario.append(divrow);
@@ -130,6 +131,10 @@ function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton, id)
 function formEditable(idform)
 {
     $(idform).find('input[type=text]').removeAttr('disabled');
+}
+function formNoEditable(idform)
+{
+    $(idform).find('input[type=text]').attr('disabled', 'disabled');
 }
 function crearLabelInput(textLabel, typeInput, nameInput, valueInput, estado)
 {
