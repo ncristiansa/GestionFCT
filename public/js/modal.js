@@ -8,6 +8,7 @@ $(document).ready(function(){
             data: $("#form-perfil").first().serialize(),
             success: function(data){
                 formNoEditable("#form-perfil");
+                muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
             },
             error: function(data){
                 var errores = data.responseJSON;

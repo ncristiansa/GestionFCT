@@ -90,6 +90,13 @@ function mensajeError(situado, mensaje)
 {
     return $(situado).after($("<div>").attr({"class": "alert alert-danger", "role":"alert"}).append("<p>").text(mensaje));
 }
+function muestraMensaje(id, clase, mensaje)
+{
+    $(id).addClass(clase);
+    $(id).append($("<p>").text(mensaje));
+    setTimeout(function(){$(id).fadeOut("fast");}, 8000);
+}
+
 function crearAImg(icono, nombre, clase, funcion)
 {
     if(funcion != undefined)

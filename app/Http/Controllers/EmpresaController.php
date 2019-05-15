@@ -25,17 +25,17 @@ class EmpresaController extends Controller
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento')->get();
         return view("empresa.empresa")->with('empresa', $empresa);
     }
-    public function edit(Request $request, $empresa)
+    public function edit(Request $request, $id)
     {
-        $perfilempresa = Empresa::where('Empresa', $empresa)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
         
-        $idEmpresa = Empresa::where('Empresa', $empresa)->get(["id"]);
         
-        $acuerdo = Acuerdo::where('empresa_id', $idEmpresa)->get(['id', 'Fecha_alta', 'Acabada', 'Fin', 'empresa_id', 'alumno_id']);
-        dd($acuerdo);
+        
+        
+        
         if($request->ajax())
         {
-            Empresa::findOrFail($empresa)
+            Empresa::findOrFail($id)
             ->update([
                 'Empresa' => $request->input('Empresa'),
                 'NIF' => $request->input('NIF'),
@@ -47,7 +47,7 @@ class EmpresaController extends Controller
             ]);
             return response()->json(array('perfilempresa' => $perfilempresa));
         }
-        return view('empresa.perfil')->with('perfilempresa', $perfilempresa)->with('acuerdo', $acuerdo);
+        return view('empresa.perfil')->with('perfilempresa', $perfilempresa);
         
     }
     public function update($id)
