@@ -22,17 +22,12 @@ class EmpresaController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles("Administrador");
-        $empresa = DB::table('empresa')->select('id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento')->get();
+        $empresa = DB::table('empresa')->select('id','Empresa', 'NIF')->get();
         return view("empresa.empresa")->with('empresa', $empresa);
     }
     public function edit(Request $request, $id)
     {
         $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
-        
-        
-        
-        
-        
         if($request->ajax())
         {
             Empresa::findOrFail($id)
@@ -59,6 +54,22 @@ class EmpresaController extends Controller
         //$request->user()->authorizeRoles("Administrador");
 
         //
+    }
+    public function store(Request $request)
+    {
+        if($request->ajax())
+        {
+            $empresa = new Empresa;
+            $empresa->Empresa = $request->input('empresa');
+            $empresa->NIF = $request->input('nif');
+            $empresa->Topologia = $request->input('topologia');
+            $empresa->Perfil = $request->input('perfil');
+            $empresa->Idiomas = $request->input('idiomas');
+            $empresa->Horario = $request->input('horario');
+            $empresa->Seguimiento = $request->input('seguimiento');
+            $empresa->save();
+            return response()->json(['response' => true]);
+        }
     }
     public function destroy(Request $request, $id)
     {

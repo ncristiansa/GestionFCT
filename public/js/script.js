@@ -17,17 +17,27 @@ function crearBoton(nombre, icono, clase, enlace, otroAttr, _function)
     }
     return $("<button>").attr({"name":nombre, "class":clase,"data-id":otroAttr, "onclick":_function, "href":enlace}).append($("<img>").attr({"src":icono, "class":"img-iconos"}));
 }
-
-function crearFilas(elementoAnterior, consulta)
+function crearAImg(icono, nombre, clase, funcion, enlace)
 {
+    if(funcion != undefined)
+    {
+        return $("<a>").attr({"name": nombre, "class":clase,"onclick": funcion, "href":enlace}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
+    }
+    return $("<a>").attr({"name": nombre, "class":clase, "href":enlace}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
+}
+function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit)
+{
+    
     var tbody = $("<tbody>");
     for(var datos in consulta)
     {
-        var trvalores = $("<tr>");   
+        var urlD = urlDestroy.replace(':id', consulta[datos]["id"]);
+        var urlE = urlEdit.replace(':id', consulta[datos]["id"]);
+        var trvalores = $("<tr>").attr({"data-id":consulta[datos]["id"]});   
         var valores = Object.values(consulta[datos]);
-        trvalores.append(crearBoton("mostrar", "../images/eye.svg", "btn btn-warning", "/home/empresa/"+consulta[datos]["Empresa"]));
-        trvalores.append(crearBoton("eliminar", "../images/trashcan.svg", "btn btn-danger", undefined, consulta[datos]["id"], "eliminarEmpresa(this);"));
-        trvalores.append(crearBoton("editar", "../images/pencil.svg", "btn btn-info", "/home/empresa/"+consulta[datos]["Empresa"]));
+        trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+        trvalores.append(crearAImg("../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
+
         for(var valor in valores)
         {   
             trvalores.append(crearTd(valores[valor]));    
@@ -97,14 +107,7 @@ function muestraMensaje(id, clase, mensaje)
     setTimeout(function(){$(id).fadeOut("fast");}, 5000);
 }
 
-function crearAImg(icono, nombre, clase, funcion)
-{
-    if(funcion != undefined)
-    {
-        return $("<a>").attr({"name": nombre, "class":clase,"onclick": funcion}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
-    }
-    return $("<a>").attr({"name": nombre, "class":clase}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
-}
+
 function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton, id)
 {
     if(Consulta != undefined)

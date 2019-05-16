@@ -1,8 +1,37 @@
 $(document).ready(function(){
-    if($('input[type=text]').attr('disabled') == 'disabled')
-    {
-        $('#form-perfil').on('click', 'a.save-record', function(event){
-            event.preventDefault();
+    $(".contenido").on('click', 'a.add-company', function(event){
+        event.preventDefault();
+        $("#form-add").attr('action', $(this).attr('href'));
+        $('#modal-add').modal("show");
+    });
+    $("#save").on("click", function(){
+        $.ajax({
+            type: $("#form-add").attr('method'),
+            url: $('#form-add').attr('action'),
+            data: $('#form-add').first().serialize(),
+            success: function(data){
+                console.log('Correcto');
+                
+                $('#modal-add').modal('hide');
+                $("#table-empresa tbody").html(data);
+                muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
+            },
+            error: function(data){
+                var errores = data.responseJSON;
+                    if(errores)
+                    {
+                        $.each(errores, function(i){
+                            console.log(errores[i]);
+                        })
+                    }
+            }
+        });
+    });
+});
+
+$(document).ready(function(){
+    $('#form-perfil').on('click', 'a.save-record', function(event){
+        event.preventDefault();
             $.ajax({
                 type: $("#form-perfil").attr('method'),
                 url: $("#form-perfil").attr('action'),
@@ -23,10 +52,7 @@ $(document).ready(function(){
                 }
             })
         });
-    }
 });
-
-
 
 $(document).ready(function(){
     $('#table-empresa').on('click', 'a.delete-record', function(event){
@@ -48,7 +74,7 @@ $(document).ready(function(){
                         if($(this).data('id') == data.id)
                         {
                             $(this).fadeOut(); //Con fadeOut lo oculto
-                            muestraMensaje("#mensaje", "alert alert-success","El registro ha sido borrando correctamente.");
+                            muestraMensaje("#mensaje", "alert alert-success","El registro ha sido borrado correctamente.");
                         }
                     }); //recorrerá cada una de las filas y seleccionar la apropiada
                 }else{

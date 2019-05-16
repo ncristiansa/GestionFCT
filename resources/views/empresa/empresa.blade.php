@@ -11,52 +11,60 @@
                 <th scope="col">id</th>
                 <th scope="col">{{ trans('traduccion.tdCompany') }}</th>
                 <th scope="col">NIF</th>
-                <th scope="col">{{ trans('traduccion.tdTopology') }}</th>
-                <th scope="col">{{ trans('traduccion.tdProfile') }}</th>
-                <th scope="col">{{ trans('traduccion.tdLanguages') }}</th>
-                <th scope="col">{{ trans('traduccion.tdSchedule') }}</th>
-                <th scope="col">{{ trans('traduccion.tdTracing') }}</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach($empresa as $emp)
-            <tr data-id="{{$emp->id}}">
-                    <td>
-                        <a href="{{route('empresa.destroy',$emp->id)}}" class="btn btn-danger delete-record"><img class="img-iconos" src="../images/trashcan.svg"></a>
-                        <a href="{{route('empresa.edit', $emp->id)}}" class="btn btn-warning"><img class="img-iconos" src="../images/eye.svg"></a>
-                    </td>
-                    <td>{{$emp->id}}</td>
-                    <td>{{$emp->Empresa}}</td>
-                    <td>{{$emp->NIF}}</td>
-                </tr>
-            @endforeach
-        </tbody>
     </table>
 </div>
 <div id="mensaje">
 </div>
-<button type="button" class="btn btn-success"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></button>
-
-<div class="modal" tabindex="-1" role="dialog" id="modal-edit">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Eliminando registro</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>¿Estás seguro de eiminar éste registro?</p>
-        {!! Form::open(['id' => 'form-delete', 'method' => 'DELETE']) !!}
+<a class="btn btn-success add-company" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
+<script>
+  var urlDestroy = '{{route("empresa.destroy", ":id")}}';
+  var urlEdit = '{{route("empresa.edit", ":id")}}';
+  var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
+  crearFilas("table", infoEmpresa, urlDestroy, urlEdit)
+</script>
+<!-- Modal Agregar -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="padding:45px;">
+    <h5>Agrega una nueva Empresa</h5>
+    <div class="form">
+        {!! Form::open(['id' => 'form-add', 'method' => 'POST']) !!}
+          <div class="form-group col-md-10">
+            <label>Nombre Empresa</label>
+            <input class="form-control" type="text" name="empresa">
+          </div>
+          <div class="form-group col-md-10">
+            <label>NIF</label>
+            <input class="form-control" type="text" name="nif">
+          </div>
+          <div class="form-group col-md-10">
+            <label>Topologia</label>
+            <input class="form-control" type="text" name="topologia">
+          </div>
+          <div class="form-group col-md-10">
+            <label>Perfil</label>
+            <input class="form-control" type="text" name="perfil">
+          </div>
+          <div class="form-group col-md-10">
+            <label>Idiomas</label>
+            <input class="form-control" type="text" name="idiomas">
+          </div>
+          <div class="form-group col-md-10">
+            <label>Horario</label>
+            <input class="form-control" type="text" name="horario">
+          </div>
+          <div class="form-group col-md-10">
+            <label>Seguimiento</label>
+            <input class="form-control" type="text" name="seguimiento">
+          </div>
+          <a id="save" class="btn btn-success"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
         {!! Form::close() !!}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button id="si-seguro" type="button" class="btn btn-danger">Si estoy seguro</button>
-      </div>
+        </div>
     </div>
   </div>
 </div>
+
 
 @stop
