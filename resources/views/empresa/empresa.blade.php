@@ -23,6 +23,34 @@
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
   crearFilas("table", infoEmpresa, urlDestroy, urlEdit)
+
+  $(document).ready(function(){
+    $(".contenido").on('click', 'a.add-company', function(event){
+        event.preventDefault();
+        $("#form-add").attr('action', $(this).attr('href'));
+        $('#modal-add').modal("show");
+    });
+    $("#save").on("click", function(){
+        $.ajax({
+            type: $("#form-add").attr('method'),
+            url: $('#form-add').attr('action'),
+            data: $('#form-add').first().serialize(),
+            success: function(data){
+              $('#modal-add').modal('hide');
+              console.log("Agregados");
+            },
+            error: function(data){
+                var errores = data.responseJSON;
+                    if(errores)
+                    {
+                        $.each(errores, function(i){
+                            console.log(errores[i]);
+                        })
+                    }
+            }
+        });
+    });
+});
 </script>
 <!-- Modal Agregar -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add">

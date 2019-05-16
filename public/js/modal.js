@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
     $(".contenido").on('click', 'a.add-company', function(event){
         event.preventDefault();
@@ -28,7 +29,7 @@ $(document).ready(function(){
         });
     });
 });
-
+*/
 $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
         event.preventDefault();
