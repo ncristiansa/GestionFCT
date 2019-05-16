@@ -94,7 +94,7 @@ function muestraMensaje(id, clase, mensaje)
 {
     $(id).addClass(clase);
     $(id).append($("<p>").text(mensaje));
-    setTimeout(function(){$(id).fadeOut("fast");}, 8000);
+    setTimeout(function(){$(id).fadeOut("fast");}, 5000);
 }
 
 function crearAImg(icono, nombre, clase, funcion)

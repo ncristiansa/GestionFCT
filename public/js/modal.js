@@ -1,27 +1,33 @@
 $(document).ready(function(){
-    $('#form-perfil').on('click', 'a.save-record', function(event){
-        event.preventDefault();
-        $.ajax({
-            type: $("#form-perfil").attr('method'),
-            url: $("#form-perfil").attr('action'),
-            dataType: 'json',
-            data: $("#form-perfil").first().serialize(),
-            success: function(data){
-                formNoEditable("#form-perfil");
-                muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
-            },
-            error: function(data){
-                var errores = data.responseJSON;
-                if(errores)
-                {
-                    $.each(errores, function(i){
-                        console.log(errores[i]);
-                    })
+    if($('input[type=text]').attr('disabled') == 'disabled')
+    {
+        $('#form-perfil').on('click', 'a.save-record', function(event){
+            event.preventDefault();
+            $.ajax({
+                type: $("#form-perfil").attr('method'),
+                url: $("#form-perfil").attr('action'),
+                dataType: 'json',
+                data: $("#form-perfil").first().serialize(),
+                success: function(data){
+                    formNoEditable("#form-perfil");
+                    muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
+                },
+                error: function(data){
+                    var errores = data.responseJSON;
+                    if(errores)
+                    {
+                        $.each(errores, function(i){
+                            console.log(errores[i]);
+                        })
+                    }
                 }
-            }
-        })
-    });
+            })
+        });
+    }
 });
+
+
+
 $(document).ready(function(){
     $('#table-empresa').on('click', 'a.delete-record', function(event){
         event.preventDefault();
@@ -42,10 +48,9 @@ $(document).ready(function(){
                         if($(this).data('id') == data.id)
                         {
                             $(this).fadeOut(); //Con fadeOut lo oculto
+                            muestraMensaje("#mensaje", "alert alert-success","El registro ha sido borrando correctamente.");
                         }
                     }); //recorrerá cada una de las filas y seleccionar la apropiada
-                    //toastr.success(data.message);
-                    console.log("Borrado correctamente")
                 }else{
                     //toastr.error(data.message);
                     console.log("No se ha borrado");

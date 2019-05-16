@@ -33,6 +33,8 @@
         </tbody>
     </table>
 </div>
+<div id="mensaje">
+</div>
 <button type="button" class="btn btn-success"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></button>
 
 <div class="modal" tabindex="-1" role="dialog" id="modal-edit">

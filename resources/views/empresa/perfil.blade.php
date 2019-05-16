@@ -28,6 +28,5 @@
 <script>
     var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};
     crearFormulario("h1", infoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "GET", true, "form-perfil");
-    if($('input[type=text]').attr('disabled') == 'disabled'){$("a[name='guardar']").removeAttr('href');}
 </script>
 @stop
