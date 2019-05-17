@@ -1,6 +1,8 @@
 /**
  * Funciones
  */
+
+
 function crearInput(tipo, nombre, valor, clase, imagen)
 {
     if(clase != undefined && imagen != undefined)
@@ -28,7 +30,7 @@ function crearAImg(icono, nombre, clase, funcion, enlace)
 function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit)
 {
     
-    var tbody = $("<tbody>");
+    var tbody = $("<tbody>").attr({"id":"tbody-empresa"});
     for(var datos in consulta)
     {
         var urlD = urlDestroy.replace(':id', consulta[datos]["id"]);

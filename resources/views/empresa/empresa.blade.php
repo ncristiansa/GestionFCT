@@ -22,7 +22,7 @@
   var urlDestroy = '{{route("empresa.destroy", ":id")}}';
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
-  crearFilas("table", infoEmpresa, urlDestroy, urlEdit)
+  crearFilas("table", infoEmpresa, urlDestroy, urlEdit);
 
   $(document).ready(function(){
     $(".contenido").on('click', 'a.add-company', function(event){
@@ -34,10 +34,15 @@
         $.ajax({
             type: $("#form-add").attr('method'),
             url: $('#form-add').attr('action'),
+            dataType: 'json',
             data: $('#form-add').first().serialize(),
             success: function(data){
-              $('#modal-add').modal('hide');
+              $('#modal-add').modal('toggle');
+              console.log(data)
+              $("#tbody-empresa").html(data);
+              muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
               console.log("Agregados");
+
             },
             error: function(data){
                 var errores = data.responseJSON;
