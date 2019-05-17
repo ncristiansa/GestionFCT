@@ -30,6 +30,7 @@ $(document).ready(function(){
     });
 });
 */
+
 $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
         event.preventDefault();

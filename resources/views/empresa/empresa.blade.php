@@ -38,8 +38,16 @@
             data: $('#form-add').first().serialize(),
             success: function(data){
               $('#modal-add').modal('toggle');
+              var valor = '';
+              data.empresa.forEach(empresa =>{
+                valor += "<tr>"+
+                "<td>"+ empresa.id+"</td>"+
+                "<td>"+ empresa.Empresa+"</td>"+
+                "<td>"+ empresa.NIF+"</td>"+
+                "</tr>";
+                $("#tbody-empresa").html(valor);
+              })
               console.log(data)
-              $("#tbody-empresa").html(data);
               muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
               console.log("Agregados");
 
