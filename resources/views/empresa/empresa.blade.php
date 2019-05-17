@@ -19,9 +19,11 @@
 </div>
 <a class="btn btn-success add-company" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
+
   var urlDestroy = '{{route("empresa.destroy", ":id")}}';
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
+
   crearFilas("table", infoEmpresa, urlDestroy, urlEdit);
 
   $(document).ready(function(){
@@ -39,14 +41,7 @@
             success: function(data){
               $('#modal-add').modal('toggle');
               var valor = '';
-              data.empresa.forEach(empresa =>{
-                valor += "<tr>"+
-                "<td>"+ empresa.id+"</td>"+
-                "<td>"+ empresa.Empresa+"</td>"+
-                "<td>"+ empresa.NIF+"</td>"+
-                "</tr>";
-                $("#tbody-empresa").html(valor);
-              })
+              
               console.log(data)
               muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
               console.log("Agregados");

@@ -23,7 +23,7 @@ class EmpresaController extends Controller
     {
         $request->user()->authorizeRoles("Administrador");
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF')->get();
-        return view("empresa.empresa")->with('empresa', $empresa);
+        return view('empresa.empresa')->with('empresa', $empresa);
     }
     public function edit(Request $request, $id)
     {
