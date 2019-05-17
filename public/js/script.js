@@ -1,8 +1,7 @@
 /**
  * Funciones
  */
-
-
+ 
 function crearInput(tipo, nombre, valor, clase, imagen)
 {
     if(clase != undefined && imagen != undefined)
@@ -27,10 +26,10 @@ function crearAImg(icono, nombre, clase, funcion, enlace)
     }
     return $("<a>").attr({"name": nombre, "class":clase, "href":enlace}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
 }
-function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit)
+function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit, attrTbody)
 {
     
-    var tbody = $("<tbody>").attr({"id":"tbody-empresa"});
+    var tbody = $("<tbody>").attr({"id":attrTbody});
     for(var datos in consulta)
     {
         var urlD = urlDestroy.replace(':id', consulta[datos]["id"]);

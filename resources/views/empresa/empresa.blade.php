@@ -2,9 +2,9 @@
 @section('pageTitle', 'Empresa')
 @include('includes.modal')
 @section('content')
-    <h1>{{ trans('traduccion.titles') }}</h1>
+    <h1>{{ trans('traduccion.titlesCompany') }}</h1>
 <div class="table-responsive">
-    <table class="table" id="table-empresa">
+    <table class="table" id="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
@@ -24,7 +24,7 @@
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
 
-  crearFilas("table", infoEmpresa, urlDestroy, urlEdit);
+  crearFilas("table", infoEmpresa, urlDestroy, urlEdit, "tbody-empresa");
 
   $(document).ready(function(){
     $(".contenido").on('click', 'a.add-company', function(event){
@@ -59,6 +59,7 @@
         });
     });
 });
+
 </script>
 <!-- Modal Agregar -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add">

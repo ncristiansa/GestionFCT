@@ -9,7 +9,7 @@ return [
     'password' => 'Password',
     'toaccess' => 'To access',
     'titlelogin' => 'Login',
-    'titles' => "List of Companies",
+    'titlesCompany' => "List of Companies",
     'tdCompany' => 'Company',
     'tdTopology' => 'Topology',
     'tdProfile' => 'Profile',
@@ -17,6 +17,8 @@ return [
     'tdSchedule' => 'Schedule',
     'tdTracing' => 'Tracing',
     'h1CompanyData' => 'Company Data',
-    'h2Agreementof' => 'Agreement of'
+    'h2Agreementof' => 'Agreement of',
+    'titleNom' => 'Name',
+    'titleTutor' => 'Tutor',
 ]
 ?>

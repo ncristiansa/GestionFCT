@@ -1,16 +1,16 @@
 @extends('layouts/general')
-@section('pageTitle', 'Alumno')
+@section('pageTitle', 'Tutor')
 @include('includes.modal')
 @section('content')
-<h2>Alumno</h2>
+<h1>{{ trans('traduccion.titleTutor') }}</h1>
 <div class="table-responsive">
     <table class="table" id="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
                 <th scope="col">id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">DNI</th>
+                <th scope="col">{{ trans('traduccion.titleNom') }}</th>
+                <th scope="col">Email</th>
             </tr>
         </thead>
     </table>
@@ -19,9 +19,9 @@
 </div>
 <a class="btn btn-success add-company" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
-    var urlDestroy = '{{route("alumno.destroy", ":id")}}';
-    var urlEdit = '{{route("alumno.edit", ":id")}}';
-    var infoAlumno = {!! json_encode($alumno->toArray(), JSON_HEX_TAG) !!};
-    crearFilas("table", infoAlumno, urlDestroy, urlEdit, "tbody-alumno");
+  var urlDestroy = '{{route("tutor.destroy", ":id")}}';
+  var urlEdit = '{{route("tutor.edit", ":id")}}';
+  var infoTutor = {!! json_encode($tutor->toArray(), JSON_HEX_TAG) !!};
+  crearFilas("table", infoTutor, urlDestroy, urlEdit, "tbody-tutor");
 </script>
 @stop

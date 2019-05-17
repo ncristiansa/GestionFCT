@@ -9,7 +9,7 @@ return [
     'password' => 'Contraseña',
     'toaccess' => 'Acceder',
     'titlelogin' => 'Iniciar sesión',
-    'titles' => "Lista de Empresas",
+    'titlesCompany' => "Lista de Empresas",
     'tdCompany' => 'Empresa',
     'tdTopology' => 'Topologia',
     'tdProfile' => 'Perfil',
@@ -18,5 +18,7 @@ return [
     'tdTracing' => 'Seguimiento',
     'h1CompanyData' => 'Datos Empresa',
     'h2Agreementof' => 'Acuerdos de ',
+    'titleNom' => 'Nombre',
+    'titleTutor' => 'Tutor',
 ]
 ?>

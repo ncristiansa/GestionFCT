@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 require('../../public/js/modal.js');
+require('../../public/js/modal-alumno.js');
 
 
 window.Vue = require('vue');

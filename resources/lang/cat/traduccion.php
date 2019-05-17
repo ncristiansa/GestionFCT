@@ -9,7 +9,7 @@ return [
     'password' => 'Contrasenya',
     'toaccess' => 'Accedir',
     'titlelogin' => 'Iniciar sessió',
-    'titles' => "Llistats d'Empreses",
+    'titlesCompany' => "Llistats d'Empreses",
     'tdCompany' => 'Empresa',
     'tdTopology' => 'Topologia',
     'tdProfile' => 'Perfil',
@@ -18,5 +18,7 @@ return [
     'tdTracing' => 'Seguimient',
     'h1CompanyData' => 'Dades Empresa',
     'h2Agreementof' => 'Acords de ',
+    'titleNom' => 'Nom',
+    'titleTutor' => 'Tutor',
 ]
 ?>

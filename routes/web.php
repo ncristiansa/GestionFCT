@@ -39,6 +39,14 @@ Route::group(['middleware' => ['web']], function () {
      * Ruta Alumno
      */
     Route::get('/home/alumno', 'AlumnoController@index')->name('alumno');
+    Route::delete('/home/alumno/{id}', 'AlumnoController@destroy')->name('alumno.destroy');
+    Route::get('home/alumno/{id}', 'AlumnoController@edit')->name('alumno.edit');
+    /**
+     * Ruta Tutor
+     */
+    Route::get('/home/tutor', 'TutorController@index')->name('tutor');
+    Route::delete('/home/tutor/{id}', 'TutorController@destroy')->name('tutor.destroy');
+    Route::get('/home/tutor/{id}', 'TutorController@edit')->name('tutor.edit');
     /**
      * Ruta Acuerdo
      */

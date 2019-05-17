@@ -28,5 +28,14 @@
 <script>
     var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};
     crearFormulario("h1", infoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "GET", true, "form-perfil");
+    $(document).ready(function() {
+    if(isNaN($("li a").eq(4)))
+    {
+      for(var datos in infoEmpresa)
+      {
+        $("li a").eq(4).text(infoEmpresa[datos]["Empresa"]);
+      }
+    }  
+    });
 </script>
 @stop

@@ -1,36 +1,3 @@
-/*
-$(document).ready(function(){
-    $(".contenido").on('click', 'a.add-company', function(event){
-        event.preventDefault();
-        $("#form-add").attr('action', $(this).attr('href'));
-        $('#modal-add').modal("show");
-    });
-    $("#save").on("click", function(){
-        $.ajax({
-            type: $("#form-add").attr('method'),
-            url: $('#form-add').attr('action'),
-            data: $('#form-add').first().serialize(),
-            success: function(data){
-                console.log('Correcto');
-                
-                $('#modal-add').modal('hide');
-                $("#table-empresa tbody").html(data);
-                muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
-            },
-            error: function(data){
-                var errores = data.responseJSON;
-                    if(errores)
-                    {
-                        $.each(errores, function(i){
-                            console.log(errores[i]);
-                        })
-                    }
-            }
-        });
-    });
-});
-*/
-
 $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
         event.preventDefault();
@@ -60,15 +27,15 @@ $(document).ready(function(){
     $('#table').on('click', 'a.delete-record', function(event){
         event.preventDefault();
 
-        $("#form-delete").attr('action', $(this).attr('href'));
-        $('#modal-delete').modal("show");
+        $("#modal-delete-tutor").attr('action', $(this).attr('href'));
+        $('#modal-delete-tutor').modal("show");
     });
     $("#si-seguro").on("click", function(){
-        $('#modal-delete').modal("hide");
+        $('#modal-delete-alumno').modal("hide");
         $.ajax({
-            type: $("#form-delete").attr('method'),
-            url: $("#form-delete").attr('action'),
-            data: $("#form-delete").serialize(),
+            type: $("#form-delete-tutor").attr('method'),
+            url: $("#form-delete-tutor").attr('action'),
+            data: $("#form-delete-tutor").serialize(),
             success: function(data){
                 if(data.response)
                 {

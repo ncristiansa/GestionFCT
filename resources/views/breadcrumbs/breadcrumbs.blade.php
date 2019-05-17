@@ -6,8 +6,8 @@
    </li>
 
    @for($i = 2; $i <= count(Request::segments()); $i++)
-      <li style="list-style-type: none;text-decoration: none; background-color:white;">
-         <a style="color:black;" href="{{ URL::to( implode( '/', array_slice(Request::segments(), 0 ,$i, true)))}}">
+      <li id="ruta-breadcrumbs" style="list-style-type: none;text-decoration: none; background-color:white;">
+         <a id="A-breadcrumbs" style="color:black;" href="{{ URL::to( implode( '/', array_slice(Request::segments(), 0 ,$i, true)))}}">
             {{strtoupper(Request::segment($i))}}
          </a>
       </li>
