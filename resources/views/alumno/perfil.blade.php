@@ -12,7 +12,9 @@
 
 <script>
     var infoAlumn = {!! json_encode($perfilalumno->toArray(), JSON_HEX_TAG) !!};
+    var infoAcuerdoEmpresa = {!! json_encode($acuerdoempresa->toArray(), JSON_HEX_TAG) !!};
     crearFormulario("h1", infoAlumn, "/home/alumno/"+infoAlumn[0]["id"], "GET", true, "form-perfil");
+    crearFilas("table", infoAcuerdoEmpresa, "urlDestroy", "urlEdit", "tbody-alumno-acuerdo");
     $(document).ready(function() {
     if(isNaN($("li a").eq(4)))
     {

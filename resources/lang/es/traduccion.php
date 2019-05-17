@@ -19,6 +19,7 @@ return [
     'h1CompanyData' => 'Datos Empresa',
     'h2Agreementof' => 'Acuerdos de ',
     'titleNom' => 'Nombre',
-    'titleTutor' => 'Tutor',
+    'dataTutor' => 'Datos Tutor',
+    "StudendsList" => 'Lista de alumnos',
 ]
 ?>

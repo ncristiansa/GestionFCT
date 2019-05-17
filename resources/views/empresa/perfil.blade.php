@@ -27,7 +27,9 @@
 
 <script>
     var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};
+    var infoAcuerdoEmpresa = {!! json_encode($acuerdoempresa->toArray(), JSON_HEX_TAG) !!};
     crearFormulario("h1", infoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "GET", true, "form-perfil");
+    crearFilas("table", infoAcuerdoEmpresa, "urlDestroy", "urlEdit", "tbody-empresa-acuerdo");
     $(document).ready(function() {
     if(isNaN($("li a").eq(4)))
     {

@@ -22,12 +22,17 @@ class EmpresaController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles("Administrador");
+        
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF')->get();
+        
+
         return view('empresa.empresa')->with('empresa', $empresa);
     }
     public function edit(Request $request, $id)
     {
         $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        $acuerdoempresa = Acuerdo::where('id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
+
         if($request->ajax())
         {
             Empresa::findOrFail($id)
@@ -42,8 +47,8 @@ class EmpresaController extends Controller
             ]);
             return response()->json(array('perfilempresa' => $perfilempresa));
         }
-        return view('empresa.perfil')->with('perfilempresa', $perfilempresa);
-        
+        //return view('empresa.perfil')->with('perfilempresa', $perfilempresa);
+        return view('empresa.perfil', ['perfilempresa'=>$perfilempresa, 'acuerdoempresa'=>$acuerdoempresa]);
     }
     public function update($id)
     {

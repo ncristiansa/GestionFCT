@@ -2,7 +2,8 @@
 @section('pageTitle', 'Alumno')
 @include('includes.modal')
 @section('content')
-<h2>Alumno</h2>
+<h1>{{ trans('traduccion.StudendsList') }}</h1>
+
 <div class="table-responsive">
     <table class="table" id="table">
         <thead class="thead-dark">

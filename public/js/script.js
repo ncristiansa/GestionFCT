@@ -37,7 +37,7 @@ function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit, attrTbody)
         var trvalores = $("<tr>").attr({"data-id":consulta[datos]["id"]});   
         var valores = Object.values(consulta[datos]);
         trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
-        trvalores.append(crearAImg("../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
+        trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
 
         for(var valor in valores)
         {   

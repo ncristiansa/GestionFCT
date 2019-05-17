@@ -2,7 +2,7 @@
 @section('pageTitle', 'Tutor')
 @include('includes.modal')
 @section('content')
-<h1>{{ trans('traduccion.titleTutor') }}</h1>
+<h1>{{ trans('traduccion.Listoftutors') }}</h1>
 <div class="table-responsive">
     <table class="table" id="table">
         <thead class="thead-dark">

@@ -2,7 +2,7 @@
 @section('pageTitle', 'Perfil')
 @section('content')
 
-<h1>{{ trans('traduccion.h1CompanyData') }}</h1>
+<h1>{{ trans('traduccion.dataTutor') }}</h1>
 <div id="mensaje">
 </div>
 @foreach($perfiltutor as $tutor)

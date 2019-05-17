@@ -19,6 +19,8 @@ return [
     'h1CompanyData' => 'Company Data',
     'h2Agreementof' => 'Agreement of',
     'titleNom' => 'Name',
-    'titleTutor' => 'Tutor',
+    'Listoftutors' => 'List of tutors',
+    'dataTutor' => 'Tutor Data',
+    "StudendsList" => 'Studends List'
 ]
 ?>
