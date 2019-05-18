@@ -40,6 +40,8 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: $("#form-perfil").first().serialize(),
                 success: function(data){
+                    $("li a").eq(4).text($("input[name='Empresa']").val());
+                    $("#nombre-empresa").text($("input[name='Empresa']").val());
                     formNoEditable("#form-perfil");
                     muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
                 },

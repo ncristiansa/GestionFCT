@@ -6,7 +6,7 @@
 <div id="mensaje">
 </div>
 @foreach($perfilempresa as $emp)
-    <h2>{{ trans('traduccion.h2Agreementof') }} {{$emp->Empresa}}</h2>
+    <h2>{{ trans('traduccion.h2Agreementof') }} <b id='nombre-empresa'>{{$emp->Empresa}}</b></h2>
 @endforeach
 
 <div class="table-responsive">

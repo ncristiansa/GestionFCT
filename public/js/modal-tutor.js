@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
+
         event.preventDefault();
             $.ajax({
                 type: $("#form-perfil").attr('method'),
