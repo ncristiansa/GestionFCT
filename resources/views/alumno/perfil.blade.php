@@ -6,7 +6,7 @@
 <div id="mensaje">
 </div>
 @foreach($perfilalumno as $alum)
-    <h2>{{ trans('traduccion.h2Agreementof') }} {{$alum->Nom}}</h2>
+    <h2>{{ trans('traduccion.h2Agreementof') }} <b id="nombre-alumno">{{$alum->Nom}}</b></h2>
 @endforeach
 
 

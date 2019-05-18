@@ -7,7 +7,9 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: $("#form-perfil").first().serialize(),
                 success: function(data){
+                    actualizarNombre("li a", "#nombre-alumno", "input[name='Nom']");
                     formNoEditable("#form-perfil");
+                    //$("#nombre-empresa").text($("input[name='Nom']").val());
                     muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
                 },
                 error: function(data){

@@ -1,35 +1,3 @@
-/*
-$(document).ready(function(){
-    $(".contenido").on('click', 'a.add-company', function(event){
-        event.preventDefault();
-        $("#form-add").attr('action', $(this).attr('href'));
-        $('#modal-add').modal("show");
-    });
-    $("#save").on("click", function(){
-        $.ajax({
-            type: $("#form-add").attr('method'),
-            url: $('#form-add').attr('action'),
-            data: $('#form-add').first().serialize(),
-            success: function(data){
-                console.log('Correcto');
-                
-                $('#modal-add').modal('hide');
-                $("#table-empresa tbody").html(data);
-                muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
-            },
-            error: function(data){
-                var errores = data.responseJSON;
-                    if(errores)
-                    {
-                        $.each(errores, function(i){
-                            console.log(errores[i]);
-                        })
-                    }
-            }
-        });
-    });
-});
-*/
 
 $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
@@ -40,8 +8,8 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: $("#form-perfil").first().serialize(),
                 success: function(data){
-                    $("li a").eq(4).text($("input[name='Empresa']").val());
-                    $("#nombre-empresa").text($("input[name='Empresa']").val());
+                    actualizarNombre("li a", "#nombre-empresa", "input[name='Empresa']")
+
                     formNoEditable("#form-perfil");
                     muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
                 },
