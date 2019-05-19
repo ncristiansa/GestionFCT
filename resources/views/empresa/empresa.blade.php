@@ -19,48 +19,11 @@
 </div>
 <a class="btn btn-success add-company" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
-
   var urlDestroy = '{{route("empresa.destroy", ":id")}}';
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
-
   crearFilas("table", infoEmpresa, urlDestroy, urlEdit, "tbody-empresa");
-  /*
-  $(document).ready(function(){
 
-    $(".contenido").on('click', 'a.add-company', function(event){
-        event.preventDefault();
-        $("#form-add").attr('action', $(this).attr('href'));
-        $('#modal-add').modal("show");
-    });
-    $("#save").on("click", function(){
-        $.ajax({
-            type: $("#form-add").attr('method'),
-            url: $('#form-add').attr('action'),
-            dataType: 'json',
-            data: $('#form-add').first().serialize(),
-            success: function(data){
-              $('#modal-add').modal('toggle');
-              var valor = '';
-              
-              console.log(data)
-              muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
-              console.log("Agregados");
-
-            },
-            error: function(data){
-                var errores = data.responseJSON;
-                    if(errores)
-                    {
-                        $.each(errores, function(i){
-                            console.log(errores[i]);
-                        })
-                    }
-            }
-        });
-    });
-});
-*/
 </script>
 <!-- Modal Agregar -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add">
@@ -113,13 +76,23 @@
     $("#modal-add").modal('show');
   });
   $('#save').click(function(){
-    console.log("Hola")
+
     $.ajax({
       type: $("#form-add").attr('method'),
       url: $('#form-add').attr('action'),
       data: $('#form-add').first().serialize(),
       success : function(data){
-        nuevoRegistro(data, "#tbody-empresa", urlDestroy, urlEdit);
+        var urlEmpresa = window.location.origin+"/home/empresa";
+        var trvalores = $("<tr>").attr({"data-id": data.id});
+            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlEmpresa+"/"+data.id));
+            trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlEmpresa+"/"+data.id));
+            trvalores.append("<td>"+data.id+"</td>"+
+                "<td>"+data.Empresa+"</td>"+
+                "<td>"+data.NIF+"</td>");
+            $("#tbody-alumno").append(trvalores);
+        
+        $('#modal-add').modal('toggle');
+        muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
         
       },
       error: function(data){

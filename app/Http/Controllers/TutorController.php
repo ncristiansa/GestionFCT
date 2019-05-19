@@ -46,4 +46,16 @@ class TutorController extends Controller
             return response()->json(['response' => false]);
         }
     }
+    public function store(Request $request)
+    {
+        if($request->ajax())
+        {
+            $tutor = new Tutor;
+            $tutor->Nombre = $request->input('nombre');
+            $tutor->Email = $request->input('email');
+            $tutor->Telefono = $request->input('telefono');
+            $tutor->save();
+            return response()->json($tutor);
+        }
+    }
 }

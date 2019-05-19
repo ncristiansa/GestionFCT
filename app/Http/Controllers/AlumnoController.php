@@ -48,4 +48,18 @@ class AlumnoController extends Controller
             return response()->json(['response' => false]);
         }
     }
+    public function store(Request $request)
+    {
+        if($request->ajax())
+        {
+            $alumno = new Alumno;
+            $alumno->Nom = $request->input('nombre');
+            $alumno->DNI = $request->input('dni');
+            $alumno->Num_CAP = $request->input('num_cap');
+            $alumno->Email = $request->input('email');
+            $alumno->Telefono = $request->input('telefono');
+            $alumno->save();
+            return response()->json($alumno);
+        }
+    }
 }
