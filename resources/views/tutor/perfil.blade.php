@@ -10,7 +10,14 @@
 @endforeach
 <script>
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};
-    crearFormulario("h1", infoTutor, "/home/tutor/"+infoTutor[0]["id"], "GET", true, "form-perfil");
+    var listaLabels = [
+        "",
+        "{{ trans('traduccion.tutoName') }}",
+        "{{ trans('traduccion.tutoEmail') }}",
+        "{{ trans('traduccion.tutoTel') }}",
+        "",
+    ];
+    crearFormulario("h1", infoTutor, "/home/tutor/"+infoTutor[0]["id"], "GET", true, "form-perfil", listaLabels);
     $(document).ready(function() {
     if(isNaN($("li a").eq(4)))
     {

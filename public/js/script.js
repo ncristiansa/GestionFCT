@@ -124,8 +124,7 @@ function muestraMensaje(id, clase, mensaje)
     setTimeout(function(){$(id).fadeOut("fast");}, 5000);
 }
 
-
-function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton, id)
+function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton, id, listaLabels)
 {
     if(Consulta != undefined)
     {
@@ -140,7 +139,7 @@ function crearFormulario(elementoAnterior, Consulta, _action, metodo, boton, id)
             {
                 if(ClavesDatos[clave] != "id")
                 {
-                    divrow.append(crearLabelInput(ClavesDatos[clave], "text", ClavesDatos[clave], ValoresDatos[clave], "disabled"));
+                    divrow.append(crearLabelInput(listaLabels[clave], "text", ClavesDatos[clave], ValoresDatos[clave], "disabled"));
                 }
                 
             }
