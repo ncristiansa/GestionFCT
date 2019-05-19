@@ -1,15 +1,16 @@
+
 $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
         event.preventDefault();
+        actualizarNombre("li a", "#nombre-alumno", "input[name='Nom']");
             $.ajax({
                 type: $("#form-perfil").attr('method'),
                 url: $("#form-perfil").attr('action'),
                 dataType: 'json',
                 data: $("#form-perfil").first().serialize(),
                 success: function(data){
-                    actualizarNombre("li a", "#nombre-alumno", "input[name='Nom']");
+                    
                     formNoEditable("#form-perfil");
-                    //$("#nombre-empresa").text($("input[name='Nom']").val());
                     muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
                 },
                 error: function(data){

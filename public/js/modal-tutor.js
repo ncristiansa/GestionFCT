@@ -8,6 +8,8 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: $("#form-perfil").first().serialize(),
                 success: function(data){
+                    actualizarNombre("li a", "#nombre-tutor", "input[name='Nombre']");
+                    
                     formNoEditable("#form-perfil");
                     muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
                 },

@@ -25,8 +25,9 @@
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
 
   crearFilas("table", infoEmpresa, urlDestroy, urlEdit, "tbody-empresa");
-
+  /*
   $(document).ready(function(){
+
     $(".contenido").on('click', 'a.add-company', function(event){
         event.preventDefault();
         $("#form-add").attr('action', $(this).attr('href'));
@@ -59,7 +60,7 @@
         });
     });
 });
-
+*/
 </script>
 <!-- Modal Agregar -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add">
@@ -96,12 +97,35 @@
             <label>Seguimiento</label>
             <input class="form-control" type="text" name="seguimiento">
           </div>
-          <a id="save" class="btn btn-success"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
+          <a id="save" class="btn btn-success add-empresa"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         {!! Form::close() !!}
         </div>
+
     </div>
   </div>
 </div>
 
-
+<script type="text/javascript">
+  var urlDestroy = '{{route("empresa.destroy", ":id")}}';
+  var urlEdit = '{{route("empresa.edit", ":id")}}';
+  $(document).on('click', 'a.add-company', function(){
+    $("#modal-add").modal('show');
+  });
+  $('#save').click(function(){
+    console.log("Hola")
+    $.ajax({
+      type: $("#form-add").attr('method'),
+      url: $('#form-add').attr('action'),
+      data: $('#form-add').first().serialize(),
+      success : function(data){
+        nuevoRegistro(data, "#tbody-empresa", urlDestroy, urlEdit);
+        
+      },
+      error: function(data){
+        console.log(data);
+      }
+    });
+  });
+</script>
 @stop

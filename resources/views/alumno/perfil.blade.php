@@ -2,11 +2,11 @@
 @section('pageTitle', 'Perfil')
 @section('content')
 
-<h1>{{ trans('traduccion.h1CompanyData') }}</h1>
+<h1></h1>
 <div id="mensaje">
 </div>
 @foreach($perfilalumno as $alum)
-    <h2>{{ trans('traduccion.h2Agreementof') }} <b id="nombre-alumno">{{$alum->Nom}}</b></h2>
+    <h2>{{ trans('traduccion.dataAlumno') }} <b id="nombre-alumno">{{$alum->Nom}}</b></h2>
 @endforeach
 
 

@@ -8,8 +8,9 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: $("#form-perfil").first().serialize(),
                 success: function(data){
-                    actualizarNombre("li a", "#nombre-empresa", "input[name='Empresa']")
-
+                    actualizarNombre("li a", "#nombre-empresa", "input[name='Empresa']");
+                    //$("li a").eq(4).text($("input[name='Empresa']").val());
+                    //$("#nombre-empresa").text($("input[name='Empresa']").val());
                     formNoEditable("#form-perfil");
                     muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
                 },

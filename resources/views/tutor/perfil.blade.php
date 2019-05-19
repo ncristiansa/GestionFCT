@@ -6,7 +6,7 @@
 <div id="mensaje">
 </div>
 @foreach($perfiltutor as $tutor)
-    <h2>{{ trans('traduccion.h2Agreementof') }} {{$tutor->Nombre}}</h2>
+    <h2>{{ trans('traduccion.h2Agreementof') }} <b id="nombre-tutor">{{$tutor->Nombre}}</b></h2>
 @endforeach
 <script>
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};

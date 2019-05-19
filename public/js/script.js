@@ -1,11 +1,11 @@
 /**
  * Funciones
  */
+
 function actualizarNombre(_lia, idb, inputNombre)
 {
     $(_lia).eq(4).text($(inputNombre).val());
     $(idb).text($(inputNombre).val());
-    console.log("entra");
 }
 
 function crearInput(tipo, nombre, valor, clase, imagen)
@@ -32,6 +32,16 @@ function crearAImg(icono, nombre, clase, funcion, enlace)
     }
     return $("<a>").attr({"name": nombre, "class":clase, "href":enlace}).append($("<img>").attr({"class":"img-iconos","src": icono, "width":"16px", "height":"16px"}));
 }
+function nuevoRegistro(data, idtbody, urlD, urlE)
+ {
+    var trvalores = $("<tr>").attr({"data-id": data.id});
+    trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+    trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
+    trvalores.append("<td>"+data.id+"</td>"+
+        "<td>"+data.Empresa+"</td>"+
+        "<td>"+data.NIF+"</td>");
+    $(idtbody).append(trvalores);
+ }
 function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit, attrTbody)
 {
     

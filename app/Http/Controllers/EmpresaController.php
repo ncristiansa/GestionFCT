@@ -73,7 +73,7 @@ class EmpresaController extends Controller
             $empresa->Horario = $request->input('horario');
             $empresa->Seguimiento = $request->input('seguimiento');
             $empresa->save();
-            return response()->json(['response' => true, 'empresa' => $empresa]);
+            return response()->json($empresa);
         }
     }
     public function destroy(Request $request, $id)
