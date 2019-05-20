@@ -33,6 +33,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/home/empresa', 'EmpresaController@store')->name('empresa.add');
     Route::delete('/home/empresa/{id}', 'EmpresaController@destroy')->name('empresa.destroy');
     Route::get('/home/empresa/{id}', 'EmpresaController@edit')->name('empresa.edit');
+    /**
+     * Ruta acuerdo
+     */
+    Route::get('/home/empresa/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
+    //Route::delete('/home/empresa/{id}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
+
     
     
     /**

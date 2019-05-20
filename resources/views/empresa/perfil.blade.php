@@ -28,6 +28,7 @@
 <script>
     var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};
     var infoAcuerdoEmpresa = {!! json_encode($acuerdoempresa->toArray(), JSON_HEX_TAG) !!};
+    var Rol = "{{ auth()->user()->name }}";
     var listaLabels = [
         "",
         "{{ trans('traduccion.compName') }}",
@@ -40,7 +41,9 @@
         "",
     ];
     crearFormulario("h1", infoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "GET", true, "form-perfil", listaLabels);
-    crearFilas("table", infoAcuerdoEmpresa, "urlDestroy", "urlEdit", "tbody-empresa-acuerdo");
+
+    var urlEdit = '/home/empresa/'+infoEmpresa[0]["id"]+"/"+infoAcuerdoEmpresa[0]["id"];
+    crearFilas("table", infoAcuerdoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "/home/empresa/"+infoEmpresa[0]["id"], "tbody-empresa-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
     if(isNaN($("li a").eq(4)))
     {

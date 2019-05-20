@@ -24,12 +24,12 @@
     var urlDestroy = '{{route("alumno.destroy", ":id")}}';
     var urlEdit = '{{route("alumno.edit", ":id")}}';
     var infoAlumno = {!! json_encode($alumno->toArray(), JSON_HEX_TAG) !!};
-    crearFilas("table", infoAlumno, urlDestroy, urlEdit, "tbody-alumno", Rol);
+    crearFilas("table", infoAlumno, urlDestroy, urlEdit, "tbody-alumno", Rol, "noacuerdo");
 </script>
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add-alumno">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" style="padding:45px;">
-    <h5>Agrega una nueva Empresa</h5>
+    <h5>Agrega un nuevo Alumno</h5>
     <div class="form">
         {!! Form::open(['id' => 'form-add-alumno', 'method' => 'POST']) !!}
           <div class="form-group col-md-10">

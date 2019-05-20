@@ -38,5 +38,9 @@ return [
     'tutoName' => 'Name',
     'tutoEmail' => 'E-mail',
     'tutoTel' => 'Telephone',
+    "acuDataAlta" => 'High date',
+    "acuFinalizada" => 'Data that is over',
+    "acuFi" => 'End date',
+
 ]
 ?>

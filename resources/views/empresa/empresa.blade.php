@@ -23,7 +23,7 @@
   var urlDestroy = '{{route("empresa.destroy", ":id")}}';
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
-  crearFilas("table", infoEmpresa, urlDestroy, urlEdit, "tbody-empresa", Rol);
+  crearFilas("table", infoEmpresa, urlDestroy, urlEdit, "tbody-empresa", Rol, "noacuerdo");
 
 </script>
 <!-- Modal Agregar -->
@@ -32,7 +32,7 @@
     <div class="modal-content" style="padding:45px;">
     <h5>Agrega una nueva Empresa</h5>
     <div class="form">
-        {!! Form::open(['id' => 'form-add', 'method' => 'POST']) !!}
+        {!! Form::open(['id' => 'form-add-empresa', 'method' => 'POST']) !!}
           <div class="form-group col-md-10">
             <label>Nombre Empresa</label>
             <input class="form-control" type="text" name="empresa">
@@ -61,7 +61,7 @@
             <label>Seguimiento</label>
             <input class="form-control" type="text" name="seguimiento">
           </div>
-          <a id="save" class="btn btn-success add-empresa"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
+          <a id="save-empresa" class="btn btn-success add-empresa"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         {!! Form::close() !!}
         </div>
@@ -76,23 +76,24 @@
   $(document).on('click', 'a.add-company', function(){
     $("#modal-add").modal('show');
   });
-  $('#save').click(function(){
+  $('#save-empresa').click(function(){
 
     $.ajax({
-      type: $("#form-add").attr('method'),
-      url: $('#form-add').attr('action'),
-      data: $('#form-add').first().serialize(),
+      type: $("#form-add-empresa").attr('method'),
+      url: $('#form-add-empresa').attr('action'),
+      data: $('#form-add-empresa').first().serialize(),
       success : function(data){
+        console.log(data);
         var urlEmpresa = window.location.origin+"/home/empresa";
         var trvalores = $("<tr>").attr({"data-id": data.id});
-            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlEmpresa+"/"+data.id));
-            trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlEmpresa+"/"+data.id));
-            trvalores.append("<td>"+data.id+"</td>"+
-                "<td>"+data.Empresa+"</td>"+
-                "<td>"+data.NIF+"</td>");
-            $("#tbody-alumno").append(trvalores);
-        
+        trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlEmpresa+"/"+data.id));
+        trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlEmpresa+"/"+data.id));
+        trvalores.append("<td>"+data.id+"</td>"+
+        "<td>"+data.Empresa+"</td>"+
+        "<td>"+data.NIF+"</td>");
+        $("#tbody-empresa").append(trvalores);
         $('#modal-add').modal('toggle');
+        $("input[type=text]").val("");
         muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
         
       },

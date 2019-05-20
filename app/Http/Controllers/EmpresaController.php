@@ -31,7 +31,7 @@ class EmpresaController extends Controller
     public function edit(Request $request, $id)
     {
         $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
-        $acuerdoempresa = Acuerdo::where('id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
+        $acuerdoempresa = Acuerdo::where('empresa_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
 
         if($request->ajax())
         {

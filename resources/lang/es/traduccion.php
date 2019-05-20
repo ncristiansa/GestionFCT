@@ -38,5 +38,8 @@ return [
     'tutoName' => 'Nombre',
     'tutoEmail' => 'Email',
     'tutoTel' => 'Telefono',
+    "acuDataAlta" => 'Fecha alta',
+    "acuFinalizada" => 'Fecha que ha acabado',
+    "acuFi" => 'Fecha fin',
 ]
 ?>

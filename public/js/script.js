@@ -42,35 +42,47 @@ function nuevoRegistro(data, idtbody, urlD, urlE)
         "<td>"+data.NIF+"</td>");
     $(idtbody).append(trvalores);
  }
-function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit, attrTbody, Rol)
-{
-    console.log(Rol);
-    
+function crearFilas(elementoAnterior, consulta,urlDestroy, urlEdit, attrTbody, Rol, tipo)
+{   
     var tbody = $("<tbody>").attr({"id":attrTbody});
     for(var datos in consulta)
-    {
-        var urlD = urlDestroy.replace(':id', consulta[datos]["id"]);
-        var urlE = urlEdit.replace(':id', consulta[datos]["id"]);
-        var trvalores = $("<tr>").attr({"data-id":consulta[datos]["id"]});   
-        var valores = Object.values(consulta[datos]);
-        var tipo = $(".nombre-usuario").text();
-        if(Rol == "Tutor")
         {
-            trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
-            //trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+            var urlD = urlDestroy.replace(':id', consulta[datos]["id"]);
+            var urlE = urlEdit.replace(':id', consulta[datos]["id"]);
+            var trvalores = $("<tr>").attr({"data-id":consulta[datos]["id"]});   
+            var valores = Object.values(consulta[datos]);
+            if(Rol == "Tutor")
+            {
+                if(tipo == "acuerdo")
+                {
+                    trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE+"/"+consulta[datos]["id"]));
+                }
+                if(tipo == "noacuerdo")
+                {
+                    trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
+                }
+                //trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+                
+            }else{
+                if(tipo == "acuerdo")
+                {
+                    trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE+"/"+consulta[datos]["id"]));
+                    trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD+"/"+consulta[datos]["id"]));
+                }
+                if(tipo == "noacuerdo")
+                {
+                    trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
+                    trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+                }
+            }
             
-        }else{
-            trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
-            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+            
+            for(var valor in valores)
+            {   
+                trvalores.append(crearTd(valores[valor]));    
+            }
+            tbody.append(trvalores);
         }
-        
-        
-        for(var valor in valores)
-        {   
-            trvalores.append(crearTd(valores[valor]));    
-        }
-        tbody.append(trvalores);
-    }
     $(elementoAnterior).append(tbody);
 }
 function crearTabla(elementoAnterior, tableClass, theadClass, Consulta, enlace)
