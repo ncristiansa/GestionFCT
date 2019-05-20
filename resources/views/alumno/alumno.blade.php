@@ -20,10 +20,11 @@
 </div>
 <a class="btn btn-success add-alumno" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
+    var Rol = "{{ auth()->user()->name }}";
     var urlDestroy = '{{route("alumno.destroy", ":id")}}';
     var urlEdit = '{{route("alumno.edit", ":id")}}';
     var infoAlumno = {!! json_encode($alumno->toArray(), JSON_HEX_TAG) !!};
-    crearFilas("table", infoAlumno, urlDestroy, urlEdit, "tbody-alumno");
+    crearFilas("table", infoAlumno, urlDestroy, urlEdit, "tbody-alumno", Rol);
 </script>
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add-alumno">
   <div class="modal-dialog modal-lg">

@@ -19,10 +19,11 @@
 </div>
 <a class="btn btn-success add-company" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
+  var Rol = "{{ auth()->user()->name }}";
   var urlDestroy = '{{route("empresa.destroy", ":id")}}';
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
-  crearFilas("table", infoEmpresa, urlDestroy, urlEdit, "tbody-empresa");
+  crearFilas("table", infoEmpresa, urlDestroy, urlEdit, "tbody-empresa", Rol);
 
 </script>
 <!-- Modal Agregar -->

@@ -17,6 +17,7 @@
         "{{ trans('traduccion.tutoTel') }}",
         "",
     ];
+    
     crearFormulario("h1", infoTutor, "/home/tutor/"+infoTutor[0]["id"], "GET", true, "form-perfil", listaLabels);
     $(document).ready(function() {
     if(isNaN($("li a").eq(4)))

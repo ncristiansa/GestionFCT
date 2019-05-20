@@ -12,7 +12,7 @@ class AlumnoController extends Controller
 {
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles("Administrador");
+        //$request->user()->authorizeRoles("Administrador");
         $alumno = DB::table('alumno')->select('id','Nom', 'DNI')->get();
         return view('alumno.alumno')->with('alumno', $alumno);
     }

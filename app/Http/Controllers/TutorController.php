@@ -13,7 +13,7 @@ class TutorController extends Controller
 {
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles("Administrador");
+        //$request->user()->authorizeRoles("Administrador");
         $tutor = DB::table('tutor')->select('id','Nombre', 'Email')->get();
         return view('tutor.tutor')->with('tutor', $tutor);
     }

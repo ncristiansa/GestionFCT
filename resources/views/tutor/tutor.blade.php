@@ -19,10 +19,11 @@
 </div>
 <a class="btn btn-success add-tutor" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
+  var Rol = "{{ auth()->user()->name }}";
   var urlDestroy = '{{route("tutor.destroy", ":id")}}';
   var urlEdit = '{{route("tutor.edit", ":id")}}';
   var infoTutor = {!! json_encode($tutor->toArray(), JSON_HEX_TAG) !!};
-  crearFilas("table", infoTutor, urlDestroy, urlEdit, "tbody-tutor");
+  crearFilas("table", infoTutor, urlDestroy, urlEdit, "tbody-tutor", Rol);
 </script>
 <!-- Modal Tutor Add -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add-tutor">

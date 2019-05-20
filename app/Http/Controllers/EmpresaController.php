@@ -21,7 +21,7 @@ class EmpresaController extends Controller
     */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles("Administrador");
+        //$request->user()->authorizeRoles("Administrador");
         
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF')->get();
         

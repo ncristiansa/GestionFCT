@@ -20,6 +20,7 @@ return [
     'h2Agreementof' => 'Acuerdos de ',
     'titleNom' => 'Nombre',
     'dataTutor' => 'Información del Tutor',
+    
     'dataAlumno' => 'Información del alumno',
     "StudendsList" => 'Lista de alumnos',
     'alumName' => "Nombre",

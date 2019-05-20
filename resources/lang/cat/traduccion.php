@@ -21,6 +21,7 @@ return [
     'titleNom' => 'Nom',
     'Listoftutors' => 'Llista de Tutors',
     'dataTutor' => 'Informació del Tutor',
+    'dataAlumno' => "Informació de l'Alumne",
     'StudendsList' => "Llista d'alumnes",
     'alumName' => "Nom",
     'alumNCAP' => "Num. CAP",
@@ -37,5 +38,6 @@ return [
     'tutoName' => 'Nom',
     'tutoEmail' => 'Email',
     'tutoTel' => 'Telèfon',
+
 ]
 ?>

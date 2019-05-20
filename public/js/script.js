@@ -42,8 +42,9 @@ function nuevoRegistro(data, idtbody, urlD, urlE)
         "<td>"+data.NIF+"</td>");
     $(idtbody).append(trvalores);
  }
-function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit, attrTbody)
+function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit, attrTbody, Rol)
 {
+    console.log(Rol);
     
     var tbody = $("<tbody>").attr({"id":attrTbody});
     for(var datos in consulta)
@@ -52,9 +53,18 @@ function crearFilas(elementoAnterior, consulta, urlDestroy, urlEdit, attrTbody)
         var urlE = urlEdit.replace(':id', consulta[datos]["id"]);
         var trvalores = $("<tr>").attr({"data-id":consulta[datos]["id"]});   
         var valores = Object.values(consulta[datos]);
-        trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
-        trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
-
+        var tipo = $(".nombre-usuario").text();
+        if(Rol == "Tutor")
+        {
+            trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
+            //trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+            
+        }else{
+            trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlE));
+            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlD));
+        }
+        
+        
         for(var valor in valores)
         {   
             trvalores.append(crearTd(valores[valor]));    
