@@ -12,9 +12,11 @@
         "{{ trans('traduccion.acuFi') }}",
         "",
     ];
+    var id = infoAcuerdo[0]["id"];
+    console.log(id);
     crearFormulario("h1", infoAcuerdo, "/home/empresa/"+infoEmpresa[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
     $(document).ready(function() {
-    if(isNaN($("li a").eq(4)) && isNaN($("li a").eq(6)))
+    if(isNaN($("li a").eq(4)))
     {
       for(var datos in infoEmpresa)
       {

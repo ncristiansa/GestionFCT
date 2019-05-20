@@ -11,6 +11,20 @@ use Response;
 use DB;
 class AcuerdoController extends Controller
 {
+    public function destroy(Request $request, $od)
+    {
+
+        if($request->ajax())
+        {
+            $acuerdo = Acuerdo::findOrFail($od);
+            if(!is_null($acuerdo))
+            {
+                $acuerdo->delete();
+                return response()->json(['response' => true, 'id'=>$acuerdo->od]);
+            }
+            return response()->json(['response' => false]);
+        }
+    }
     public function edit(Request $request, $od)
     {
         $perfilacuerdo = Acuerdo::where('id', $od)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);

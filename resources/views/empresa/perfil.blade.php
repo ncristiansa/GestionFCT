@@ -1,6 +1,7 @@
 @extends('layouts/general')
 @section('pageTitle', 'Perfil')
 @section('content')
+@include('includes.modal')
 
 <h1>{{ trans('traduccion.h1CompanyData') }}</h1>
 <div id="mensaje">
@@ -10,7 +11,7 @@
 @endforeach
 
 <div class="table-responsive">
-    <table class="table" id="table-empresa">
+    <table class="table" id="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
@@ -42,7 +43,7 @@
     ];
     crearFormulario("h1", infoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "GET", true, "form-perfil", listaLabels);
 
-    var urlEdit = '/home/empresa/'+infoEmpresa[0]["id"]+"/"+infoAcuerdoEmpresa[0]["id"];
+    
     crearFilas("table", infoAcuerdoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "/home/empresa/"+infoEmpresa[0]["id"], "tbody-empresa-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
     if(isNaN($("li a").eq(4)))
