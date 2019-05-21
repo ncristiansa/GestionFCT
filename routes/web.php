@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Ruta acuerdo
      */
+    Route::post('/home/empresa/{id}/{od}', 'AcuerdoController@update')->name('acuerdo.add');
     Route::get('/home/empresa/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
     Route::delete('/home/empresa/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
 

@@ -19,7 +19,7 @@ class AlumnoController extends Controller
     public function edit(Request $request, $id)
     {
         $perfilalumno = Alumno::where('id', $id)->get(["id",'Nom', "DNI", "Num_CAP", "Email", "Telefono"]);
-        $acuerdoempresa = Acuerdo::where('id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
+        $acuerdoalumno = Acuerdo::where('alumno_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
         if($request->ajax())
         {
             Alumno::findOrFail($id)
@@ -33,7 +33,7 @@ class AlumnoController extends Controller
             return response()->json(array('perfilalumno' => $perfilalumno));
         }
         //return view('alumno.perfil')->with('perfilalumno', $perfilalumno);
-        return view('alumno.perfil', ['perfilalumno'=>$perfilalumno, 'acuerdoempresa'=>$acuerdoempresa]);
+        return view('alumno.perfil', ['perfilalumno'=>$perfilalumno, 'acuerdoalumno'=>$acuerdoalumno]);
     }
     public function store(Request $request)
     {

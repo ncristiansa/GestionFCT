@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>¿Estás seguro de eiminar éste registro?</p>
+        <p>¿Estás seguro de eliminar éste registro?</p>
         {!! Form::open(['id' => 'form-delete', 'method' => 'DELETE']) !!}
         {!! Form::close() !!}
       </div>
@@ -31,7 +31,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>¿Estás seguro de eiminar éste registro?</p>
+        <p>¿Estás seguro de eliminar éste registro?</p>
         {!! Form::open(['id' => 'form-delete-alumno', 'method' => 'DELETE']) !!}
         {!! Form::close() !!}
       </div>
@@ -53,7 +53,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>¿Estás seguro de eiminar éste registro?</p>
+        <p>¿Estás seguro de eliminar éste registro?</p>
         {!! Form::open(['id' => 'form-delete-tutor', 'method' => 'DELETE']) !!}
         {!! Form::close() !!}
       </div>
@@ -75,7 +75,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>¿Estás seguro de eiminar éste registro?</p>
+        <p>¿Estás seguro de eliminar éste registro?</p>
         {!! Form::open(['id' => 'form-delete-acuerdo', 'method' => 'DELETE']) !!}
         {!! Form::close() !!}
       </div>

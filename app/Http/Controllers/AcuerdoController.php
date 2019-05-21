@@ -12,6 +12,19 @@ use Response;
 use DB;
 class AcuerdoController extends Controller
 {
+    public function store(Request $request)
+    {
+        if($request->ajax())
+        {
+            $acuerdo = new Acuerdo;
+            $acuerdo->Fecha_alta = $request->input('fecha-alta');
+            $acuerdo->Acabada = $request->input('acabada');
+            $acuerdo->Fin = $request->input('fin');
+            
+            $acuerdo->save();
+            return response()->json($acuerdo);
+        }
+    }
     public function destroy(Request $request, $od)
     {
         $idacuerdo = $request->input('id-acuerdo');
