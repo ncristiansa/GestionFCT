@@ -27,13 +27,7 @@ $(document).ready(function(){
         });
 });
 $(document).ready(function(){
-    $("#table-acuerdo").on('click', 'a.delete-record', function(event){
-        event.preventDefault();
-        $("#modal-acuerdo").modal("show");
-    });
-});
-$(document).ready(function(){
-    $('#table').on('click', 'a.delete-record', function(event){
+    $('#table-empresa').on('click', 'a.delete-record', function(event){
         event.preventDefault();
 
         $("#form-delete").attr('action', $(this).attr('href'));

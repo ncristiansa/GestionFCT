@@ -1,20 +1,19 @@
-
-/*
 $(document).ready(function(){
-    $('#table').on('click', 'a.delete-record', function(event){
+    $('#table-acuerdo').on('click', 'a.delete-record', function(event){
         event.preventDefault();
         
         $("#modal-acuerdo").attr('action', $(this).attr('href'));
-        var idAcuerdo = $("#modal-delete-acuerdo").attr('action');
+        var idAcuerdo = $("#modal-acuerdo").attr('action');
         var id = idAcuerdo.split("/");
         $("#form-delete-acuerdo").append($("<input>").attr({"type":"hidden", "name":"id-acuerdo", "value":id[4]}));
         $("#form-delete-acuerdo").attr('action', idAcuerdo);
         
-        $('#modal-delete').modal("show");
+        $('#modal-acuerdo').modal("show");
     });
     
-    $("#si-seguro").on("click", function(){
+    $("#si-seguro-acuerdo").on("click", function(){
         $('#modal-acuerdo').modal("hide");
+        console.log("hola");
         $.ajax({
             type: $("#form-delete-acuerdo").attr('method'),
             url: $("#form-delete-acuerdo").attr('action'),
@@ -41,4 +40,3 @@ $(document).ready(function(){
     });
     
 });
-*/

@@ -2,9 +2,10 @@
 @section('pageTitle', 'Empresa')
 @include('includes.modal')
 @section('content')
+
     <h1>{{ trans('traduccion.titlesCompany') }}</h1>
 <div class="table-responsive">
-    <table class="table" id="table">
+    <table class="table" id="table-empresa">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>

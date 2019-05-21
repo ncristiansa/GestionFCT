@@ -6,7 +6,7 @@
 <h1>{{ trans('traduccion.StudendsList') }}</h1>
 
 <div class="table-responsive">
-    <table class="table" id="table">
+    <table class="table" id="table-alumno">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
