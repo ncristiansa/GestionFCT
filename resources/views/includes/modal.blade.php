@@ -15,7 +15,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button id="si-seguro" type="button" class="btn btn-danger">Si estoy seguro</button>
+        <button id="si-empresa" type="button" class="btn btn-danger">Si estoy seguro</button>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button id="si-seguro" type="button" class="btn btn-danger">Si estoy seguro</button>
+        <button id="si-alumno" type="button" class="btn btn-danger">Si estoy seguro</button>
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button id="si-seguro" type="button" class="btn btn-danger">Si estoy seguro</button>
+        <button id="si-tutor" type="button" class="btn btn-danger">Si estoy seguro</button>
       </div>
     </div>
   </div>

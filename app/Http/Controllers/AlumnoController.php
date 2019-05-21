@@ -35,19 +35,6 @@ class AlumnoController extends Controller
         //return view('alumno.perfil')->with('perfilalumno', $perfilalumno);
         return view('alumno.perfil', ['perfilalumno'=>$perfilalumno, 'acuerdoempresa'=>$acuerdoempresa]);
     }
-    public function destroy(Request $request, $id)
-    {
-        if($request->ajax())
-        {
-            $alumno = Alumno::findOrFail($id);
-            if(!is_null($alumno))
-            {
-                $alumno->delete();
-                return response()->json(['response' => true, 'id'=>$alumno->id]);
-            }
-            return response()->json(['response' => false]);
-        }
-    }
     public function store(Request $request)
     {
         if($request->ajax())
@@ -60,6 +47,19 @@ class AlumnoController extends Controller
             $alumno->Telefono = $request->input('telefono');
             $alumno->save();
             return response()->json($alumno);
+        }
+    }
+    public function destroy(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            $alumno = Alumno::findOrFail($id);
+            if(!is_null($alumno))
+            {
+                $alumno->delete();
+                return response()->json(['response' => true, 'id'=>$alumno->id]);
+            }
+            return response()->json(['response' => false]);
         }
     }
 }

@@ -4,7 +4,6 @@
 @section('content')
 <script type="text/javascript" src="{{asset('js/modal-alumno.js')}}"></script>
 <h1>{{ trans('traduccion.StudendsList') }}</h1>
-
 <div class="table-responsive">
     <table class="table" id="table-alumno">
         <thead class="thead-dark">
@@ -77,8 +76,9 @@
             console.log(data);
             var urlAlumno = window.location.origin+"/home/alumno";
             var trvalores = $("<tr>").attr({"data-id": data.id});
-            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlAlumno+"/"+data.id));
             trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlAlumno+"/"+data.id));
+            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlAlumno+"/"+data.id));
+            
             trvalores.append("<td>"+data.id+"</td>"+
                 "<td>"+data.Nom+"</td>"+
                 "<td>"+data.DNI+"</td>");

@@ -2,7 +2,7 @@
 @section('pageTitle', 'Empresa')
 @include('includes.modal')
 @section('content')
-
+<script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
     <h1>{{ trans('traduccion.titlesCompany') }}</h1>
 <div class="table-responsive">
     <table class="table" id="table-empresa">
@@ -84,7 +84,6 @@
       url: $('#form-add-empresa').attr('action'),
       data: $('#form-add-empresa').first().serialize(),
       success : function(data){
-        console.log(data);
         var urlEmpresa = window.location.origin+"/home/empresa";
         var trvalores = $("<tr>").attr({"data-id": data.id});
         trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlEmpresa+"/"+data.id));

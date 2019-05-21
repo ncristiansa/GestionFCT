@@ -73,8 +73,8 @@
             console.log(data);
             var urlTutor = window.location.origin+"/home/tutor";
             var trvalores = $("<tr>").attr({"data-id": data.id});
-            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlTutor+"/"+data.id));
             trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined,  urlTutor+"/"+data.id));
+            trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlTutor+"/"+data.id));
             trvalores.append("<td>"+data.id+"</td>"+
                 "<td>"+data.Nombre+"</td>"+
                 "<td>"+data.Email+"</td>");

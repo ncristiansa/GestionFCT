@@ -39,8 +39,9 @@ return [
     'tutoEmail' => 'Email',
     'tutoTel' => 'Telèfon',
     'acuDataAlta' => 'Data alta',
-    'acuFinalizada' => 'Data de finalitzacio',
+    'acuFinalizada' => 'Data de finalització',
     'acuFi' => 'Data fi',
+    'datosAcuerdo' => "Dades de l'acord",
 
 ]
 ?>

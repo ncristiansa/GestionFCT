@@ -33,7 +33,7 @@ $(document).ready(function(){
         $("#modal-delete-alumno").attr('action', $(this).attr('href'));
         $('#modal-delete-alumno').modal("show");
     });
-    $("#si-seguro").on("click", function(){
+    $("#si-alumno").on("click", function(){
         $('#modal-delete-alumno').modal("hide");
         $.ajax({
             type: $("#form-delete-alumno").attr('method'),

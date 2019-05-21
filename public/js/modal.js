@@ -33,7 +33,7 @@ $(document).ready(function(){
         $("#form-delete").attr('action', $(this).attr('href'));
         $('#modal-delete').modal("show");
     });
-    $("#si-seguro").on("click", function(){
+    $("#si-empresa").on("click", function(){
         $('#modal-delete').modal("hide");
         $.ajax({
             type: $("#form-delete").attr('method'),

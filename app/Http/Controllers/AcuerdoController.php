@@ -7,6 +7,7 @@ use Illuminate\Routing\Route;
 use App\Alumno;
 use App\Acuerdo;
 use App\Empresa;
+use App\Tutor;
 use Response;
 use DB;
 class AcuerdoController extends Controller
@@ -30,6 +31,8 @@ class AcuerdoController extends Controller
     {
         $perfilacuerdo = Acuerdo::where('id', $od)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
         $perfilempresa = Empresa::where('id', $od)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        $perfilalumno = Alumno::where('id', $od)->get(["id",'Nom', "DNI", "Num_CAP", "Email", "Telefono"]);
+        $perfiltutor = Tutor::where('id', $od)->get(["id",'Nombre', "Email", "Telefono"]);
         if($request->ajax())
         {
             Acuerdo::findOrFail($od)
@@ -41,7 +44,7 @@ class AcuerdoController extends Controller
             return response()->json(array('perfilacuerdo' => $perfilacuerdo));
         }
         //return view('empresa.perfil')->with('perfilempresa', $perfilempresa);
-        return view('acuerdo.perfil', ['perfilempresa'=>$perfilempresa, 'perfilacuerdo'=>$perfilacuerdo]);
+        return view('acuerdo.perfil', ['perfilempresa'=>$perfilempresa, 'perfilacuerdo'=>$perfilacuerdo, 'perfilalumno'=>$perfilalumno, 'perfiltutor'=>$perfiltutor]);
     }
     
 }

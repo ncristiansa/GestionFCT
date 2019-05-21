@@ -41,5 +41,6 @@ return [
     "acuDataAlta" => 'Fecha alta',
     "acuFinalizada" => 'Fecha que ha acabado',
     "acuFi" => 'Fecha fin',
+    "datosAcuerdo" => 'Datos del acuerdo',
 ]
 ?>
