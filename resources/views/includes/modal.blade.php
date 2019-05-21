@@ -65,7 +65,7 @@
   </div>
 </div>
 <!-- Modal acuerdo -->
-<div class="modal" tabindex="-1" role="dialog" id="modal-delete-acuerdo">
+<div class="modal" tabindex="-1" role="dialog" id="modal-acuerdo">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -76,10 +76,8 @@
       </div>
       <div class="modal-body">
         <p>¿Estás seguro de eiminar éste registro?</p>
-        <form method="POST" accept-charset="UTF-8" id="form-delete-acuerdo">
-          <input name="_method" type="hidden" value="DELETE">
-          <input name="_token" type="hidden">
-        </form>
+        {!! Form::open(['id' => 'form-delete-acuerdo', 'method' => 'DELETE']) !!}
+        {!! Form::close() !!}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>

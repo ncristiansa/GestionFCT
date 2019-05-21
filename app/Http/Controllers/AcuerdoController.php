@@ -13,14 +13,15 @@ class AcuerdoController extends Controller
 {
     public function destroy(Request $request, $od)
     {
-
+        $idacuerdo = $request->input('id-acuerdo');
         if($request->ajax())
         {
-            $acuerdo = Acuerdo::findOrFail($od);
+            
+            $acuerdo = Acuerdo::findOrFail($idacuerdo);
             if(!is_null($acuerdo))
             {
                 $acuerdo->delete();
-                return response()->json(['response' => true, 'id'=>$acuerdo->od]);
+                return response()->json(['response' => true, 'id'=>$acuerdo->id]);
             }
             return response()->json(['response' => false]);
         }

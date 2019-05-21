@@ -1,13 +1,16 @@
-$(document).ready(function(){
+    $(document).ready(function(){
     $('#table').on('click', 'a.delete-record', function(event){
-        console.log("entra");
         event.preventDefault();
-
-        $("#modal-delete-acuerdo").attr('action', $(this).attr('href'));
-        $('#modal-delete-acuerdo').modal("show");
+        
+        $("#modal-acuerdo").attr('action', $(this).attr('href'));
+        var idAcuerdo = $("#modal-delete-acuerdo").attr('action');
+        var id = idAcuerdo.split("/");
+        $("#form-delete-acuerdo").append($("<input>").attr({"type":"hidden", "name":"id-acuerdo", "value":id[4]}));
+        $("#form-delete-acuerdo").attr('action', idAcuerdo);
+        $('#modal-acuerdo').modal("show");
     });
     $("#si-seguro").on("click", function(){
-        $('#modal-delete-acuerdo').modal("hide");
+        $('#modal-acuerdo').modal("hide");
         $.ajax({
             type: $("#form-delete-acuerdo").attr('method'),
             url: $("#form-delete-acuerdo").attr('action'),
