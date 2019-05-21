@@ -27,7 +27,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('#table').on('click', 'a.delete-record', function(event){
+    $('#table-tutor').on('click', 'a.delete-record', function(event){
         event.preventDefault();
 
         $("#modal-delete-tutor").attr('action', $(this).attr('href'));

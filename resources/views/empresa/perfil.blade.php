@@ -2,7 +2,7 @@
 @section('pageTitle', 'Perfil')
 @section('content')
 @include('includes.modal')
-
+<script type="text/javascript" src="{{asset('js/modal-acuerdo.js')}}"></script>
 <h1>{{ trans('traduccion.h1CompanyData') }}</h1>
 <div id="mensaje">
 </div>
@@ -11,7 +11,7 @@
 @endforeach
 
 <div class="table-responsive">
-    <table class="table" id="table">
+    <table class="table" id="table-acuerdo">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>

@@ -1,4 +1,6 @@
-    $(document).ready(function(){
+
+/*
+$(document).ready(function(){
     $('#table').on('click', 'a.delete-record', function(event){
         event.preventDefault();
         
@@ -7,8 +9,10 @@
         var id = idAcuerdo.split("/");
         $("#form-delete-acuerdo").append($("<input>").attr({"type":"hidden", "name":"id-acuerdo", "value":id[4]}));
         $("#form-delete-acuerdo").attr('action', idAcuerdo);
-        $('#modal-acuerdo').modal("show");
+        
+        $('#modal-delete').modal("show");
     });
+    
     $("#si-seguro").on("click", function(){
         $('#modal-acuerdo').modal("hide");
         $.ajax({
@@ -35,4 +39,6 @@
             }
         });
     });
+    
 });
+*/

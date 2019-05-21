@@ -26,7 +26,12 @@ $(document).ready(function(){
             })
         });
 });
-
+$(document).ready(function(){
+    $("#table-acuerdo").on('click', 'a.delete-record', function(event){
+        event.preventDefault();
+        $("#modal-acuerdo").modal("show");
+    });
+});
 $(document).ready(function(){
     $('#table').on('click', 'a.delete-record', function(event){
         event.preventDefault();

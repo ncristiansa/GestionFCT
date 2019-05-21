@@ -2,6 +2,7 @@
 @section('pageTitle', 'Alumno')
 @include('includes.modal')
 @section('content')
+<script type="text/javascript" src="{{asset('js/modal-alumno.js')}}"></script>
 <h1>{{ trans('traduccion.StudendsList') }}</h1>
 
 <div class="table-responsive">
