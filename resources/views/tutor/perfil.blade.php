@@ -8,8 +8,25 @@
 @foreach($perfiltutor as $tutor)
     <h2>{{ trans('traduccion.h2Agreementof') }} <b id="nombre-tutor">{{$tutor->Nombre}}</b></h2>
 @endforeach
+<div class="table-responsive">
+    <table class="table" id="table-acuerdo">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">id</th>
+                <th scope="col">Fecha Alta</th>
+                <th scope="col">Acabada</th>
+                <th scope="col">Fin</th>
+            </tr>
+        </thead>
+    </table>
+    
+</div>
 <script>
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};
+    var infoTutorAcuerdo = {!! json_encode($acuerdotutor, JSON_HEX_TAG) !!};
+    console.log(infoTutorAcuerdo);
+    var Rol = "{{ auth()->user()->name }}";
     var listaLabels = [
         "",
         "{{ trans('traduccion.tutoName') }}",
@@ -19,12 +36,13 @@
     ];
     
     crearFormulario("h1", infoTutor, "/home/tutor/"+infoTutor[0]["id"], "GET", true, "form-perfil", listaLabels);
+    crearFilas("table", infoTutorAcuerdo, "/home/empresa/"+infoTutor[0]["id"], "/home/empresa/"+infoTutor[0]["id"], "tbody-tutor-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(4)))
+    if(isNaN($("li a").eq(5)))
     {
       for(var datos in infoTutor)
       {
-        $("li a").eq(4).text(infoTutor[datos]["Nombre"]);
+        $("li a").eq(5).text(infoTutor[datos]["Nombre"]);
       }
     }  
     });

@@ -48,11 +48,11 @@
     
     crearFilas("table", infoAcuerdoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "/home/empresa/"+infoEmpresa[0]["id"], "tbody-empresa-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(4)))
+    if(isNaN($("li a").eq(5)))
     {
       for(var datos in infoEmpresa)
       {
-        $("li a").eq(4).text(infoEmpresa[datos]["Empresa"]);
+        $("li a").eq(5).text(infoEmpresa[datos]["Empresa"]);
       }
     }  
     });

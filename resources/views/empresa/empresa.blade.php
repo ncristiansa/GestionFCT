@@ -1,8 +1,8 @@
 @extends('layouts/general')
 @section('pageTitle', 'Empresa')
-@include('includes.modal')
 @section('content')
-<script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
+@include('includes.modal')
+
     <h1>{{ trans('traduccion.titlesCompany') }}</h1>
 <div class="table-responsive">
     <table class="table" id="table-empresa">

@@ -1,11 +1,10 @@
 @extends('layouts/general')
 @section('pageTitle', 'Alumno')
-@include('includes.modal')
 @section('content')
-<script type="text/javascript" src="{{asset('js/modal-alumno.js')}}"></script>
+@include('includes.modal')
 <h1>{{ trans('traduccion.StudendsList') }}</h1>
 <div class="table-responsive">
-    <table class="table" id="table-alumno">
+    <table class="table" id="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
@@ -92,5 +91,7 @@
           }
     });
   });
+  
 </script>
+
 @stop

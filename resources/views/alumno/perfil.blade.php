@@ -22,7 +22,6 @@
     </table>
     
 </div>
-<a class="btn btn-success add-acuerdo" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <div id="mensaje">
 </div>
 <script>
@@ -41,12 +40,11 @@
     crearFormulario("h1", infoAlumn, "/home/alumno/"+infoAlumn[0]["id"], "GET", true, "form-perfil", listaLabels);
     crearFilas("table", infoAcuerdoAlumno, "/home/alumno/"+infoAlumn[0]["id"], "/home/alumno/"+infoAlumn[0]["id"], "tbody-alumno-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(4)))
+    if(isNaN($("li a").eq(5)))
     {
-        $("li a").eq(4).text("");
         for(var datos in infoAlumn)
         {
-            $("li a").eq(4).text(infoAlumn[datos]["Nom"]);
+            $("li a").eq(5).text(infoAlumn[datos]["Nom"]);
         }
     }  
     });

@@ -9,6 +9,8 @@ require('./bootstrap');
 require('../../public/js/script.js');
 require('../../public/js/modal.js');
 require('../../public/js/modal-alumno.js');
+require('../../public/js/modal-tutor.js');
+require('../../public/js/modal-acuerdo.js');
 
 
 

@@ -1,4 +1,4 @@
-<!-- Modal Empresa -->
+
 <div class="modal" tabindex="-1" role="dialog" id="modal-delete">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

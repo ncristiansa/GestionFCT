@@ -7,6 +7,7 @@ use Illuminate\Routing\Route;
 use App\Alumno;
 use App\Acuerdo;
 use App\Tutor;
+use App\AcuerdoTutor;
 use Response;
 use DB;
 class TutorController extends Controller
@@ -20,6 +21,7 @@ class TutorController extends Controller
     public function edit(Request $request, $id)
     {
         $perfiltutor = Tutor::where('id', $id)->get(["id",'Nombre', "Email", "Telefono"]);
+        $acuerdotutor = DB::select('SELECT acu.id, acu.Fecha_alta, acu.Acabada, acu.Fin FROM acuerdo acu, acuerdo_tutor aq WHERE acu.alumno_id = aq.alumno_id AND aq.tutor_id = ?',[$id]);
         if($request->ajax())
         {
             Tutor::findOrFail($id)
@@ -30,7 +32,7 @@ class TutorController extends Controller
             ]);
             return response()->json(array('perfiltutor' => $perfiltutor));
         }
-        return view('tutor.perfil')->with('perfiltutor', $perfiltutor);
+        return view('tutor.perfil', ['perfiltutor'=>$perfiltutor, 'acuerdotutor'=>$acuerdotutor]);
         
     }
     public function destroy(Request $request, $id)

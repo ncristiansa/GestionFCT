@@ -1,7 +1,7 @@
 @extends('layouts/general')
 @section('pageTitle', 'Tutor')
-@include('includes.modal')
 @section('content')
+@include('includes.modal')
 <script type="text/javascript" src="{{asset('js/modal-tutor.js')}}"></script>
 <h1>{{ trans('traduccion.Listoftutors') }}</h1>
 <div class="table-responsive">

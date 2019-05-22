@@ -34,7 +34,6 @@ Route::group(['middleware' => ['web']], function () {
     /**
      * Ruta acuerdo
      */
-    Route::post('/home/empresa/{id}/{od}', 'AcuerdoController@update')->name('acuerdo.add');
     Route::get('/home/empresa/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
     Route::delete('/home/empresa/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
 
@@ -62,7 +61,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/home/tutor/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
     Route::delete('/home/tutor/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
 
- 
+    Route::get('/home/acuerdo', 'AcuerdoController@index')->name('acuerdo');
+    Route::post('/home/acuerdo', 'AcuerdoController@store')->name('acuerdo.add');
+
     Route::get('lang/{lang}', function ($lang) {
         session(['lang' => $lang]);
         return \Redirect::back();

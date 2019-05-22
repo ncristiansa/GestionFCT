@@ -8,20 +8,35 @@ use App\Alumno;
 use App\Acuerdo;
 use App\Empresa;
 use App\Tutor;
+use App\AcuerdoTutor;
 use Response;
 use DB;
 class AcuerdoController extends Controller
 {
+    public function index()
+    {
+        $alumno = DB::table('alumno')->select('id','Nom')->get();
+        $empresa = DB::table('empresa')->select('id','Empresa')->get();
+        $tutor = DB::table('tutor')->select('id', 'Nombre')->get();
+        return view('acuerdo.acuerdo', ['alumno'=>$alumno, 'empresa'=>$empresa, 'tutor'=>$tutor]);
+    }
     public function store(Request $request)
     {
         if($request->ajax())
         {
+            
             $acuerdo = new Acuerdo;
-            $acuerdo->Fecha_alta = $request->input('fecha-alta');
+            $acuerdo->Fecha_alta = $request->input('fecha_alta');
             $acuerdo->Acabada = $request->input('acabada');
             $acuerdo->Fin = $request->input('fin');
-            
+            $acuerdo->empresa_id = $request->get('empresa');
+            $acuerdo->alumno_id = $request->get('alumno');
             $acuerdo->save();
+            $acuerdotutor = new AcuerdoTutor;
+            $acuerdotutor->tutor_id = $request->get('tutor');
+            $acuerdotutor->acuerdo_id = $acuerdo->id;
+            $acuerdotutor->alumno_id = $request->get('alumno');
+            $acuerdotutor->save();
             return response()->json($acuerdo);
         }
     }

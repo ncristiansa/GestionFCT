@@ -1,5 +1,4 @@
-
-$(document).ready(function(){
+    $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
         event.preventDefault();
         actualizarNombre("li a", "#nombre-alumno", "input[name='Nom']");
@@ -27,7 +26,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('#table-alumno').on('click', 'a.delete-record', function(event){
+    $('#table').on('click', 'a.delete-record', function(event){
         event.preventDefault();
 
         $("#modal-delete-alumno").attr('action', $(this).attr('href'));
