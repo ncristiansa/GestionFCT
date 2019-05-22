@@ -42,6 +42,7 @@ return [
     'acuFinalizada' => 'Data de finalització',
     'acuFi' => 'Data fi',
     'datosAcuerdo' => "Dades de l'acord",
+    'search' => 'Buscar',
 
 ]
 ?>

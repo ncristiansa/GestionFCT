@@ -42,5 +42,6 @@ return [
     "acuFinalizada" => 'Fecha que ha acabado',
     "acuFi" => 'Fecha fin',
     "datosAcuerdo" => 'Datos del acuerdo',
+    'search' => 'Buscar'
 ]
 ?>

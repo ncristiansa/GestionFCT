@@ -42,6 +42,7 @@ return [
     "acuFinalizada" => 'Data that is over',
     "acuFi" => 'End date',
     'datosAcuerdo' => "Agreement data",
+    'search' => 'Search',
 
 ]
 ?>

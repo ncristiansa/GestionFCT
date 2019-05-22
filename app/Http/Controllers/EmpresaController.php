@@ -27,6 +27,20 @@ class EmpresaController extends Controller
 
         return view('empresa.empresa', compact('empresa', $empresa));
     }
+    public function seach(Request $request)
+    {
+        if($request->ajax())
+        {
+            $buscado = $request->input('filtro');
+            $empresa = Empresa::select('id', 'Empresa', 'NIF')
+                            ->where('Empresa', 'like', '%'.$buscado.'%')
+                            ->orwhere('NIF', 'like','%'.$buscado.'%');
+        
+            return response()->json($empresa);
+        }else{
+            return view('empresa.empresa', compact('empresa', $empresa));
+        }
+    }
     public function edit(Request $request, $id)
     {
         $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);

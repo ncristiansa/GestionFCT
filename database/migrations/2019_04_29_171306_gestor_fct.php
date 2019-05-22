@@ -17,7 +17,7 @@ class GestorFct extends Migration
             $table->increments('id');
             $table->String('Empresa');
             $table->String('NIF');
-            $table->String('Topologia');
+            $table->String('Tipologia');
             $table->String('Perfil');
             $table->String('Idiomas');
             $table->String('Horario');
@@ -67,6 +67,10 @@ class GestorFct extends Migration
             $table->String('Descripcion');
             $table->integer('acuerdo_id')->unsigned();
             $table->foreign('acuerdo_id')->references('id')->on('acuerdo');
+        });
+        Schema::create('festivos', function (Blueprint $table){
+            $table->date("Fecha");
+            $table->String("Descripcion");
         });
     }
 

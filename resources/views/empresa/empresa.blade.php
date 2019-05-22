@@ -4,6 +4,12 @@
 @include('includes.modal')
 
 <h1>{{ trans('traduccion.titlesCompany') }}</h1>
+<nav class="navbar navbar-light bg-light">
+  {!! Form::open(['id' => 'buscador-form', 'method' => 'GET']) !!}
+    <input class="form-control mr-sm-2" type="search" placeholder="{{ trans('traduccion.search') }}" aria-label="Search" name="filtro">
+    <a class="btn btn btn-info filtro-empresa" id="filtro"><img class="img-iconos" src="{{URL::asset('images/search.svg')}}"></a>
+  {!! Form::close() !!}
+</nav>
 <div class="table-responsive">
     <table class="table" id="table-empresa">
         <thead class="thead-dark">
@@ -102,6 +108,21 @@
         console.log(data);
       }
     });
+  });
+  $(document).on('click', 'a.filtro-empresa', function(){
+    var valorFiltro = $("input[name='filtro']").val();
+    $.ajax({
+        type: $("#buscador-form").attr('method'),
+        url: $("#buscador-form").attr('action'),
+        data: {filtro: valorFiltro},
+        dataType: 'json',
+        success: function(data){
+          console.log(data);
+        },
+        error: function(data){
+          console.log(data);
+        }
+      });
   });
 </script>
 @stop

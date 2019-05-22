@@ -29,6 +29,7 @@ Route::group(['middleware' => ['web']], function () {
      */    
     Route::get('/home/empresa', 'EmpresaController@index')->name('empresa');
     Route::post('/home/empresa', 'EmpresaController@store')->name('empresa.add');
+    Route::get('/home/empresa/{data?}', 'EmpresaController@search');
     Route::delete('/home/empresa/{id}', 'EmpresaController@destroy')->name('empresa.destroy');
     Route::get('/home/empresa/{id}', 'EmpresaController@edit')->name('empresa.edit');
     /**
