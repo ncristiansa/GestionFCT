@@ -45,7 +45,9 @@ function nuevoRegistro(data, idtbody, urlD, urlE)
 function crearFilas(elementoAnterior, consulta,urlDestroy, urlEdit, attrTbody, Rol, tipo)
 {   
     var tbody = $("<tbody>").attr({"id":attrTbody});
-    for(var datos in consulta)
+    if(consulta.length > 0)
+    {
+        for(var datos in consulta)
         {
             var urlD = urlDestroy.replace(':id', consulta[datos]["id"]);
             var urlE = urlEdit.replace(':id', consulta[datos]["id"]);
@@ -84,12 +86,15 @@ function crearFilas(elementoAnterior, consulta,urlDestroy, urlEdit, attrTbody, R
             tbody.append(trvalores);
         }
     $(elementoAnterior).append(tbody);
+    }else{
+        mensajeError(elementoAnterior, "No se han encontrado registros de esta tabla.", "alert alert-warning");
+    }
 }
 function crearTabla(elementoAnterior, tableClass, theadClass, Consulta, enlace)
 {
     if(Consulta.length <= 0)
     {
-        var mensaje = $("<div>").attr({"class":"alert alert-warning", "role":"alert"}).append($("<p>").text("No se han encontrado registros."));
+        var mensaje = $("<div>").attr({"class":"alert alert-warning", "role":"alert"}).append($("<p>").text("No se han encontrado registros en esta tabla"));
         $(elementoAnterior).after(mensaje);
     }
     var divTabla = $("<div>").addClass("table-responsive");
@@ -135,9 +140,9 @@ function crearTh(texto, attrscope)
     }
     return $("<th>").text(texto);
 }
-function mensajeError(situado, mensaje)
+function mensajeError(situado, mensaje, clase)
 {
-    return $(situado).after($("<div>").attr({"class": "alert alert-danger", "role":"alert"}).append("<p>").text(mensaje));
+    return $(situado).after($("<div>").attr({"class": clase, "role":"alert"}).append("<p>").text(mensaje));
 }
 function muestraMensaje(id, clase, mensaje)
 {

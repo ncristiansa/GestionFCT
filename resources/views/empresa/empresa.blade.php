@@ -3,7 +3,7 @@
 @section('content')
 @include('includes.modal')
 
-    <h1>{{ trans('traduccion.titlesCompany') }}</h1>
+<h1>{{ trans('traduccion.titlesCompany') }}</h1>
 <div class="table-responsive">
     <table class="table" id="table-empresa">
         <thead class="thead-dark">
@@ -19,6 +19,7 @@
 <div id="mensaje">
 </div>
 <a class="btn btn-success add-company" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
+
 <script>
   var Rol = "{{ auth()->user()->name }}";
   var urlDestroy = '{{route("empresa.destroy", ":id")}}';

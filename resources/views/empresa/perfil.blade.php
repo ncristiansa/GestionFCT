@@ -24,7 +24,6 @@
     </table>
     
 </div>
-<a class="btn btn-success add-acuerdo" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <div id="mensaje">
 </div>
 
@@ -58,32 +57,6 @@
     });
     
 </script>
-<!-- Agregar acuerdo -->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-add-acuerdo">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content" style="padding:45px;">
-    <h5>Agrega un nuevo acuerdo</h5>
-    <div class="form">
-        {!! Form::open(['id' => 'form-add-acuerdo', 'method' => 'POST']) !!}
-          <div class="form-group col-md-10">
-            <label>Fecha Alta</label>
-            <input class="form-control" type="date" name="fecha-alta">
-          </div>
-          <div class="form-group col-md-10">
-            <label>Acabada</label>
-            <input class="form-control" type="date" name="acabada">
-          </div>
-          <div class="form-group col-md-10">
-            <label>Fin</label>
-            <input class="form-control" type="date" name="fin">
-          </div>
-          <a id="save-acuerdo-empresa" class="btn btn-success add-acuerdo-empresa"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        {!! Form::close() !!}
-        </div>
-    </div>
-  </div>
-</div>
 <script type="text/javascript">
   var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};
   $(document).on('click', 'a.add-acuerdo', function(){
