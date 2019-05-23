@@ -5,7 +5,9 @@
 <div class="container">
     <form id="calculadora">
     <div class="form-row">
-    
+        <div class="form-group col-md-12">
+            <h5>Fechas</h5>
+        </div>
         <div class="form-group col-md-4">
             <label>Fecha inicial</label>
             <input class="form-control" type="date" name="fechainicio">
@@ -19,7 +21,7 @@
             <input class="form-control" type="text" name="acabada" placeholder="350">
         </div>
         <div class="form-group col-md-12">
-        	<h3>Horas</h3>
+        	<h5>Horas</h5>
         </div>
         <div class="form-group col-md-2">
             <label>Lunes</label>
@@ -55,8 +57,7 @@
         var fechaInicio = new Date(fechainicio).getTime();
         var fechaFin    = new Date(fechafin).getTime();
         var diff = fechaFin - fechaInicio;
-
-        console.log(diff/(1000*60*60*24) );
+        return diff/(1000*60*60*24)-8;
     }
     $(document).on('click', 'a.calcula-horas', function(){
         var fechainicio = $("input[name='fechainicio']").val();
