@@ -3,16 +3,16 @@
 @section('content')
 <h1>Calcula horas</h1>
 <div class="container">
-    {!! Form::open(['id' => 'form-add-acuerdo', 'method' => 'POST']) !!}
+    <form id="calculadora">
     <div class="form-row">
     
         <div class="form-group col-md-4">
             <label>Fecha inicial</label>
-            <input class="form-control" type="date" name="fecha_alta">
+            <input class="form-control" type="date" name="fechainicio">
         </div>
         <div class="form-group col-md-4">
             <label>Fecha fin</label>
-            <input class="form-control" type="date" name="fin">
+            <input class="form-control" type="date" name="fechafin">
         </div> 
         <div class="form-group col-md-2">
             <label>Horas del acuerdo</label>
@@ -43,45 +43,49 @@
         </div>
              
     </div>
-	<a class="btn btn-info calcula-horas" id="calcula-horas"><img width="25" height="25" class="img-iconos" src="{{URL::asset('images/calculator.png')}}"></a>  
-    {!! Form::close() !!}
-@stop
+    <form>
+	<a class="btn btn-info calcula-horas" id="calcula-horas"><img width="25" height="25" class="img-iconos" src="{{URL::asset('images/calculator.png')}}"></a>
+    <p id="resultado"></p>
+
 <script type="text/javascript">
 	var Festivos= {!! json_encode($festivo->toArray(), JSON_HEX_TAG) !!};
     
+    function calculaDias(fechainicio, fechafin)
+    {
+        var fechaInicio = new Date(fechainicio).getTime();
+        var fechaFin    = new Date(fechafin).getTime();
+        var diff = fechaFin - fechaInicio;
+
+        console.log(diff/(1000*60*60*24) );
+    }
+    $(document).on('click', 'a.calcula-horas', function(){
+        var fechainicio = $("input[name='fechainicio']").val();
+        var fechafin = $("input[name='fechafin'").val();
+        $("#resultado").text(calculaDias(fechainicio, fechafin));
+    });
     function esFestivo(fecha, Festivos, tipos)
     {
         var fecha_recibida = fecha.split("-");
         var mes = fecha_recibida[1];
         var dia = fecha_recibida[2];
+        
     	for(var posicion in Festivos)
     	{
     		var fechas = Festivos[posicion]["Fecha"].split("-");
     		// fecha[0] devuelve Año
     		// fecha[1] devuelve Mes
-    		// fecha[2] devuelve Día
-            var tipo = Festivos[posicion]["Tipo"].split(" ");
-            console.log(tipo[0])
-            
-            
-            if(tipo[0] == tipos){
-                console.log("Festivo / Local");
-            }else{
-                console.log("no")
+            // fecha[2] devuelve Día
+            var Valores = Object.values(Festivos[posicion]);
+            var num = 0;
+            if(fechas[1] == mes && fechas[2] == dia && Valores[2] === tipos)
+            {
+                num=num+1
+                console.log(num);
+                //return true   
             }
             
-
+            
     	}
-    }
-    var fecha = "2019-06-10";
-    esFestivo(fecha, Festivos, "local")
-    /*
-    if(esFestivo(fecha, Festivos, "festivo local")){
-        console.log("Es festivo");
-    }else{
-        console.log("No es festivo");
-    }
-    */
-
-	
+    }	
 </script>
+@stop

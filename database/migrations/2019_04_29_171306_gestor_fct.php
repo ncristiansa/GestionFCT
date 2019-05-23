@@ -90,5 +90,6 @@ class GestorFct extends Migration
         Schema::dropIfExists('acuerdo');
         Schema::dropIfExists('seguimiento');
         Schema::dropIfExists('acuerdo_tutor');
+        Schema::dropIfExists('festivos');
     }
 }
