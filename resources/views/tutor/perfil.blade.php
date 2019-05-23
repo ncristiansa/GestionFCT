@@ -38,11 +38,11 @@
     crearFormulario("h1", infoTutor, "/home/tutor/"+infoTutor[0]["id"], "GET", true, "form-perfil", listaLabels);
     crearFilas("table", infoTutorAcuerdo, "/home/empresa/"+infoTutor[0]["id"], "/home/empresa/"+infoTutor[0]["id"], "tbody-tutor-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(5)))
+    if(isNaN($("li a").eq(6)))
     {
       for(var datos in infoTutor)
       {
-        $("li a").eq(5).text(infoTutor[datos]["Nombre"]);
+        $("li a").eq(6).text(infoTutor[datos]["Nombre"]);
       }
     }  
     });

@@ -29,7 +29,7 @@ Route::group(['middleware' => ['web']], function () {
      */    
     Route::get('/home/empresa', 'EmpresaController@index')->name('empresa');
     Route::post('/home/empresa', 'EmpresaController@store')->name('empresa.add');
-    Route::get('/home/empresa/{data?}', 'EmpresaController@search');
+    //Route::get('/home/empresa/{data?}', 'EmpresaController@search');
     Route::delete('/home/empresa/{id}', 'EmpresaController@destroy')->name('empresa.destroy');
     Route::get('/home/empresa/{id}', 'EmpresaController@edit')->name('empresa.edit');
     /**
@@ -61,10 +61,15 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/home/tutor/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
     Route::delete('/home/tutor/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
-
+    /**
+    * Ruta crear Acuerdo
+    */
     Route::get('/home/acuerdo', 'AcuerdoController@index')->name('acuerdo');
     Route::post('/home/acuerdo', 'AcuerdoController@store')->name('acuerdo.add');
-
+    /**
+    * Ruta calcula horas
+    */
+    Route::get('/home/calcula', 'FestivoController@index')->name('calcula');
     Route::get('lang/{lang}', function ($lang) {
         session(['lang' => $lang]);
         return \Redirect::back();

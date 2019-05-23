@@ -14,31 +14,31 @@
         "{{ trans('traduccion.acuFi') }}",
         "",
     ];
-    if($.trim($("li a").eq(4).text()) == "EMPRESA"){
+    if($.trim($("li a").eq(5).text()) == "EMPRESA"){
       crearFormulario("h1", infoAcuerdo, "/home/empresa/"+infoEmpresa[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
-    }else if($.trim($("li a").eq(4).text()) == "ALUMNO"){
+    }else if($.trim($("li a").eq(5).text()) == "ALUMNO"){
       crearFormulario("h1", infoAcuerdo, "/home/alumno/"+infoAlumno[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
-    }else if($.trim($("li a").eq(4).text()) == "TUTOR"){
+    }else if($.trim($("li a").eq(5).text()) == "TUTOR"){
       crearFormulario("h1", infoAcuerdo, "/home/tutor/"+infoTutor[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
     }
     $(document).ready(function() {
-    if(isNaN($("li a").eq(4)))
+    if(isNaN($("li a").eq(5)))
     {
-      if($.trim($("li a").eq(4).text()) == "EMPRESA")
+      if($.trim($("li a").eq(5).text()) == "EMPRESA")
       {
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(5).text(infoEmpresa[datos]["Empresa"]);
+          $("li a").eq(6).text(infoEmpresa[datos]["Empresa"]);
         }
       }else if($.trim($("li a").eq(4).text()) == "ALUMNO"){
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(5).text(infoAlumno[datos]["Nom"]);
+          $("li a").eq(6).text(infoAlumno[datos]["Nom"]);
         }
       }else if($.trim($("li a").eq(4).text()) == "TUTOR"){
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(5).text(infoAlumno[datos]["Nombre"]);
+          $("li a").eq(6).text(infoAlumno[datos]["Nombre"]);
         }
       }
     }  

@@ -50,8 +50,8 @@
             <input class="form-control" type="text" name="nif">
           </div>
           <div class="form-group col-md-10">
-            <label>Topologia</label>
-            <input class="form-control" type="text" name="topologia">
+            <label>Tipologia</label>
+            <input class="form-control" type="text" name="tipologia">
           </div>
           <div class="form-group col-md-10">
             <label>Perfil</label>
@@ -91,6 +91,7 @@
       url: $('#form-add-empresa').attr('action'),
       data: $('#form-add-empresa').first().serialize(),
       success : function(data){
+        console.log(data);
         var urlEmpresa = window.location.origin+"/home/empresa";
         var trvalores = $("<tr>").attr({"data-id": data.id});
         trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlEmpresa+"/"+data.id));

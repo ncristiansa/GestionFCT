@@ -8,5 +8,5 @@ class Empresa extends Model
 {
     public $timestamps = false;
     protected $table = 'empresa';
-    protected $fillable = ['id','Empresa', 'NIF', 'Topologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento'];
+    protected $fillable = ['id','Empresa', 'NIF', 'Tipologia', 'Perfil', 'Idiomas', 'Horario', 'Seguimiento'];
 }

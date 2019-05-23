@@ -79,7 +79,7 @@
             trvalores.append(crearAImg("/../images/trashcan.svg", "borrar", "btn btn-danger delete-record", undefined, urlAlumno+"/"+data.id));
             
             trvalores.append("<td>"+data.id+"</td>"+
-                "<td>"+data.Nom+"</td>"+
+                "<td>"+data.Nombre+"</td>"+
                 "<td>"+data.DNI+"</td>");
             $("#tbody-alumno").append(trvalores);
             $('#modal-add-alumno').modal('toggle');

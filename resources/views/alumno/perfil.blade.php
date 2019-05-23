@@ -40,11 +40,11 @@
     crearFormulario("h1", infoAlumn, "/home/alumno/"+infoAlumn[0]["id"], "GET", true, "form-perfil", listaLabels);
     crearFilas("table", infoAcuerdoAlumno, "/home/alumno/"+infoAlumn[0]["id"], "/home/alumno/"+infoAlumn[0]["id"], "tbody-alumno-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(5)))
+    if(isNaN($("li a").eq(6)))
     {
         for(var datos in infoAlumn)
         {
-            $("li a").eq(5).text(infoAlumn[datos]["Nom"]);
+            $("li a").eq(6).text(infoAlumn[datos]["Nombre"]);
         }
     }  
     });

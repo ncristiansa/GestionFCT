@@ -15,7 +15,7 @@ class AcuerdoController extends Controller
 {
     public function index()
     {
-        $alumno = DB::table('alumno')->select('id','Nom')->get();
+        $alumno = DB::table('alumno')->select('id','Nombre')->get();
         $empresa = DB::table('empresa')->select('id','Empresa')->get();
         $tutor = DB::table('tutor')->select('id', 'Nombre')->get();
         return view('acuerdo.acuerdo', ['alumno'=>$alumno, 'empresa'=>$empresa, 'tutor'=>$tutor]);
@@ -58,8 +58,8 @@ class AcuerdoController extends Controller
     public function edit(Request $request, $od)
     {
         $perfilacuerdo = Acuerdo::where('id', $od)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
-        $perfilempresa = Empresa::where('id', $od)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
-        $perfilalumno = Alumno::where('id', $od)->get(["id",'Nom', "DNI", "Num_CAP", "Email", "Telefono"]);
+        $perfilempresa = Empresa::where('id', $od)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        $perfilalumno = Alumno::where('id', $od)->get(["id",'Nombre', "DNI", "Num_CAP", "Email", "Telefono"]);
         $perfiltutor = Tutor::where('id', $od)->get(["id",'Nombre', "Email", "Telefono"]);
         if($request->ajax())
         {

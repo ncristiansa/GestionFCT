@@ -44,10 +44,9 @@ function nuevoRegistro(data, idtbody, urlD, urlE)
  }
 function crearFilas(elementoAnterior, consulta,urlDestroy, urlEdit, attrTbody, Rol, tipo)
 {   
+    
     var tbody = $("<tbody>").attr({"id":attrTbody});
-    if(consulta.length > 0)
-    {
-        for(var datos in consulta)
+         for(var datos in consulta)
         {
             var urlD = urlDestroy.replace(':id', consulta[datos]["id"]);
             var urlE = urlEdit.replace(':id', consulta[datos]["id"]);
@@ -86,9 +85,6 @@ function crearFilas(elementoAnterior, consulta,urlDestroy, urlEdit, attrTbody, R
             tbody.append(trvalores);
         }
     $(elementoAnterior).append(tbody);
-    }else{
-        mensajeError(elementoAnterior, "No se han encontrado registros de esta tabla.", "alert alert-warning");
-    }
 }
 function crearTabla(elementoAnterior, tableClass, theadClass, Consulta, enlace)
 {

@@ -13,18 +13,18 @@ class AlumnoController extends Controller
     public function index(Request $request)
     {
         //$request->user()->authorizeRoles("Administrador");
-        $alumno = DB::table('alumno')->select('id','Nom', 'DNI')->get();
+        $alumno = DB::table('alumno')->select('id','Nombre', 'DNI')->get();
         return view('alumno.alumno')->with('alumno', $alumno);
     }
     public function edit(Request $request, $id)
     {
-        $perfilalumno = Alumno::where('id', $id)->get(["id",'Nom', "DNI", "Num_CAP", "Email", "Telefono"]);
+        $perfilalumno = Alumno::where('id', $id)->get(["id",'Nombre', "DNI", "Num_CAP", "Email", "Telefono"]);
         $acuerdoalumno = Acuerdo::where('alumno_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
         if($request->ajax())
         {
             Alumno::findOrFail($id)
             ->update([
-                'Nom' => $request->input('Nom'),
+                'Nombre' => $request->input('Nombre'),
                 'DNI' => $request->input('DNI'),
                 'Num_CAP' => $request->input('Num_CAP'),
                 'Email' => $request->input('Email'),
@@ -40,7 +40,7 @@ class AlumnoController extends Controller
         if($request->ajax())
         {
             $alumno = new Alumno;
-            $alumno->Nom = $request->input('nombre');
+            $alumno->Nombre = $request->input('nombre');
             $alumno->DNI = $request->input('dni');
             $alumno->Num_CAP = $request->input('num_cap');
             $alumno->Email = $request->input('email');

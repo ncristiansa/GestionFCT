@@ -27,6 +27,7 @@ class EmpresaController extends Controller
 
         return view('empresa.empresa', compact('empresa', $empresa));
     }
+    /*
     public function seach(Request $request)
     {
         if($request->ajax())
@@ -41,9 +42,10 @@ class EmpresaController extends Controller
             return view('empresa.empresa', compact('empresa', $empresa));
         }
     }
+    */
     public function edit(Request $request, $id)
     {
-        $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Topologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
         $acuerdoempresa = Acuerdo::where('empresa_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
 
         if($request->ajax())
@@ -52,7 +54,7 @@ class EmpresaController extends Controller
             ->update([
                 'Empresa' => $request->input('Empresa'),
                 'NIF' => $request->input('NIF'),
-                'Topologia' => $request->input('Topologia'),
+                'Tipologia' => $request->input('Tipologia'),
                 'Perfil' => $request->input('Perfil'),
                 'Idiomas' => $request->input('Idiomas'),
                 'Horario' => $request->input('Horario'),
@@ -80,7 +82,7 @@ class EmpresaController extends Controller
             $empresa = new Empresa;
             $empresa->Empresa = $request->input('empresa');
             $empresa->NIF = $request->input('nif');
-            $empresa->Topologia = $request->input('topologia');
+            $empresa->Tipologia = $request->input('tipologia');
             $empresa->Perfil = $request->input('perfil');
             $empresa->Idiomas = $request->input('idiomas');
             $empresa->Horario = $request->input('horario');

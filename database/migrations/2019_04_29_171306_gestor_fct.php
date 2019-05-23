@@ -31,7 +31,7 @@ class GestorFct extends Migration
         });
         Schema::create('alumno', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('Nom');
+            $table->String('Nombre');
             $table->String('DNI');
             $table->String('Num_CAP');
             $table->string('Email');
@@ -71,6 +71,7 @@ class GestorFct extends Migration
         Schema::create('festivos', function (Blueprint $table){
             $table->date("Fecha");
             $table->String("Descripcion");
+            $table->String("Tipo");
         });
     }
 

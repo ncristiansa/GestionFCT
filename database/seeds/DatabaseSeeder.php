@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
 
         // Los usuarios necesitarán los roles previamente generados
         $this->call(UserTableSeeder::class);
+        //Festivos
+        $this->call(FestivosSeeder::class);
     }
 }
