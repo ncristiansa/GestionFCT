@@ -3,18 +3,18 @@
 @section('content')
 <h1>Calcula horas</h1>
 <div class="container">
-    <form id="calculadora">
+    <form id="calculadora" method="GET">
     <div class="form-row">
         <div class="form-group col-md-12">
             <h5>Fechas</h5>
         </div>
         <div class="form-group col-md-4">
             <label>Fecha inicial</label>
-            <input class="form-control" type="date" name="fechainicio">
+            <input class="form-control" type="date" id="fechainicio" name="fechainicio">
         </div>
         <div class="form-group col-md-4">
             <label>Fecha fin</label>
-            <input class="form-control" type="date" name="fechafin">
+            <input class="form-control" type="date" id="fechafin" name="fechafin">
         </div> 
         <div class="form-group col-md-2">
             <label>Horas del acuerdo</label>
@@ -45,13 +45,27 @@
         </div>
              
     </div>
+    <input type="submit" name="enviar" value="Calcular">
     <form>
-	<a class="btn btn-info calcula-horas" id="calcula-horas"><img width="25" height="25" class="img-iconos" src="{{URL::asset('images/calculator.png')}}"></a>
-    <p id="resultado"></p>
+
+<?php
+    $fecha1 = strtotime('2019-5-23'); 
+    $fecha2 = strtotime('2019-5-30'); 
+        $count = 0;
+        for($fecha1;$fecha1<=$fecha2;$fecha1=strtotime('+1 day ' . date('Y-m-d',$fecha1))){ 
+            if((strcmp(date('D',$fecha1),'Sun')!=0) && (strcmp(date('D',$fecha1),'Sat')!=0)){
+                $count=$count+1; 
+            }
+        }
+        echo $count; 
+
+    
+
+?>
 
 <script type="text/javascript">
 	var Festivos= {!! json_encode($festivo->toArray(), JSON_HEX_TAG) !!};
-    
+    /*
     function calculaDias(fechainicio, fechafin)
     {
         var fechaInicio = new Date(fechainicio).getTime();
@@ -87,6 +101,7 @@
             
             
     	}
-    }	
+    }
+    */
 </script>
 @stop
