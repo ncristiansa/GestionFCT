@@ -50,7 +50,7 @@
         $tablaFestivo = DB::select('select Fecha, Tipo from festivos');
         $festivos = json_decode(json_encode($tablaFestivo), True);
         foreach ($festivos as $value) {
-            print_r($value["Fecha"]);
+            //print_r($value["Fecha"]);
         }
         function esFestivo($fechainicio, $fechafin)
         {
@@ -90,15 +90,14 @@
             $fecha2 = strtotime($fechafin); 
             $total = 0;
             $tiempo = 0;
-            esFestivo($fechainicio, $fechafin);
+            $contadorfiesta = 0;
+            $fechaf = strtotime("2019-01-01");
+            $contadorf= 0;
+            
             for($fecha1;$fecha1<=$fecha2;$fecha1=strtotime('+1 day ' . date('Y-m-d',$fecha1))){
                 if((strcmp(date('D',$fecha1),'Sun')!=0) && (strcmp(date('D',$fecha1),'Sat')!=0)){                    
                     $total=$total+1;
                     $horashechas = 0;
-                    if((strcmp(date('M', $fecha1), 'Jan ')!=1))
-                    {
-                        echo "Es enero";
-                    }
                     if((strcmp(date('D',$fecha1),'Mon')!=1)){
                         $horashechas=+$hora_lunes;
                     }
@@ -116,6 +115,7 @@
                     }
                 }
                 $tiempo=$horashechas;
+                $contadorfiesta=$contadorf;
 
             }
             $horadia = $tiempo/24;
@@ -126,6 +126,7 @@
             Finaliza: ".$fechafin." (".$horaeje." hores)</p>";
             echo '<p> Horas a dias '.round($horadia, 0)."</p>";
             echo '<p> Horas a mes '.round($horames,1)."</p>";
+            echo '<p> Festivo: '.$contadorfiesta."</p>";
         }
     ?>
 <script type="text/javascript">
