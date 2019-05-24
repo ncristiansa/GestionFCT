@@ -3,7 +3,7 @@
 @section('content')
 <h1>Calcula horas</h1>
 <div class="container">
-    <form id="calculadora" method="GET">
+    {!! Form::open(['id' => 'form-calcula', 'method' => 'POST']) !!}
     <div class="form-row">
         <div class="form-group col-md-12">
             <h5>Fechas</h5>
@@ -25,46 +25,112 @@
         </div>
         <div class="form-group col-md-2">
             <label>Lunes</label>
-            <input class="form-control" type="number" name="hlunes">
+            <input class="form-control" type="number" name="hlunes" value="4">
         </div>
         <div class="form-group col-md-2">
             <label>Martes</label>
-            <input class="form-control" type="number" name="hmartes">
+            <input class="form-control" type="number" name="hmartes" value="4">
         </div>
         <div class="form-group col-md-2">
             <label>Miercoles</label>
-            <input class="form-control" type="number" name="hmiercoles">
+            <input class="form-control" type="number" name="hmiercoles" value="4">
         </div>
         <div class="form-group col-md-2">
             <label>Jueves</label>
-            <input class="form-control" type="number" name="hjueves">
+            <input class="form-control" type="number" name="hjueves" value="4">
         </div>
         <div class="form-group col-md-2">
             <label>Viernes</label>
-            <input class="form-control" type="number" name="hviernes">
-        </div>
-             
+            <input class="form-control" type="number" name="hviernes" value="4">
+        </div>         
     </div>
     <input type="submit" name="enviar" value="Calcular">
-    <form>
-
-<?php
-    $fecha1 = strtotime('2019-5-23'); 
-    $fecha2 = strtotime('2019-5-30'); 
-        $count = 0;
-        for($fecha1;$fecha1<=$fecha2;$fecha1=strtotime('+1 day ' . date('Y-m-d',$fecha1))){ 
-            if((strcmp(date('D',$fecha1),'Sun')!=0) && (strcmp(date('D',$fecha1),'Sat')!=0)){
-                $count=$count+1; 
-            }
+    {!! Form::close() !!}
+    <?php
+        $tablaFestivo = DB::select('select Fecha, Tipo from festivos');
+        $festivos = json_decode(json_encode($tablaFestivo), True);
+        foreach ($festivos as $value) {
+            print_r($value["Fecha"]);
         }
-        echo $count; 
+        function esFestivo($fechainicio, $fechafin)
+        {
+            $festivos = array(
+                '01-01',  //  Año Nuevo (irrenunciable)
+                '10-04',  //  Viernes Santo (feriado religioso)
+                '11-04',  //  Sábado Santo (feriado religioso)
+                '01-05',  //  Día Nacional del Trabajo (irrenunciable)
+                '21-05',  //  Día de las Glorias Navales
+                '29-06',  //  San Pedro y San Pablo (feriado religioso)
+                '16-07',  //  Virgen del Carmen (feriado religioso)
+                '15-08',  //  Asunción de la Virgen (feriado religioso)
+                '18-09',  //  Día de la Independencia (irrenunciable)
+                '19-09',  //  Día de las Glorias del Ejército
+                '12-10',  //  Aniversario del Descubrimiento de América
+                '31-10',  //  Día Nacional de las Iglesias Evangélicas y Protestantes (feriado religioso)
+                '01-11',  //  Día de Todos los Santos (feriado religioso)
+                '08-12',  //  Inmaculada Concepción de la Virgen (feriado religioso)
+                '13-12',  //  elecciones presidencial y parlamentarias (puede que se traslade al domingo 13)
+                '25-12',  //  Natividad del Señor (feriado religioso) (irrenunciable)
+            );
+            $fechaInicio = new DateTime($fechainicio);
+            $fechaFin = new DateTime($fechafin);
+        }
+        
+        if(isset($_POST["enviar"]))
+        {
+            $fechainicio = $_POST["fechainicio"];
+            $fechafin = $_POST["fechafin"];
+            $hora_lunes = $_POST['hlunes'];
+            $hora_martes = $_POST['hmartes'];
+            $hora_miercoles = $_POST['hmiercoles'];
+            $hora_jueves = $_POST['hjueves'];
+            $hora_viernes = $_POST['hviernes'];
 
-    
+            $fecha1 = strtotime($fechainicio); 
+            $fecha2 = strtotime($fechafin); 
+            $total = 0;
+            $tiempo = 0;
+            esFestivo($fechainicio, $fechafin);
+            for($fecha1;$fecha1<=$fecha2;$fecha1=strtotime('+1 day ' . date('Y-m-d',$fecha1))){
+                if((strcmp(date('D',$fecha1),'Sun')!=0) && (strcmp(date('D',$fecha1),'Sat')!=0)){                    
+                    $total=$total+1;
+                    $horashechas = 0;
+                    if((strcmp(date('M', $fecha1), 'Jan ')!=1))
+                    {
+                        echo "Es enero";
+                    }
+                    if((strcmp(date('D',$fecha1),'Mon')!=1)){
+                        $horashechas=+$hora_lunes;
+                    }
+                    if((strcmp(date('D',$fecha1),'Tue')!=1)){
+                        $horashechas=$tiempo+$hora_martes;
+                    }
+                    if((strcmp(date('D',$fecha1),'Wed')!=1)){
+                        $horashechas=$tiempo+$hora_miercoles;   
+                    }
+                    if((strcmp(date('D',$fecha1),'Thu')!=1)){
+                        $horashechas=$tiempo+$hora_jueves;
+                    }
+                    if((strcmp(date('D',$fecha1),'Fri')!=1)){
+                        $horashechas=$tiempo+$hora_viernes;
+                    }
+                }
+                $tiempo=$horashechas;
 
-?>
-
+            }
+            $horadia = $tiempo/24;
+            $horames = $tiempo/730.001;
+            $horaeje=3;
+            echo "<p> Días: ".$total."</p>";
+            echo '<p> Resultado: '.$tiempo." hores.<br>\n
+            Finaliza: ".$fechafin." (".$horaeje." hores)</p>";
+            echo '<p> Horas a dias '.round($horadia, 0)."</p>";
+            echo '<p> Horas a mes '.round($horames,1)."</p>";
+        }
+    ?>
 <script type="text/javascript">
-	var Festivos= {!! json_encode($festivo->toArray(), JSON_HEX_TAG) !!};
+	
+
     /*
     function calculaDias(fechainicio, fechafin)
     {

@@ -70,6 +70,8 @@ Route::group(['middleware' => ['web']], function () {
     * Ruta calcula horas
     */
     Route::get('/home/calcula', 'FestivoController@index')->name('calcula');
+    Route::post('/home/calcula', 'FestivoController@result')->name('calcula');
+
     Route::get('lang/{lang}', function ($lang) {
         session(['lang' => $lang]);
         return \Redirect::back();

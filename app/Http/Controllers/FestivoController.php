@@ -12,4 +12,9 @@ class FestivoController extends Controller
         
     	return view('festivo.calcula')->with('festivo', $festivo);
     }
+    public function result(Request $request)
+    {
+    	
+        return view('festivo.calcula');
+    }
 }
