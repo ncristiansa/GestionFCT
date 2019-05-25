@@ -1,7 +1,7 @@
 @extends('layouts/general')
 @section('pageTitle', 'Perfil')
 @section('content')
-
+<script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
 <h1>{{ trans('traduccion.dataTutor') }}</h1>
 <div id="mensaje">
 </div>

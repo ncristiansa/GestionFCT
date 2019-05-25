@@ -2,7 +2,7 @@
 @section('pageTitle', 'Tutor')
 @section('content')
 @include('includes.modal')
-<script type="text/javascript" src="{{asset('js/modal-tutor.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
 <h1>{{ trans('traduccion.Listoftutors') }}</h1>
 <div class="table-responsive">
     <table class="table" id="table-tutor">

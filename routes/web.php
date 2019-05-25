@@ -45,7 +45,7 @@ Route::group(['middleware' => ['web']], function () {
      */
     Route::get('/home/alumno', 'AlumnoController@index')->name('alumno');
     Route::post('/home/alumno', 'AlumnoController@store')->name('alumno.add');
-    Route::delete('/home/alumno/{id}', 'AlumnoController@destroy')->name('alumno.destroy');
+    Route::put('/home/alumno/{id}', 'AlumnoController@destroy')->name('alumno.destroy');
     Route::get('home/alumno/{id}', 'AlumnoController@edit')->name('alumno.edit');
 
     Route::get('/home/alumno/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');

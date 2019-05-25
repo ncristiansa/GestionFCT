@@ -1,36 +1,8 @@
 $(document).ready(function(){
-    $('#form-perfil').on('click', 'a.save-record', function(event){
-
-        event.preventDefault();
-            $.ajax({
-                type: $("#form-perfil").attr('method'),
-                url: $("#form-perfil").attr('action'),
-                dataType: 'json',
-                data: $("#form-perfil").first().serialize(),
-                success: function(data){
-                    actualizarNombre("li a", "#nombre-tutor", "input[name='Nombre']");
-                    
-                    formNoEditable("#form-perfil");
-                    muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
-                },
-                error: function(data){
-                    var errores = data.responseJSON;
-                    if(errores)
-                    {
-                        $.each(errores, function(i){
-                            console.log(errores[i]);
-                        })
-                    }
-                }
-            })
-        });
-});
-
-$(document).ready(function(){
     $('#table-tutor').on('click', 'a.delete-record', function(event){
         event.preventDefault();
 
-        $("#modal-delete-tutor").attr('action', $(this).attr('href'));
+        $("#form-delete-tutor").attr('action', $(this).attr('href'));
         $('#modal-delete-tutor').modal("show");
     });
     $("#si-tutor").on("click", function(){
@@ -61,4 +33,31 @@ $(document).ready(function(){
             }
         });
     });
+});
+$(document).ready(function(){
+    $('#form-perfil').on('click', 'a.save-record', function(event){
+
+        event.preventDefault();
+            $.ajax({
+                type: $("#form-perfil").attr('method'),
+                url: $("#form-perfil").attr('action'),
+                dataType: 'json',
+                data: $("#form-perfil").first().serialize(),
+                success: function(data){
+                    actualizarNombre("li a", "#nombre-tutor", "input[name='Nombre']");
+                    
+                    formNoEditable("#form-perfil");
+                    muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
+                },
+                error: function(data){
+                    var errores = data.responseJSON;
+                    if(errores)
+                    {
+                        $.each(errores, function(i){
+                            console.log(errores[i]);
+                        })
+                    }
+                }
+            })
+        });
 });

@@ -2,7 +2,7 @@
 @section('pageTitle', 'Empresa')
 @section('content')
 @include('includes.modal')
-
+<script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
 <h1>{{ trans('traduccion.titlesCompany') }}</h1>
 <nav class="navbar navbar-light bg-light">
   {!! Form::open(['id' => 'buscador-form', 'method' => 'GET']) !!}

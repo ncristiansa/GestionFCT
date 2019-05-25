@@ -47,9 +47,12 @@ class AcuerdoController extends Controller
         {
             
             $acuerdo = Acuerdo::findOrFail($idacuerdo);
-            if(!is_null($acuerdo))
+            $acuerdotutor= AcuerdoTutor::findOrFail($idacuerdo);
+            if(!is_null($acuerdo) && !is_null($acuerdotutor))
             {
+                $acuerdotutor->delete();
                 $acuerdo->delete();
+
                 return response()->json(['response' => true, 'id'=>$acuerdo->id]);
             }
             return response()->json(['response' => false]);

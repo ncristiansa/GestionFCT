@@ -1,6 +1,7 @@
 @extends('layouts/general')
 @section('pageTitle', 'Perfil')
 @section('content')
+<script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
 <h1>{{ trans('traduccion.datosAcuerdo') }}</h1>
 <script>
     var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};

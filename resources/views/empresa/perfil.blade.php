@@ -2,7 +2,6 @@
 @section('pageTitle', 'Perfil')
 @section('content')
 @include('includes.modal')
-<script type="text/javascript" src="{{asset('js/modal-acuerdo.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
 <h1>{{ trans('traduccion.h1CompanyData') }}</h1>
 

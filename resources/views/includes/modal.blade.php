@@ -32,7 +32,7 @@
       </div>
       <div class="modal-body">
         <p>¿Estás seguro de eliminar éste registro?</p>
-        {!! Form::open(['id' => 'form-delete-alumno', 'method' => 'DELETE']) !!}
+        {!! Form::open(['id' => 'form-delete-alumno', 'method' => 'PUT']) !!}
         {!! Form::close() !!}
       </div>
       <div class="modal-footer">
