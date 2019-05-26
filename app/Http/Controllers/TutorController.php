@@ -21,7 +21,7 @@ class TutorController extends Controller
     public function edit(Request $request, $id)
     {
         $perfiltutor = Tutor::where('id', $id)->get(["id",'Nombre', "Email", "Telefono"]);
-        $acuerdotutor = DB::select('SELECT acu.id, acu.Fecha_alta, acu.Acabada, acu.Fin FROM acuerdo acu, acuerdo_tutor aq WHERE acu.alumno_id = aq.alumno_id AND aq.tutor_id = ?',[$id]);
+        $acuerdotutor = DB::select('SELECT DISTINCT acu.id, acu.Fecha_alta, acu.Acabada, acu.Fin FROM acuerdo acu, acuerdo_tutor aq WHERE acu.alumno_id = aq.alumno_id AND aq.tutor_id = ?',[$id]);
         if($request->ajax())
         {
             Tutor::findOrFail($id)

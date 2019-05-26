@@ -23,7 +23,7 @@
       crearFormulario("h1", infoAcuerdo, "/home/tutor/"+infoTutor[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
     }
     $(document).ready(function() {
-    if(isNaN($("li a").eq(5)))
+    if(isNaN($("li a").eq(6)))
     {
       if($.trim($("li a").eq(5).text()) == "EMPRESA")
       {
@@ -31,15 +31,15 @@
         {
           $("li a").eq(6).text(infoEmpresa[datos]["Empresa"]);
         }
-      }else if($.trim($("li a").eq(4).text()) == "ALUMNO"){
-        for(var datos in infoEmpresa)
-        {
-          $("li a").eq(6).text(infoAlumno[datos]["Nom"]);
-        }
-      }else if($.trim($("li a").eq(4).text()) == "TUTOR"){
+      }else if($.trim($("li a").eq(5).text()) == "ALUMNO"){
         for(var datos in infoEmpresa)
         {
           $("li a").eq(6).text(infoAlumno[datos]["Nombre"]);
+        }
+      }else if($.trim($("li a").eq(5).text()) == "TUTOR"){
+        for(var datos in infoEmpresa)
+        {
+          $("li a").eq(6).text(infoTutor[datos]["Nombre"]);
         }
       }
     }  

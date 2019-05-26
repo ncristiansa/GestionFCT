@@ -43,6 +43,8 @@ return [
     "acuFi" => 'End date',
     'datosAcuerdo' => "Agreement data",
     'search' => 'Search',
+    'messageCorrectEdit' => "The record has been successfully edited.",
+    'messageDelete' => 'The record has been successfully deleted.',
 
 ]
 ?>

@@ -36,7 +36,6 @@ $(document).ready(function(){
 });
 $(document).ready(function(){
     $('#form-perfil').on('click', 'a.save-record', function(event){
-
         event.preventDefault();
             $.ajax({
                 type: $("#form-perfil").attr('method'),
@@ -47,7 +46,7 @@ $(document).ready(function(){
                     actualizarNombre("li a", "#nombre-tutor", "input[name='Nombre']");
                     
                     formNoEditable("#form-perfil");
-                    muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
+                    muestraMensaje("#mensaje", "alert alert-success","El registro ha sido editado correctamente.");
                 },
                 error: function(data){
                     var errores = data.responseJSON;

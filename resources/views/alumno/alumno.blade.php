@@ -10,7 +10,7 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">id</th>
-                <th scope="col">Nombre</th>
+                <th scope="col">{{ trans('traduccion.alumName') }}</th>
                 <th scope="col">DNI</th>
             </tr>
         </thead>
@@ -33,7 +33,7 @@
     <div class="form">
         {!! Form::open(['id' => 'form-add-alumno', 'method' => 'POST']) !!}
           <div class="form-group col-md-10">
-            <label>Nombre</label>
+            <label>{{ trans('traduccion.alumName') }}</label>
             <input class="form-control" type="text" name="nombre">
           </div>
           <div class="form-group col-md-10">
@@ -45,11 +45,11 @@
             <input class="form-control" type="text" name="num_cap">
           </div>
           <div class="form-group col-md-10">
-            <label>Email</label>
+            <label>{{ trans('traduccion.alumEmail') }}</label>
             <input class="form-control" type="text" name="email">
           </div>
           <div class="form-group col-md-10">
-            <label>Telefono</label>
+            <label>{{ trans('traduccion.alumTel') }}</label>
             <input class="form-control" type="text" name="telefono">
           </div>
           <a id="save-alumno" class="btn btn-success add-alumno"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
@@ -63,6 +63,7 @@
 <script type="text/javascript">
     var urlDestroy = '{{route("alumno.destroy", ":id")}}';
     var urlEdit = '{{route("alumno.edit", ":id")}}';
+    var msgEdit = "{{ trans('traduccion.messageCorrectEdit') }}";
     $(document).on('click', 'a.add-alumno', function(){
         $("#modal-add-alumno").modal('show');
       });

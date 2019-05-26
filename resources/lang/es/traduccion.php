@@ -42,6 +42,8 @@ return [
     "acuFinalizada" => 'Fecha que ha acabado',
     "acuFi" => 'Fecha fin',
     "datosAcuerdo" => 'Datos del acuerdo',
-    'search' => 'Buscar'
+    'search' => 'Buscar',
+    'messageCorrectEdit' => "El registro ha sido correctamente editado correctamente.",
+    'messageDelete' => 'El registro ha sido eliminado correctamente.',
 ]
 ?>

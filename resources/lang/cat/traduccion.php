@@ -43,6 +43,7 @@ return [
     'acuFi' => 'Data fi',
     'datosAcuerdo' => "Dades de l'acord",
     'search' => 'Buscar',
-
+    'messageCorrectEdit' => "El registre ha sigut correctamente editat.",
+    'messageDelete' => 'El registre ha sigut eliminat correctament.',
 ]
 ?>

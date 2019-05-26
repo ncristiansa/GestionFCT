@@ -47,7 +47,7 @@ $(document).ready(function(){
                 success: function(data){
                     
                     formNoEditable("#form-perfil");
-                    muestraMensaje("#mensaje", "alert alert-success","Los datos han sido editados correctamente.");
+                    muestraMensaje("#mensaje", "alert alert-success","El registro ha sido editado correctamente.");
                 },
                 error: function(data){
                     var errores = data.responseJSON;
