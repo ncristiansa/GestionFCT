@@ -15,4 +15,17 @@
         <img src="{{URL::asset('images/icono-tutora.png')}}" alt="icono-alumno" width="200px" height="200px">
     </div>
 </div>
+<script type="text/javascript">
+    var Nombre = "{{ auth()->user()->Nombre }}";
+    var rutaPerfil = "{{ url('/home/acuerdos') }}";
+    var misacuerdo = "{{ trans('traduccion.Myagreements') }}"
+    $(document).ready(function(){
+        if($.trim($("li a").eq(0).text()) != "Tutor")
+        {
+            $("#menu").append($("<li>").attr({"style":"float:left; padding:2px;"}).append($("<a>").attr({'href':rutaPerfil}).text(misacuerdo)));
+        }else{
+            console.log("Dice tutor");
+        }
+    });
+</script>
 @stop

@@ -20,7 +20,7 @@
 </div>
 <a class="btn btn-success add-tutor" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
-  var Rol = "{{ auth()->user()->name }}";
+  var Rol = "{{ auth()->user()->Nombre }}";
   var urlDestroy = '{{route("tutor.destroy", ":id")}}';
   var urlEdit = '{{route("tutor.edit", ":id")}}';
   var infoTutor = {!! json_encode($tutor->toArray(), JSON_HEX_TAG) !!};

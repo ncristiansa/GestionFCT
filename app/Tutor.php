@@ -8,5 +8,5 @@ class Tutor extends Model
 {
     public $timestamps = false;
     protected $table = 'tutor';
-    protected $fillable = ['id','Nombre', 'Email','Telefono'];
+    protected $fillable = ['id','Nombre', 'DNI', 'Email','Telefono'];
 }

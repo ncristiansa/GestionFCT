@@ -20,7 +20,7 @@
 </div>
 <a class="btn btn-success add-alumno" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 <script>
-    var Rol = "{{ auth()->user()->name }}";
+    var Rol = "{{ auth()->user()->Nombre }}";
     var urlDestroy = '{{route("alumno.destroy", ":id")}}';
     var urlEdit = '{{route("alumno.edit", ":id")}}';
     var infoAlumno = {!! json_encode($alumno->toArray(), JSON_HEX_TAG) !!};

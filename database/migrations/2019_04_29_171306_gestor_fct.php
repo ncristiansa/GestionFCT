@@ -33,7 +33,7 @@ class GestorFct extends Migration
             $table->increments('id');
             $table->String('Nombre');
             $table->String('DNI');
-            $table->String('Num_CAP');
+            $table->String('NASS');
             $table->string('Email');
             $table->string('Telefono');
         });
@@ -50,6 +50,7 @@ class GestorFct extends Migration
         Schema::create('tutor', function (Blueprint $table) {
             $table->increments('id');
             $table->String('Nombre');
+            $table->String('DNI');
             $table->String('Email');
             $table->String('Telefono');
         });

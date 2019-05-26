@@ -18,7 +18,7 @@ class AlumnoController extends Controller
     }
     public function edit(Request $request, $id)
     {
-        $perfilalumno = Alumno::where('id', $id)->get(["id",'Nombre', "DNI", "Num_CAP", "Email", "Telefono"]);
+        $perfilalumno = Alumno::where('id', $id)->get(["id",'Nombre', "DNI", "NASS", "Email", "Telefono"]);
         $acuerdoalumno = Acuerdo::where('alumno_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
         if($request->ajax())
         {
@@ -26,7 +26,7 @@ class AlumnoController extends Controller
             ->update([
                 'Nombre' => $request->input('Nombre'),
                 'DNI' => $request->input('DNI'),
-                'Num_CAP' => $request->input('Num_CAP'),
+                'Num_CAP' => $request->input('NASS'),
                 'Email' => $request->input('Email'),
                 'Telefono' => $request->input('Telefono'),
             ]);

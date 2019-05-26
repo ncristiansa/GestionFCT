@@ -39,18 +39,18 @@ class DatabaseSeeder extends Seeder
 
         ]);
         DB::table('empresa')->insert([
-            ['Empresa' => 'Empresa A', 'NIF' => '57884716H', 'Tipologia' => "Matenimiento de equipos informáticos y diseños web", 'Perfil' => 'Capacidad de interactuar con el alumno con la supervisión del maestro.', 'Idiomas' => 'ES', 'Horario' => '9 a 13', 'Seguimiento' => ''],
-            ['Empresa' => 'Empresa B', 'NIF' => '57884716H', 'Tipologia' => "Matenimiento de páginas web", 'Perfil' => 'Capacidad de interactuar con el alumno con la supervisión del maestro.', 'Idiomas' => 'ES', 'Horario' => '9 a 13', 'Seguimiento' => ''],
+            ['Empresa' => 'Empresa A', 'NIF' => '57884716H', 'Tipologia' => "Matenimiento de equipos informáticos y diseños web", 'Perfil' => 'Capacidad de interactuar con el alumno con la supervisión del maestro.', 'Idiomas' => 'ES', 'Horario' => '9 a 13', 'Seguimiento' => 'Ejemplo seguimiento'],
+            ['Empresa' => 'Empresa B', 'NIF' => '57884716H', 'Tipologia' => "Matenimiento de páginas web", 'Perfil' => 'Capacidad de interactuar con el alumno con la supervisión del maestro.', 'Idiomas' => 'ES', 'Horario' => '9 a 13', 'Seguimiento' => 'Ejemplo seguimiento'],
         ]);
         DB::table('alumno')->insert([
-            ['Nombre' => 'Juan', 'DNI' => '72371523E', 'Num_CAP' => '', 'Email' => 'juan@gmail.com', 'Telefono' => '669856465'],
-            ['Nombre' => 'Marta', 'DNI' => '49945947K', 'Num_CAP' => '', 'Email' => 'marta@gmail.com', 'Telefono' => '637847852'],
-            ['Nombre' => 'Jose', 'DNI' => '66577681H', 'Num_CAP' => '', 'Email' => 'jose@gmail.com', 'Telefono' => '648963451'],
+            ['Nombre' => 'Juan', 'DNI' => '72371523E', 'NASS' => '7894567896', 'Email' => 'juan@gmail.com', 'Telefono' => '669856465'],
+            ['Nombre' => 'Marta', 'DNI' => '49945947K', 'NASS' => '1136597846', 'Email' => 'marta@gmail.com', 'Telefono' => '637847852'],
+            ['Nombre' => 'Jose', 'DNI' => '66577681H', 'NASS' => '8956348974', 'Email' => 'jose@gmail.com', 'Telefono' => '648963451'],
         ]);
         DB::table('tutor')->insert([
-            ['Nombre' => 'Carles', 'Email' => 'carles@gmail.com', 'Telefono' => '654158753'],
-            ['Nombre' => 'Maria', 'Email' => 'maria@gmail.com', 'Telefono' => '621414785'],
-            ['Nombre' => 'Pedro', 'Email' => 'pedro@gmail.com', 'Telefono' => '637985781'],
+            ['Nombre' => 'Carles', 'DNI'=>'26919816H','Email' => 'carles@gmail.com', 'Telefono' => '654158753'],
+            ['Nombre' => 'Maria', 'DNI'=>'41129633K','Email' => 'maria@gmail.com', 'Telefono' => '621414785'],
+            ['Nombre' => 'Pedro',  'DNI'=>'46982492R', 'Email' => 'pedro@gmail.com', 'Telefono' => '637985781'],
         ]);
     }
 }

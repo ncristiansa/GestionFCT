@@ -58,6 +58,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/home/tutor', 'TutorController@store')->name('tutor.add');
     Route::delete('/home/tutor/{id}', 'TutorController@destroy')->name('tutor.destroy');
     Route::get('/home/tutor/{id}', 'TutorController@edit')->name('tutor.edit');
+    Route::get('/home/acuerdos', 'TutorController@show')->name('acuerdos');
 
     Route::get('/home/tutor/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
     Route::delete('/home/tutor/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');

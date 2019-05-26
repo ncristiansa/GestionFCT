@@ -24,7 +24,7 @@ return [
     'dataAlumno' => 'Información del alumno',
     "StudendsList" => 'Lista de alumnos',
     'alumName' => "Nombre",
-    'alumNCAP' => "Num. CAP",
+    'alumNCAP' => "NASS",
     'alumTel' => "Teléfono",
     'alumDNI' => "DNI",
     'alumEmail' => "Email",
@@ -45,5 +45,6 @@ return [
     'search' => 'Buscar',
     'messageCorrectEdit' => "El registro ha sido correctamente editado correctamente.",
     'messageDelete' => 'El registro ha sido eliminado correctamente.',
+    'Myagreements' => 'Mis acuerdos',
 ]
 ?>

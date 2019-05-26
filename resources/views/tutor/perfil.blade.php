@@ -21,7 +21,6 @@
             </tr>
         </thead>
     </table>
-    
 </div>
 <div id="msg">
 </div>
@@ -29,10 +28,11 @@
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};
     var infoTutorAcuerdo = {!! json_encode($acuerdotutor, JSON_HEX_TAG) !!};
     console.log(infoTutorAcuerdo);
-    var Rol = "{{ auth()->user()->name }}";
+    var Rol = "{{ auth()->user()->Nombre }}";
     var listaLabels = [
         "",
         "{{ trans('traduccion.tutoName') }}",
+        "{{ trans('traduccion.alumDNI') }}",
         "{{ trans('traduccion.tutoEmail') }}",
         "{{ trans('traduccion.tutoTel') }}",
         "",

@@ -24,7 +24,7 @@ return [
     "StudendsList" => 'Studends List',
     "dataAlumno" => 'Student information',
     'alumName' => "Name",
-    'alumNCAP' => "Num. CAP",
+    'alumNCAP' => "NASS",
     'alumTel' => "Telephone",
     'alumDNI' => "DNI",
     'alumEmail' => "E-mail",
@@ -45,6 +45,7 @@ return [
     'search' => 'Search',
     'messageCorrectEdit' => "The record has been successfully edited.",
     'messageDelete' => 'The record has been successfully deleted.',
+    'Myagreements' => 'My agreements',
 
 ]
 ?>

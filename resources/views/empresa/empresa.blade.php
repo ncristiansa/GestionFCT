@@ -27,7 +27,7 @@
 <a class="btn btn-success add-company" id="agregar"><img class="img-iconos" src="{{URL::asset('images/plus.svg')}}"></a>
 
 <script>
-  var Rol = "{{ auth()->user()->name }}";
+  var Rol = "{{ auth()->user()->Nombre }}";
   var urlDestroy = '{{route("empresa.destroy", ":id")}}';
   var urlEdit = '{{route("empresa.edit", ":id")}}';
   var infoEmpresa = {!! json_encode($empresa->toArray(), JSON_HEX_TAG) !!};
