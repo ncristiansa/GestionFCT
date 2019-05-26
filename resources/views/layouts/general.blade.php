@@ -1,5 +1,5 @@
 <!doctype <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('includes.head')
     
@@ -11,7 +11,7 @@
     <li style="float:left;"><a class="nombre-usuario"><img class="img-iconos" src="{{URL::asset('images/person.svg')}}" alt="icono-usuario" width="25px" height="35px">&nbsp;{{ auth()->user()->name }}</a></li>
     <li style="float:right"><a class="active" href="{{ route('logout')}}"><img width="35px" height="35px" class="img-iconos" src="{{URL::asset('images/sign-out.svg')}}"></a></li>
     <li style="float:left"><a  href="{{ url('/home/acuerdo') }}" style="padding:19px;">Acuerdo</a></li>
-    <li style="float:left"><a  href="{{ url('/home/calcula') }}" style="padding:19px;">Calcula Horas</a></li>
+    <li style="float:left"><a  href="{{ url('/home/calcula') }}" style="padding:19px;">Calcula horas</a></li>
   </ul>
   @include('breadcrumbs.breadcrumbs')
     <div class="dropdown" align="right" style="margin-right:20px;">
