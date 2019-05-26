@@ -13,14 +13,13 @@
 .contenedor{
     text-align: center;
     margin:0 auto;
-    margin-top:40px;
     font-size:35px;
     display:flex;
     justify-content: center;
 }
 
 .estilo-empresa{
-    background-color: blueviolet;
+    background-color: #00334e;
     padding:20px;
     width:300px;
     height:400px;
@@ -28,9 +27,10 @@
     border-radius:5px;
     margin:4px;
     box-shadow:1px 2px 2px 2px #888888;
+    color:white;
 }
 .estilo-empresa:hover{    
-    background-color: darkmagenta;
+    background-color:#145374;
 }
 .estilo-acuerdo{
     background-color: greenyellow;
@@ -47,7 +47,7 @@
 }
 
 .estilo-alumno{
-    background-color: orange;
+    background-color:#00334e;
     padding:20px;
     width:300px;
     height:400px;
@@ -55,9 +55,10 @@
     border-radius:5px;
     margin:4px;
     box-shadow:1px 2px 2px 2px #888888;
+    color:white;
 }
 .estilo-alumno:hover{
-    background-color: darkorange;
+    background-color:#145374;
 }
 .estilo-general{
     padding:20px;
@@ -252,12 +253,13 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color:#00334e;
   }
   
   li {
     float: left;
     text-decoration: none;
+    color:white;
   }
   
   li a {
@@ -267,14 +269,15 @@ ul {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
-  li a:hover:not(.active) {
-    background-color: #111;
+
+  .nombre-usuario
+  {
+      background-color:#5588a3;
   }
   
-  .active {
-    background-color: #4CAF50;
-  }
+.active {
+    background-color:#145374;
+}
 .contenedor-empresa{
     margin:0 auto;
     margin-top:40px;

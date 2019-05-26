@@ -1,7 +1,6 @@
 @extends('layouts/principal')
 @section('pageTitle', 'Home')
 @section('content')
-<p>{{ trans('traduccion.home') }}</p>
 <div class="contenedor">
     <div class="estilo-empresa" onclick="location.href = '{{url('home/empresa')}}'">
     {{ trans('traduccion.company') }}
@@ -9,7 +8,11 @@
     </div>
     <div class="estilo-alumno" onclick="location.href = '{{url('home/alumno')}}'">
     {{ trans('traduccion.student') }}
-        <img src="{{URL::asset('images/icono-alumno.png')}}" alt="icono-alumno" width="200px" height="200px">
+        <img src="{{URL::asset('images/icono-alumno2.png')}}" alt="icono-alumno" width="200px" height="200px">
+    </div>
+    <div class="estilo-alumno" onclick="location.href = '{{url('home/tutor')}}'">
+    Tutor
+        <img src="{{URL::asset('images/icono-tutora.png')}}" alt="icono-alumno" width="200px" height="200px">
     </div>
 </div>
 @stop

@@ -14,39 +14,64 @@
 /**
  * Ruta LANG
  */
+
 Route::group(['middleware' => ['web']], function () {
- 
+    Route::get('/pruebas', "PruebaController@index");
     /**
     * Ruta Login
     */
-    Route::get('/', function () {
-        return view('login.login');
-    });
-    /**
-     * Ruta Home
-     */
-    Route::get('/home', function () {
-        return view('home.home');
-    });
+    Route::get('/', 'Auth\LoginController@showLoginForm');
+    Route::get('home', 'PrincipalController@index')->name('home');
+    Route::post('login', 'Auth\LoginController@login')->name('login');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
     /**
      * Ruta Empresa
+     */    
+    Route::get('/home/empresa', 'EmpresaController@index')->name('empresa');
+    Route::post('/home/empresa', 'EmpresaController@store')->name('empresa.add');
+    //Route::get('/home/empresa/{data?}', 'EmpresaController@search');
+    Route::delete('/home/empresa/{id}', 'EmpresaController@destroy')->name('empresa.destroy');
+    Route::get('/home/empresa/{id}', 'EmpresaController@edit')->name('empresa.edit');
+    /**
+     * Ruta acuerdo
      */
-    Route::get('/home/empresa', function () {
-        return view('empresa.empresa');
-    });
+    Route::get('/home/empresa/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
+    Route::delete('/home/empresa/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
+
+    
+    
     /**
      * Ruta Alumno
      */
-    Route::get('/home/alumno', function () {
-        return view('alumno.alumno');
-    });
+    Route::get('/home/alumno', 'AlumnoController@index')->name('alumno');
+    Route::post('/home/alumno', 'AlumnoController@store')->name('alumno.add');
+    Route::put('/home/alumno/{id}', 'AlumnoController@destroy')->name('alumno.destroy');
+    Route::get('home/alumno/{id}', 'AlumnoController@edit')->name('alumno.edit');
+
+    Route::get('/home/alumno/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
+    Route::delete('/home/alumno/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
+
     /**
-     * Ruta Acuerdo
+     * Ruta Tutor
      */
-    Route::get('/home/acuerdo', function () {
-        return view('acuerdo.acuerdo');
-    });
- 
+    Route::get('/home/tutor', 'TutorController@index')->name('tutor');
+    Route::post('/home/tutor', 'TutorController@store')->name('tutor.add');
+    Route::delete('/home/tutor/{id}', 'TutorController@destroy')->name('tutor.destroy');
+    Route::get('/home/tutor/{id}', 'TutorController@edit')->name('tutor.edit');
+
+    Route::get('/home/tutor/{id}/{od}', 'AcuerdoController@edit')->name('acuerdo.edit');
+    Route::delete('/home/tutor/{id}/{od}', 'AcuerdoController@destroy')->name('acuerdo.destroy');
+    /**
+    * Ruta crear Acuerdo
+    */
+    Route::get('/home/acuerdo', 'AcuerdoController@index')->name('acuerdo');
+    Route::post('/home/acuerdo', 'AcuerdoController@store')->name('acuerdo.add');
+    /**
+    * Ruta calcula horas
+    */
+    Route::get('/home/calcula', 'FestivoController@index')->name('calcula');
+    Route::post('/home/calcula', 'FestivoController@result')->name('calcula');
+
     Route::get('lang/{lang}', function ($lang) {
         session(['lang' => $lang]);
         return \Redirect::back();
@@ -55,6 +80,6 @@ Route::group(['middleware' => ['web']], function () {
     ]);
  
 });
-Auth::routes();
+
 
 
