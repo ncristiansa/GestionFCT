@@ -18,8 +18,9 @@
 <script type="text/javascript">
     
     var misacuerdo = "{{ trans('traduccion.Myagreements') }}";
+    var calculahoras = "{{ trans('traduccion.calchoras') }}";
     $(document).ready(function(){
-        if($.trim($("li a").eq(0).text()) != "Tutor" && $.trim($("li a").eq(0).text()) != "Administrador")
+        if($.trim($("li a").eq(0).text()) == "Tutor" || $.trim($("li a").eq(0).text()) == "Administrador")
         {
             var tutorid = "{{$idtutor}}";
             var idsplit = tutorid.split(":");
@@ -27,6 +28,9 @@
             var Nombre = "{{ auth()->user()->Nombre }}";
             var rutaPerfil = "home/tutor/"+idtutor;
             $("#menu").append($("<li>").attr({"style":"float:left; padding:2px;"}).append($("<a>").attr({'href':rutaPerfil}).text(misacuerdo)));
+        }else{
+            var rutacalc = "/home/calcula"
+            $("#menu").append($("<li>").attr({"style":"float:left; padding:2px;"}).append($("<a>").attr({'href':rutacalc}).text(calculahoras)));
         }
     });
 </script>

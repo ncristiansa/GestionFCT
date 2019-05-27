@@ -15,14 +15,15 @@ use Response;
 use DB;
 class TutorController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        //$request->user()->authorizeRoles("Administrador");
+
         $tutor = DB::table('tutor')->select('id','Nombre', 'Email')->get();
         return view('tutor.tutor')->with('tutor', $tutor);
     }
     public function edit(Request $request, $id)
     {
+
         $perfiltutor = Tutor::where('id', $id)->get(["id",'Nombre', 'DNI',"Email", "Telefono"]);
         //$acuerdotutor = DB::select('SELECT DISTINCT acu.id, acu.Fecha_alta, acu.Acabada, acu.Fin FROM acuerdo acu, acuerdo_tutor aq WHERE acu.alumno_id = aq.alumno_id AND aq.tutor_id = ?',[$id]);
         $acuerdotutor = DB::select("SELECT DISTINCT acu.id, acu.Fecha_alta, acu.Acabada, acu.Fin FROM acuerdo acu, acuerdo_tutor aq WHERE aq.tutor_id= ? AND acu.id = aq.acuerdo_id", [$id]);
@@ -41,6 +42,7 @@ class TutorController extends Controller
     }
     public function destroy(Request $request, $id)
     {
+
         if($request->ajax())
         {
             $tutor = Tutor::findOrFail($id);
@@ -54,6 +56,7 @@ class TutorController extends Controller
     }
     public function store(Request $request)
     {
+
         if($request->ajax())
         {
             $tutor = new Tutor;
@@ -77,6 +80,7 @@ class TutorController extends Controller
     }
     public function show()
     {
+
         $usuario = Auth::user();
         $nombre = $usuario->name;
         $id = Tutor::where('Nombre', $nombre)->get(['id']);

@@ -4,12 +4,6 @@
 @include('includes.modal')
 
 <h1>{{ trans('traduccion.titlesCompany') }}</h1>
-<nav class="navbar navbar-light bg-light">
-  {!! Form::open(['id' => 'buscador-form', 'method' => 'GET']) !!}
-    <input class="form-control mr-sm-2" type="search" placeholder="{{ trans('traduccion.search') }}" aria-label="Search" name="filtro">
-    <a class="btn btn btn-info filtro-empresa" id="filtro"><img class="img-iconos" src="{{URL::asset('images/search.svg')}}"></a>
-  {!! Form::close() !!}
-</nav>
 <div class="table-responsive">
     <table class="table" id="table-empresa">
         <thead class="thead-dark">

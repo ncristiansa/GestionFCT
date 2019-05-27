@@ -4,7 +4,7 @@
 
 function actualizarNombre(_lia, idb, inputNombre)
 {
-    $(_lia).eq(7).text($(inputNombre).val());
+    $(_lia).eq(8).text($(inputNombre).val());
     $(idb).text($(inputNombre).val());
 }
 

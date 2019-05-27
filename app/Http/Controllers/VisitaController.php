@@ -14,11 +14,13 @@ class VisitaController extends Controller
 {
 	public function index()
 	{
+
 		$idacuerdos = DB::table('acuerdo')->select('id')->get();
 		return view('visitas.visita', ['idacuerdos'=>$idacuerdos]);
 	}
     public function store(Request $request)
     {
+
     	if($request->ajax())
         {
             
@@ -31,9 +33,5 @@ class VisitaController extends Controller
             $visita->save();
             return response()->json($visita);
         }
-    }
-    public function edit()
-    {
-
     }
 }

@@ -12,12 +12,14 @@ class AlumnoController extends Controller
 {
     public function index(Request $request)
     {
-        //$request->user()->authorizeRoles("Administrador");
+
+      
         $alumno = DB::table('alumno')->select('id','Nombre', 'DNI')->get();
         return view('alumno.alumno')->with('alumno', $alumno);
     }
     public function edit(Request $request, $id)
     {
+
         $perfilalumno = Alumno::where('id', $id)->get(["id",'Nombre', "DNI", "NASS", "Email", "Telefono"]);
         $acuerdoalumno = Acuerdo::where('alumno_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
         if($request->ajax())
@@ -37,6 +39,7 @@ class AlumnoController extends Controller
     }
     public function store(Request $request)
     {
+
         if($request->ajax())
         {
             $alumno = new Alumno;
@@ -51,6 +54,7 @@ class AlumnoController extends Controller
     }
     public function destroy(Request $request, $id)
     {
+
         if($request->ajax())
         {
             $alumno = Alumno::findOrFail($id);

@@ -8,13 +8,14 @@ class FestivoController extends Controller
 {
     public function index()
     {
+
         $festivo = Festivo::get(['Fecha', 'Descripcion', 'Tipo']);
         
     	return view('festivo.calcula')->with('festivo', $festivo);
     }
     public function result(Request $request)
     {
-    	
+    	$request->user()->authorizeRoles(["Administrador", "Tutor", "Alumno"]);
         return view('festivo.calcula');
     }
 }

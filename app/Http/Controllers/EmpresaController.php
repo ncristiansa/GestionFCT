@@ -20,9 +20,8 @@ class EmpresaController extends Controller
         $this->empresa = Empresa::find($route->getParameter('empresa'));
     }
     */
-    public function index(Request $request)
+    public function index()
     {
-        //$request->user()->authorizeRoles("Administrador");
         
         $empresa = DB::table('empresa')->select('id','Empresa', 'NIF')->get();
 
@@ -46,6 +45,7 @@ class EmpresaController extends Controller
     */
     public function edit(Request $request, $id)
     {
+
         $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario']);
         $acuerdoempresa = Acuerdo::where('empresa_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
 
@@ -77,6 +77,7 @@ class EmpresaController extends Controller
     }
     public function store(Request $request)
     {
+
         if($request->ajax())
         {
             $empresa = new Empresa;
@@ -96,6 +97,7 @@ class EmpresaController extends Controller
     }
     public function destroy(Request $request, $id)
     {
+
         if($request->ajax())
         {
             $empresa = Empresa::findOrFail($id);

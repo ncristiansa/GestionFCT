@@ -17,6 +17,7 @@ class AcuerdoController extends Controller
 {
     public function index()
     {
+
         $alumno = DB::table('alumno')->select('id','Nombre')->get();
         $empresa = DB::table('empresa')->select('id','Empresa')->get();
         $tutor = DB::table('tutor')->select('id', 'Nombre')->get();
@@ -24,6 +25,7 @@ class AcuerdoController extends Controller
     }
     public function store(Request $request)
     {
+
         if($request->ajax())
         {
             
@@ -48,6 +50,7 @@ class AcuerdoController extends Controller
     }
     public function destroy(Request $request, $od)
     {
+
         $idacuerdo = $request->input('id-acuerdo');
         if($request->ajax())
         {
@@ -66,6 +69,7 @@ class AcuerdoController extends Controller
     }
     public function edit(Request $request, $od)
     {
+
         $perfilacuerdo = Acuerdo::where('id', $od)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
 
         $perfilempresa = Empresa::where('id', $od)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario']);

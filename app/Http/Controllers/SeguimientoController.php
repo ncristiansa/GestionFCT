@@ -8,6 +8,7 @@ class SeguimientoController extends Controller
 {
     public function index()
     {
+
     	return view('seguimiento.seguimiento');
     }
 }
