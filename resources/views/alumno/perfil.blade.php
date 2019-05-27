@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Perfil')
+@section('pageTitle', trans('traduccion.compPerfil'))
 @section('content')
 @include('includes.modal')
 <h1>{{ trans('traduccion.dataAlumno') }}</h1>
@@ -40,11 +40,11 @@
     crearFormulario("h1", infoAlumn, "/home/alumno/"+infoAlumn[0]["id"], "GET", true, "form-perfil", listaLabels);
     crearFilas("table", infoAcuerdoAlumno, "/home/alumno/"+infoAlumn[0]["id"], "/home/alumno/"+infoAlumn[0]["id"], "tbody-alumno-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(7)))
+    if(isNaN($("li a").eq(8)))
     {
         for(var datos in infoAlumn)
         {
-            $("li a").eq(7).text(infoAlumn[datos]["Nombre"]);
+            $("li a").eq(8).text(infoAlumn[datos]["Nombre"]);
         }
     }  
     });

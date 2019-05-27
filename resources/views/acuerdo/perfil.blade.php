@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Perfil')
+@section('pageTitle', trans('traduccion.perfiltitle'))
 @section('content')
 <?php
     $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -115,31 +115,31 @@
         "{{ trans('traduccion.acuFi') }}",
         "",
     ];
-    if($.trim($("li a").eq(6).text()) == "EMPRESA"){
+    if($.trim($("li a").eq(7).text()) == "EMPRESA"){
       crearFormulario("h1", infoAcuerdo, "/home/empresa/"+infoEmpresa[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
-    }else if($.trim($("li a").eq(6).text()) == "ALUMNO"){
+    }else if($.trim($("li a").eq(7).text()) == "ALUMNO"){
       crearFormulario("h1", infoAcuerdo, "/home/alumno/"+infoAlumno[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
-    }else if($.trim($("li a").eq(6).text()) == "TUTOR"){
+    }else if($.trim($("li a").eq(7).text()) == "TUTOR"){
       crearFormulario("h1", infoAcuerdo, "/home/tutor/"+infoTutor[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
     }
     $(document).ready(function() {
     if(isNaN($("li a").eq(7)))
     {
-      if($.trim($("li a").eq(6).text()) == "EMPRESA")
+      if($.trim($("li a").eq(7).text()) == "EMPRESA")
       {
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(7).text(infoEmpresa[datos]["Empresa"]);
+          $("li a").eq(8).text(infoEmpresa[datos]["Empresa"]);
         }
-      }else if($.trim($("li a").eq(6).text()) == "ALUMNO"){
+      }else if($.trim($("li a").eq(7).text()) == "ALUMNO"){
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(7).text(infoAlumno[datos]["Nombre"]);
+          $("li a").eq(8).text(infoAlumno[datos]["Nombre"]);
         }
-      }else if($.trim($("li a").eq(6).text()) == "TUTOR"){
+      }else if($.trim($("li a").eq(7).text()) == "TUTOR"){
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(7).text(infoTutor[datos]["Nombre"]);
+          $("li a").eq(8).text(infoTutor[datos]["Nombre"]);
         }
       }
     }  

@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Perfil')
+@section('pageTitle', trans('traduccion.tdProfile'))
 @section('content')
 @include('includes.modal')
 <script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
@@ -39,11 +39,11 @@
     crearFormulario("h1", infoTutor, "/home/tutor/"+infoTutor[0]["id"], "GET", true, "form-perfil", listaLabels);
     crearFilas("table", infoTutorAcuerdo, "/home/tutor/"+infoTutor[0]["id"], "/home/tutor/"+infoTutor[0]["id"], "tbody-tutor-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(7)))
+    if(isNaN($("li a").eq(8)))
     {
       for(var datos in infoTutor)
       {
-        $("li a").eq(7).text(infoTutor[datos]["Nombre"]);
+        $("li a").eq(8).text(infoTutor[datos]["Nombre"]);
       }
     }
     });

@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Perfil')
+@section('pageTitle', trans('traduccion.compPerfil'))
 @section('content')
 @include('includes.modal')
 <script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
@@ -46,11 +46,11 @@
     
     crearFilas("table", infoAcuerdoEmpresa, "/home/empresa/"+infoEmpresa[0]["id"], "/home/empresa/"+infoEmpresa[0]["id"], "tbody-empresa-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(7)))
+    if(isNaN($("li a").eq(8)))
     {
       for(var datos in infoEmpresa)
       {
-        $("li a").eq(7).text(infoEmpresa[datos]["Empresa"]);
+        $("li a").eq(8).text(infoEmpresa[datos]["Empresa"]);
       }
     }  
     });

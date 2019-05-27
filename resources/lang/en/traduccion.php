@@ -63,7 +63,7 @@ return [
     'realizads' => 'Made',
     'todas' => 'All',
     'controlseguimiento' => 'Monitoring control',
-    'acuerdo' => 'Agreement',
+    'acuerdob' => 'Agreement',
     'visitab' => 'Visit',
     'calchoras' => 'Calculate hours',
 ]

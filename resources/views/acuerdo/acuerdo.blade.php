@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Acuerdo')
+@section('pageTitle', trans('traduccion.acuerdob'))
 @section('content')
 <h1>Acuerdo</h1>
 <div class="container">

@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Empresa')
+@section('pageTitle', trans('traduccion.tdCompany'))
 @section('content')
 @include('includes.modal')
 

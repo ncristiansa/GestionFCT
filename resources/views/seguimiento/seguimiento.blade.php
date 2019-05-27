@@ -35,7 +35,9 @@
               foreach ($acututor[$i] as $value) {
               print_r("<td>".$value."</td>");
               }
-              
+              foreach ($acuresponsable[$i] as $value) {
+              print_r("<td>".$value."</td>");
+              }
             echo '</tr>';
             }
             

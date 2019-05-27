@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Visitas')
+@section('pageTitle', trans('traduccion.visitab'))
 @section('content')
 <h1>{{ trans('traduccion.agrega_visita') }}</h1>
 <div class="container">

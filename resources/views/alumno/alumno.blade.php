@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', 'Alumno')
+@section('pageTitle', trans('traduccion.student'))
 @section('content')
 @include('includes.modal')
 <h1>{{ trans('traduccion.StudendsList') }}</h1>
