@@ -71,6 +71,7 @@ return [
     'acuerdob' => 'Acord',
     'visitab' => 'Visita',
     'calchoras' => 'Calcula hores',
-    'perfiltitle' => 'Perfil'
+    'perfiltitle' => 'Perfil',
+    'acordnoterminado' => 'Acords no finalitzats',
 ]
 ?>

@@ -81,6 +81,7 @@
             $("#tbody-tutor").append(trvalores);
             $('#modal-add-tutor').modal('toggle');
             muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
+            $("input[type=text]").val("");
             
           },
           error: function(data){

@@ -66,5 +66,6 @@ return [
     'acuerdob' => 'Agreement',
     'visitab' => 'Visit',
     'calchoras' => 'Calculate hours',
+    'acordnoterminado' => 'Agreements not finalized',
 ]
 ?>

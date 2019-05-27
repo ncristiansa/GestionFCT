@@ -45,6 +45,10 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group col-md-6">
+            <label>{{ trans('traduccion.tdTracing') }}</label>
+            <input class="form-control" type="text" name="seguimiento">
+        </div>
     </div>
     {!! Form::close() !!}
     <div id="mensaje">
@@ -61,6 +65,7 @@
         $("#selectalumno").val(0);
         $("#selectempresa").val(0);
         $("#selecttutor").val(0);
+        $("input[type=text]").val("");
         muestraMensaje("#mensaje", "alert alert-success","Se ha añadido correctamente.");
       },
       error: function(data){

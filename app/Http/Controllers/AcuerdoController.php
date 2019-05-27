@@ -10,6 +10,7 @@ use App\Empresa;
 use App\Tutor;
 use App\AcuerdoTutor;
 use App\Visita;
+use App\Seguimiento;
 use Response;
 use DB;
 class AcuerdoController extends Controller
@@ -38,6 +39,10 @@ class AcuerdoController extends Controller
             $acuerdotutor->acuerdo_id = $acuerdo->id;
             $acuerdotutor->alumno_id = $request->get('alumno');
             $acuerdotutor->save();
+            $seguimiento = new Seguimiento;
+            $seguimiento->Descripcion = $request->input("seguimiento");
+            $seguimiento->acuerdo_id= $acuerdo->id;
+            $seguimiento->save();
             return response()->json($acuerdo);
         }
     }

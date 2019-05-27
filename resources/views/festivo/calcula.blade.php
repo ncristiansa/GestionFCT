@@ -25,23 +25,23 @@
         </div>
         <div class="form-group col-md-2">
             <label>Lunes</label>
-            <input class="form-control" type="number" name="hlunes" value="4">
+            <input class="form-control" type="number" name="hlunes">
         </div>
         <div class="form-group col-md-2">
             <label>Martes</label>
-            <input class="form-control" type="number" name="hmartes" value="4">
+            <input class="form-control" type="number" name="hmartes">
         </div>
         <div class="form-group col-md-2">
             <label>Miercoles</label>
-            <input class="form-control" type="number" name="hmiercoles" value="4">
+            <input class="form-control" type="number" name="hmiercoles">
         </div>
         <div class="form-group col-md-2">
             <label>Jueves</label>
-            <input class="form-control" type="number" name="hjueves" value="4">
+            <input class="form-control" type="number" name="hjueves">
         </div>
         <div class="form-group col-md-2">
             <label>Viernes</label>
-            <input class="form-control" type="number" name="hviernes" value="4">
+            <input class="form-control" type="number" name="hviernes">
         </div>         
     </div>
     <input type="submit" name="enviar" value="Calcular">
@@ -49,32 +49,13 @@
     <?php
         $tablaFestivo = DB::select('select Fecha, Tipo from festivos');
         $festivos = json_decode(json_encode($tablaFestivo), True);
+        $arrayfestivo = [];
         foreach ($festivos as $value) {
-            //print_r($value["Fecha"]);
+            $fechasep = explode("-", $value["Fecha"]);
+            array_push($arrayfestivo, $fechasep);
         }
-        function esFestivo($fechainicio, $fechafin)
-        {
-            $festivos = array(
-                '01-01',  //  Año Nuevo (irrenunciable)
-                '10-04',  //  Viernes Santo (feriado religioso)
-                '11-04',  //  Sábado Santo (feriado religioso)
-                '01-05',  //  Día Nacional del Trabajo (irrenunciable)
-                '21-05',  //  Día de las Glorias Navales
-                '29-06',  //  San Pedro y San Pablo (feriado religioso)
-                '16-07',  //  Virgen del Carmen (feriado religioso)
-                '15-08',  //  Asunción de la Virgen (feriado religioso)
-                '18-09',  //  Día de la Independencia (irrenunciable)
-                '19-09',  //  Día de las Glorias del Ejército
-                '12-10',  //  Aniversario del Descubrimiento de América
-                '31-10',  //  Día Nacional de las Iglesias Evangélicas y Protestantes (feriado religioso)
-                '01-11',  //  Día de Todos los Santos (feriado religioso)
-                '08-12',  //  Inmaculada Concepción de la Virgen (feriado religioso)
-                '13-12',  //  elecciones presidencial y parlamentarias (puede que se traslade al domingo 13)
-                '25-12',  //  Natividad del Señor (feriado religioso) (irrenunciable)
-            );
-            $fechaInicio = new DateTime($fechainicio);
-            $fechaFin = new DateTime($fechafin);
-        }
+        //Mes $arrayfestivo[0][1]
+        //Dia $arrayfestivo[0][2]      
         
         if(isset($_POST["enviar"]))
         {
@@ -114,19 +95,22 @@
                         $horashechas=$tiempo+$hora_viernes;
                     }
                 }
+                
                 $tiempo=$horashechas;
                 $contadorfiesta=$contadorf;
 
             }
-            $horadia = $tiempo/24;
-            $horames = $tiempo/730.001;
-            $horaeje=3;
+            
             echo "<p> Días: ".$total."</p>";
             echo '<p> Resultado: '.$tiempo." hores.<br>\n
-            Finaliza: ".$fechafin." (".$horaeje." hores)</p>";
-            echo '<p> Horas a dias '.round($horadia, 0)."</p>";
-            echo '<p> Horas a mes '.round($horames,1)."</p>";
-            echo '<p> Festivo: '.$contadorfiesta."</p>";
+            Finaliza: ".$fechafin." ( hores)</p>";
+            $fechainicio = $_POST["fechainicio"];
+            $fechafin = 0;
+            $hora_lunes = 0;
+            $hora_martes = 0;
+            $hora_miercoles =0;
+            $hora_jueves = 0;
+            $hora_viernes = 0;
         }
     ?>
 <script type="text/javascript">
