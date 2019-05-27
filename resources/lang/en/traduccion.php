@@ -46,6 +46,15 @@ return [
     'messageCorrectEdit' => "The record has been successfully edited.",
     'messageDelete' => 'The record has been successfully deleted.',
     'Myagreements' => 'My agreements',
-
+    'Fecha_acuerdo_firmado' => "Date of the signed agreement",
+    'Control_seguimiento' => 'Monitoring control',
+    'Responsable' => 'Responsable',
+    'Fecha' => 'Date',
+    'comentario' => 'Commentary',
+    'realizado' => 'Accomplished',
+    'tipo' => 'Type',
+    'Control_visitas' => 'Visit control',
+    'agrega_visita' => 'Add a visit',
+    'acuerdoid' => 'Agreement id',
 ]
 ?>

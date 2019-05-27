@@ -11,7 +11,7 @@
     var listaLabels = [
         "",
         "{{ trans('traduccion.acuDataAlta') }}",
-        "{{ trans('traduccion.acuFinalizada') }}",
+        "{{ trans('traduccion.Fecha_acuerdo_firmado') }}",
         "{{ trans('traduccion.acuFi') }}",
         "",
     ];

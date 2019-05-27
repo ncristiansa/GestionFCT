@@ -41,8 +41,8 @@
             <input class="form-control" type="text" name="dni">
           </div>
           <div class="form-group col-md-10">
-            <label>Num. Cap</label>
-            <input class="form-control" type="text" name="num_cap">
+            <label>NASS</label>
+            <input class="form-control" type="text" name="nass">
           </div>
           <div class="form-group col-md-10">
             <label>{{ trans('traduccion.alumEmail') }}</label>

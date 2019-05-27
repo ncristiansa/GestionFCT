@@ -47,6 +47,15 @@ class GestorFct extends Migration
             $table->integer('alumno_id')->unsigned();
             $table->foreign('alumno_id')->references('id')->on('alumno');
         });
+        Schema::create('visitas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->date('Fecha');
+            $table->string("Comentario");
+            $table->string("Realizado");
+            $table->string("Tipo");
+            $table->integer('acuerdo_id')->unsigned();
+            $table->foreign('acuerdo_id')->references('id')->on('acuerdo');
+        });
         Schema::create('tutor', function (Blueprint $table) {
             $table->increments('id');
             $table->String('Nombre');

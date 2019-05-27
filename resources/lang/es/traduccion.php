@@ -20,7 +20,6 @@ return [
     'h2Agreementof' => 'Acuerdos de ',
     'titleNom' => 'Nombre',
     'dataTutor' => 'Información del Tutor',
-    
     'dataAlumno' => 'Información del alumno',
     "StudendsList" => 'Lista de alumnos',
     'alumName' => "Nombre",
@@ -46,5 +45,16 @@ return [
     'messageCorrectEdit' => "El registro ha sido correctamente editado correctamente.",
     'messageDelete' => 'El registro ha sido eliminado correctamente.',
     'Myagreements' => 'Mis acuerdos',
+    'Fecha_acuerdo_firmado' => "Fecha del acuerdo firmado",
+    'Control_seguimiento' => 'Control de seguimiento',
+    'Responsable' => 'Responsable',
+    'Fecha' => 'Fecha',
+    'comentario' => 'Comentario',
+    'tipo' => 'Tipo',
+    'realizado' => 'Realizado',
+    'Control_visitas' => 'Control de visitas',
+    'agrega_visita' => 'Agrega una visita',
+    'acuerdoid' => 'Acuerdo ID',
+
 ]
 ?>

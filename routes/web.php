@@ -67,6 +67,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/home/acuerdo', 'AcuerdoController@index')->name('acuerdo');
     Route::post('/home/acuerdo', 'AcuerdoController@store')->name('acuerdo.add');
     /**
+    * Ruta crear visita
+    */
+    Route::get('/home/visita', 'VisitaController@index')->name('visita');
+    Route::post('/home/visita', 'VisitaController@store')->name('visita.add');
+    /**
     * Ruta calcula horas
     */
     Route::get('/home/calcula', 'FestivoController@index')->name('calcula');
