@@ -70,7 +70,6 @@
           url: $('#form-add-tutor').attr('action'),
           data: $('#form-add-tutor').first().serialize(),
           success : function(data){
-            console.log(data);
             var urlTutor = window.location.origin+"/home/tutor";
             var trvalores = $("<tr>").attr({"data-id": data.id});
             trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined,  urlTutor+"/"+data.id));

@@ -74,7 +74,6 @@
           url: $('#form-add-alumno').attr('action'),
           data: $('#form-add-alumno').first().serialize(),
           success : function(data){
-            console.log(data);
             var urlAlumno = window.location.origin+"/home/alumno";
             var trvalores = $("<tr>").attr({"data-id": data.id});
             trvalores.append(crearAImg("/../images/eye.svg", "editar", "btn btn-warning", undefined, urlAlumno+"/"+data.id));
