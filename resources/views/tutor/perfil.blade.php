@@ -16,14 +16,13 @@
                 <th scope="col"></th>
                 <th scope="col">id</th>
                 <th scope="col">{{ trans('traduccion.acuDataAlta') }}</th>
-                <th scope="col">{{ trans('traduccion.acuFinalizada') }}</th>
+                <th scope="col">{{ trans('traduccion.Fecha_acuerdo_firmado') }}</th>
                 <th scope="col">{{ trans('traduccion.acuFi') }}</th>
             </tr>
         </thead>
     </table>
 </div>
-<div id="msg">
-</div>
+
 <script>
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};
     var infoTutorAcuerdo = {!! json_encode($acuerdotutor, JSON_HEX_TAG) !!};

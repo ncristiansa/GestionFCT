@@ -7,6 +7,7 @@ use App\Empresa;
 use Illuminate\Routing\Route;
 use Response;
 use App\Acuerdo;
+use App\Persona;
 class EmpresaController extends Controller
 {
     /*
@@ -45,7 +46,7 @@ class EmpresaController extends Controller
     */
     public function edit(Request $request, $id)
     {
-        $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        $perfilempresa = Empresa::where('id', $id)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario']);
         $acuerdoempresa = Acuerdo::where('empresa_id', $id)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
 
         if($request->ajax())
@@ -58,7 +59,6 @@ class EmpresaController extends Controller
                 'Perfil' => $request->input('Perfil'),
                 'Idiomas' => $request->input('Idiomas'),
                 'Horario' => $request->input('Horario'),
-                'Seguimiento' => $request->input('Seguimiento'),
             ]);
             return response()->json(array('perfilempresa' => $perfilempresa));
         }
@@ -86,8 +86,11 @@ class EmpresaController extends Controller
             $empresa->Perfil = $request->input('perfil');
             $empresa->Idiomas = $request->input('idiomas');
             $empresa->Horario = $request->input('horario');
-            $empresa->Seguimiento = $request->input('seguimiento');
             $empresa->save();
+            $persona = new Persona;
+            $persona->Tipo = $request->get("tipo_responsable");
+            $persona->empresa_id = $empresa->id;
+            $persona->save();
             return response()->json($empresa);
         }
     }

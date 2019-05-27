@@ -21,7 +21,6 @@ class GestorFct extends Migration
             $table->String('Perfil');
             $table->String('Idiomas');
             $table->String('Horario');
-            $table->String('Seguimiento');
         });
         Schema::create('persona', function (Blueprint $table) {
             $table->increments('id');

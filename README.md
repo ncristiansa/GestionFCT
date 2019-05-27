@@ -54,3 +54,11 @@ Este proyecto trata de gestionar los acuerdos del alumno y la empresa.
 - 9.2 Mostrará la fecha en que se alcanzan las 350 horas y mostrará también las horas que hay en el periodo contando fiestas local y fiestas escolares, es decir, sólo descontará festivos.
 
 > Ex: 352 horas el 05/31/2019 (360 horas) porque hay un día que es fiesta escolar en el periodo y otro que es fiesta local (y son días de 4 horas).
+
+Comandos a realizar en caso de clonar este proyecto:
+1. sudo cp .env.example .env (Cambiar el nombre de la base de datos, usuario de tu db y clave de la db)
+2. sudo composer install
+3. sudo php artisan key:generate
+4. sudo php artisan migrate
+5. sudo php artisan db:seed
+6. sudo composer require "laravelcollective/html":"^5.7" (Utilizar este comando si testeará en local)

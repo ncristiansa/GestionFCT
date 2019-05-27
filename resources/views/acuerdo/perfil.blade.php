@@ -3,6 +3,20 @@
 @section('content')
 <script type="text/javascript" src="{{asset('js/modal.js')}}"></script>
 <h1>{{ trans('traduccion.datosAcuerdo') }}</h1>
+<br>
+<h2>{{ trans('traduccion.Control_visitas') }}</h2>
+<div class="table-responsive">
+    <table class="table" id="table-seguimiento">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">{{ trans('traduccion.tdCompany') }}</th>
+                <th scope="col">{{ trans('traduccion.Fecha') }}</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
 <script>
     var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};
     var infoAcuerdo = {!! json_encode($perfilacuerdo->toArray(), JSON_HEX_TAG) !!};

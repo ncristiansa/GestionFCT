@@ -46,7 +46,6 @@ $(document).ready(function(){
                     actualizarNombre("li a", "#nombre-tutor", "input[name='Nombre']");
                     
                     formNoEditable("#form-perfil");
-                    muestraMensaje("#mensaje", "alert alert-success","El registro ha sido editado correctamente.");
                 },
                 error: function(data){
                     var errores = data.responseJSON;

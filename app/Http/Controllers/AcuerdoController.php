@@ -9,6 +9,7 @@ use App\Acuerdo;
 use App\Empresa;
 use App\Tutor;
 use App\AcuerdoTutor;
+use App\Visita;
 use Response;
 use DB;
 class AcuerdoController extends Controller
@@ -62,7 +63,7 @@ class AcuerdoController extends Controller
     {
         $perfilacuerdo = Acuerdo::where('id', $od)->get(['id', 'Fecha_alta', 'Acabada', 'Fin']);
 
-        $perfilempresa = Empresa::where('id', $od)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario', "Seguimiento"]);
+        $perfilempresa = Empresa::where('id', $od)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario']);
         $perfilalumno = Alumno::where('id', $od)->get(["id",'Nombre', "DNI", "NASS", "Email", "Telefono"]);
         $perfiltutor = Tutor::where('id', $od)->get(["id",'Nombre', 'DNI',"Email", "Telefono"]);
         if($request->ajax())

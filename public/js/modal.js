@@ -13,7 +13,6 @@ $(document).ready(function(){
                     //$("li a").eq(4).text($("input[name='Empresa']").val());
                     //$("#nombre-empresa").text($("input[name='Empresa']").val());
                     formNoEditable("#form-perfil");
-                    muestraMensaje("#mensaje", "alert alert-success","El registro ha sido editado correctamente.");
                 },
                 error: function(data){
                     var errores = data.responseJSON;

@@ -7,19 +7,19 @@
     <div class="form-row">
     
         <div class="form-group col-md-6">
-            <label>Fecha Alta</label>
+            <label>{{ trans('traduccion.acuDataAlta') }}</label>
             <input class="form-control" type="date" name="fecha_alta">
         </div>
         <div class="form-group col-md-6">
-            <label>Acabada</label>
+            <label>{{ trans('traduccion.Fecha_acuerdo_firmado') }}</label>
             <input class="form-control" type="date" name="acabada">
         </div>
         <div class="form-group col-md-6">
-            <label>Fin</label>
+            <label>{{ trans('traduccion.acuFi') }}</label>
             <input class="form-control" type="date" name="fin">
         </div>
         <div class="form-group col-md-6">
-            <label>Alumno</label><br>
+            <label>{{ trans('traduccion.student') }}</label><br>
             <select name="alumno" id="selectalumno">
                 <option value="0">Select</option>
                 @foreach ($alumno as $alumn)
@@ -28,7 +28,7 @@
             </select>
         </div>
         <div class="form-group col-md-6">
-            <label>Empresa</label><br>
+            <label>{{ trans('traduccion.tdCompany') }}</label><br>
             <select name="empresa" id="selectempresa">
                 <option value="0">Select</option>
                 @foreach ($empresa as $emp)

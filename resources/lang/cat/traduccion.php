@@ -11,7 +11,7 @@ return [
     'titlelogin' => 'Iniciar sessió',
     'titlesCompany' => "Llistats d'Empreses",
     'tdCompany' => 'Empresa',
-    'tdTopology' => 'Topologia',
+    'tdTopology' => 'Tipologia',
     'tdProfile' => 'Perfil',
     'tdLanguages' => 'Idiomes',
     'tdSchedule' => 'Horari',
@@ -61,5 +61,8 @@ return [
     'final' => 'Final',
     'otros' => 'Altres',
     'acuerdoid' => 'Acord id',
+    'nombre_empresa' => 'Nom empresa',
+    'nombre_responsable' => 'Nom responsable',
+    'tipo_responsable' => 'Tipus de responsable',
 ]
 ?>

@@ -42,7 +42,7 @@
     <div class="form">
         {!! Form::open(['id' => 'form-add-empresa', 'method' => 'POST']) !!}
           <div class="form-group col-md-10">
-            <label>Nombre Empresa</label>
+            <label>{{ trans('traduccion.nombre_empresa') }}</label>
             <input class="form-control" type="text" name="empresa">
           </div>
           <div class="form-group col-md-10">
@@ -50,24 +50,29 @@
             <input class="form-control" type="text" name="nif">
           </div>
           <div class="form-group col-md-10">
-            <label>Tipologia</label>
+            <label>{{ trans('traduccion.tdTopology') }}</label>
             <input class="form-control" type="text" name="tipologia">
           </div>
           <div class="form-group col-md-10">
-            <label>Perfil</label>
+            <label>{{ trans('traduccion.tdProfile') }}</label>
             <input class="form-control" type="text" name="perfil">
           </div>
           <div class="form-group col-md-10">
-            <label>Idiomas</label>
+            <label>{{ trans('traduccion.tdLanguages') }}</label>
             <input class="form-control" type="text" name="idiomas">
           </div>
           <div class="form-group col-md-10">
-            <label>Horario</label>
+            <label>{{ trans('traduccion.tdSchedule') }}</label>
             <input class="form-control" type="text" name="horario">
           </div>
           <div class="form-group col-md-10">
-            <label>Seguimiento</label>
-            <input class="form-control" type="text" name="seguimiento">
+            <label>Tipo de responsable</label><br>
+            <select name="tipo_responsable" id="tipo_responsable">
+                <option value="0">Select</option>
+                <option value="Contacto">Contacto</option>
+                <option value="Responsable">Responsable</option>
+                <option value="Tutor">Tutor</option>
+            </select>
           </div>
           <a id="save-empresa" class="btn btn-success add-empresa"><img height="20px" width="20px" src="{{URL::asset('images/save.png')}}" class="img-iconos"></a>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

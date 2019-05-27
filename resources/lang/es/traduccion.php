@@ -11,7 +11,7 @@ return [
     'titlelogin' => 'Iniciar sesión',
     'titlesCompany' => "Lista de Empresas",
     'tdCompany' => 'Empresa',
-    'tdTopology' => 'Topologia',
+    'tdTopology' => 'Tipologia',
     'tdProfile' => 'Perfil',
     'tdLanguages' => 'Idiomas',
     'tdSchedule' => 'Horario',
@@ -55,6 +55,8 @@ return [
     'Control_visitas' => 'Control de visitas',
     'agrega_visita' => 'Agrega una visita',
     'acuerdoid' => 'Acuerdo ID',
-
+    'nombre_empresa' => 'Nombre empresa',
+    'nombre_responsable' => 'Nombre responsable',
+    'tipo_responsable' => 'Tipo de responsable'
 ]
 ?>
