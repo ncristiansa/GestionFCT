@@ -29,7 +29,7 @@
 <script>
     var infoEmpresa = {!! json_encode($perfilempresa->toArray(), JSON_HEX_TAG) !!};
     var infoAcuerdoEmpresa = {!! json_encode($acuerdoempresa->toArray(), JSON_HEX_TAG) !!};
-    var Rol = "{{ auth()->user()->name }}";
+    var Rol = "{{ auth()->user()->Nombre }}";
     var listaLabels = [
         "",
         "{{ trans('traduccion.compName') }}",

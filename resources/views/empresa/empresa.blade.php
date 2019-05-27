@@ -110,20 +110,5 @@
       }
     });
   });
-  $(document).on('click', 'a.filtro-empresa', function(){
-    var valorFiltro = $("input[name='filtro']").val();
-    $.ajax({
-        type: $("#buscador-form").attr('method'),
-        url: $("#buscador-form").attr('action'),
-        data: {filtro: valorFiltro},
-        dataType: 'json',
-        success: function(data){
-          console.log(data);
-        },
-        error: function(data){
-          console.log(data);
-        }
-      });
-  });
 </script>
 @stop

@@ -27,7 +27,7 @@
 <script>
     var infoAlumn = {!! json_encode($perfilalumno->toArray(), JSON_HEX_TAG) !!};
     var infoAcuerdoAlumno = {!! json_encode($acuerdoalumno->toArray(), JSON_HEX_TAG) !!};
-    var Rol = "{{ auth()->user()->name }}";
+    var Rol = "{{ auth()->user()->Nombre }}";
     var listaLabels = [
         "",
         "{{ trans('traduccion.alumName') }}",
@@ -40,11 +40,11 @@
     crearFormulario("h1", infoAlumn, "/home/alumno/"+infoAlumn[0]["id"], "GET", true, "form-perfil", listaLabels);
     crearFilas("table", infoAcuerdoAlumno, "/home/alumno/"+infoAlumn[0]["id"], "/home/alumno/"+infoAlumn[0]["id"], "tbody-alumno-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(6)))
+    if(isNaN($("li a").eq(7)))
     {
         for(var datos in infoAlumn)
         {
-            $("li a").eq(6).text(infoAlumn[datos]["Nombre"]);
+            $("li a").eq(7).text(infoAlumn[datos]["Nombre"]);
         }
     }  
     });

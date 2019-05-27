@@ -8,7 +8,6 @@
     var infoAcuerdo = {!! json_encode($perfilacuerdo->toArray(), JSON_HEX_TAG) !!};
     var infoAlumno = {!! json_encode($perfilalumno->toArray(), JSON_HEX_TAG) !!};
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};
-    console.log(infoAcuerdo)
     var listaLabels = [
         "",
         "{{ trans('traduccion.acuDataAlta') }}",

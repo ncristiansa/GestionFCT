@@ -42,7 +42,7 @@ class AlumnoController extends Controller
             $alumno = new Alumno;
             $alumno->Nombre = $request->input('nombre');
             $alumno->DNI = $request->input('dni');
-            $alumno->Num_CAP = $request->input('num_cap');
+            $alumno->NASS = $request->input('nass');
             $alumno->Email = $request->input('email');
             $alumno->Telefono = $request->input('telefono');
             $alumno->save();
