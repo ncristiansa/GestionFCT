@@ -64,5 +64,8 @@ return [
     'nombre_empresa' => 'Nom empresa',
     'nombre_responsable' => 'Nom responsable',
     'tipo_responsable' => 'Tipus de responsable',
+    'pendiente' => 'Pendent',
+    'realizads' => 'Realitzades',
+    'todas' => 'Totes',
 ]
 ?>

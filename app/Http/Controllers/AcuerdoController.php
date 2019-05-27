@@ -66,6 +66,8 @@ class AcuerdoController extends Controller
         $perfilempresa = Empresa::where('id', $od)->get(["id",'Empresa', "NIF", "Tipologia", "Perfil", "Idiomas", 'Horario']);
         $perfilalumno = Alumno::where('id', $od)->get(["id",'Nombre', "DNI", "NASS", "Email", "Telefono"]);
         $perfiltutor = Tutor::where('id', $od)->get(["id",'Nombre', 'DNI',"Email", "Telefono"]);
+
+        $perfilvisita = Visita::where('acuerdo_id',$od)->get(["Fecha", 'Comentario']);
         if($request->ajax())
         {
             Acuerdo::findOrFail($od)

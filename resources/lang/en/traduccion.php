@@ -59,5 +59,8 @@ return [
     'nombre_empresa' => 'Company name',
     'nombre_responsable' => 'Responsible name',
     'tipo_responsable' => 'Type of responsible',
+    'pendiente' => 'Pending',
+    'realizads' => 'Made',
+    'todas' => 'All',
 ]
 ?>

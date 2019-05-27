@@ -57,6 +57,9 @@ return [
     'acuerdoid' => 'Acuerdo ID',
     'nombre_empresa' => 'Nombre empresa',
     'nombre_responsable' => 'Nombre responsable',
-    'tipo_responsable' => 'Tipo de responsable'
+    'tipo_responsable' => 'Tipo de responsable',
+    'pendiente' => 'Pendiente',
+    'realizads' => 'Realizadas',
+    'todas' => 'Todas',
 ]
 ?>
