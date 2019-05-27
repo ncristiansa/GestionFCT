@@ -62,5 +62,9 @@ return [
     'pendiente' => 'Pending',
     'realizads' => 'Made',
     'todas' => 'All',
+    'controlseguimiento' => 'Monitoring control',
+    'acuerdo' => 'Agreement',
+    'visitab' => 'Visit',
+    'calchoras' => 'Calculate hours',
 ]
 ?>

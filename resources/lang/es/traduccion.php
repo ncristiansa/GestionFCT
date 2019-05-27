@@ -61,5 +61,9 @@ return [
     'pendiente' => 'Pendiente',
     'realizads' => 'Realizadas',
     'todas' => 'Todas',
+    'controlseguimiento' => 'Control de seguimiento',
+    'acuerdob' => 'Acuerdo',
+    'visitab' => 'Visita',
+    'calchoras' => 'Calcula horas',
 ]
 ?>

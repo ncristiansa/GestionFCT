@@ -10,9 +10,10 @@
   <ul>
     <li style="float:left;"><a class="nombre-usuario"><img class="img-iconos" src="{{URL::asset('images/person.svg')}}" alt="icono-usuario" width="25px" height="35px">&nbsp;{{ auth()->user()->name }}</a></li>
     <li style="float:right"><a class="active" href="{{ route('logout')}}"><img width="35px" height="35px" class="img-iconos" src="{{URL::asset('images/sign-out.svg')}}"></a></li>
-    <li style="float:left"><a  href="{{ url('/home/acuerdo') }}" style="padding:19px;">Acuerdo</a></li>
-    <li style="float:left"><a  href="{{ url('/home/visita') }}" style="padding:19px;">Visita</a></li>
-    <li style="float:left"><a  href="{{ url('/home/calcula') }}" style="padding:19px;">Calcula horas</a></li>
+    <li style="float:left"><a  href="{{ url('/home/acuerdo') }}" style="padding:19px;">{{ trans('traduccion.acuerdo') }}</a></li>
+    <li style="float:left"><a  href="{{ url('/home/visita') }}" style="padding:19px;">{{ trans('traduccion.visitab') }}</a></li>
+    <li style="float:left"><a  href="{{ url('/home/seguimiento') }}" style="padding:19px;">{{ trans('traduccion.controlseguimiento') }}</a></li>
+    <li style="float:left"><a  href="{{ url('/home/calcula') }}" style="padding:19px;">{{ trans('traduccion.calchoras') }}</a></li>
   </ul>
   @include('breadcrumbs.breadcrumbs')
     <div class="dropdown" align="right" style="margin-right:20px;">

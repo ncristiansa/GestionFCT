@@ -76,7 +76,11 @@ Route::group(['middleware' => ['web']], function () {
     */
     Route::get('/home/calcula', 'FestivoController@index')->name('calcula');
     Route::post('/home/calcula', 'FestivoController@result')->name('calcula');
-
+    /**
+    * Ruta control de seguimiento
+    */
+    Route::get('/home/seguimiento', 'SeguimientoController@index')->name('seguimiento');
+    
     Route::get('lang/{lang}', function ($lang) {
         session(['lang' => $lang]);
         return \Redirect::back();

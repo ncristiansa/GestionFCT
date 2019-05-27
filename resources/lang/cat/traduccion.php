@@ -16,7 +16,7 @@ return [
     'tdLanguages' => 'Idiomes',
     'tdSchedule' => 'Horari',
     'tdTracing' => 'Seguimient',
-    "h1CompanyData' => 'Dades de l'Empresa",
+    'h1CompanyData' => "Dades de l'empresa",
     'h2Agreementof' => 'Acords de ',
     'titleNom' => 'Nom',
     'Listoftutors' => 'Llista de Tutors',
@@ -67,5 +67,9 @@ return [
     'pendiente' => 'Pendent',
     'realizads' => 'Realitzades',
     'todas' => 'Totes',
+    'controlseguimiento' => 'Control de seguiment',
+    'acuerdob' => 'Acord',
+    'visitab' => 'Visita',
+    'calchoras' => 'Calcula hores',
 ]
 ?>
