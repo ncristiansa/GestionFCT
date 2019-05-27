@@ -27,7 +27,6 @@
 <script>
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};
     var infoTutorAcuerdo = {!! json_encode($acuerdotutor, JSON_HEX_TAG) !!};
-    console.log(infoTutorAcuerdo);
     var Rol = "{{ auth()->user()->Nombre }}";
     var listaLabels = [
         "",
@@ -41,11 +40,11 @@
     crearFormulario("h1", infoTutor, "/home/tutor/"+infoTutor[0]["id"], "GET", true, "form-perfil", listaLabels);
     crearFilas("table", infoTutorAcuerdo, "/home/tutor/"+infoTutor[0]["id"], "/home/tutor/"+infoTutor[0]["id"], "tbody-tutor-acuerdo", Rol, "acuerdo");
     $(document).ready(function() {
-    if(isNaN($("li a").eq(6)))
+    if(isNaN($("li a").eq(7)))
     {
       for(var datos in infoTutor)
       {
-        $("li a").eq(6).text(infoTutor[datos]["Nombre"]);
+        $("li a").eq(7).text(infoTutor[datos]["Nombre"]);
       }
     }
     });

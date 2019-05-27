@@ -16,12 +16,16 @@
     </div>
 </div>
 <script type="text/javascript">
-    var Nombre = "{{ auth()->user()->Nombre }}";
-    var rutaPerfil = "{{ url('/home/acuerdos') }}";
-    var misacuerdo = "{{ trans('traduccion.Myagreements') }}"
+    
+    var misacuerdo = "{{ trans('traduccion.Myagreements') }}";
     $(document).ready(function(){
         if($.trim($("li a").eq(0).text()) != "Tutor" && $.trim($("li a").eq(0).text()) != "Administrador")
         {
+            var tutorid = "{{$idtutor}}";
+            var idsplit = tutorid.split(":");
+            var idtutor = idsplit[1].replace("}]", "");
+            var Nombre = "{{ auth()->user()->Nombre }}";
+            var rutaPerfil = "home/tutor/"+idtutor;
             $("#menu").append($("<li>").attr({"style":"float:left; padding:2px;"}).append($("<a>").attr({'href':rutaPerfil}).text(misacuerdo)));
         }
     });

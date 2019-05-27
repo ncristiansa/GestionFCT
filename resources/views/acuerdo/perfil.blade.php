@@ -8,6 +8,7 @@
     var infoAcuerdo = {!! json_encode($perfilacuerdo->toArray(), JSON_HEX_TAG) !!};
     var infoAlumno = {!! json_encode($perfilalumno->toArray(), JSON_HEX_TAG) !!};
     var infoTutor = {!! json_encode($perfiltutor->toArray(), JSON_HEX_TAG) !!};
+    console.log(infoAcuerdo)
     var listaLabels = [
         "",
         "{{ trans('traduccion.acuDataAlta') }}",
@@ -15,31 +16,31 @@
         "{{ trans('traduccion.acuFi') }}",
         "",
     ];
-    if($.trim($("li a").eq(5).text()) == "EMPRESA"){
+    if($.trim($("li a").eq(6).text()) == "EMPRESA"){
       crearFormulario("h1", infoAcuerdo, "/home/empresa/"+infoEmpresa[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
-    }else if($.trim($("li a").eq(5).text()) == "ALUMNO"){
+    }else if($.trim($("li a").eq(6).text()) == "ALUMNO"){
       crearFormulario("h1", infoAcuerdo, "/home/alumno/"+infoAlumno[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
-    }else if($.trim($("li a").eq(5).text()) == "TUTOR"){
+    }else if($.trim($("li a").eq(6).text()) == "TUTOR"){
       crearFormulario("h1", infoAcuerdo, "/home/tutor/"+infoTutor[0]["id"]+"/"+infoAcuerdo[0]["id"], "GET", true, "form-perfil", listaLabels);
     }
     $(document).ready(function() {
-    if(isNaN($("li a").eq(6)))
+    if(isNaN($("li a").eq(7)))
     {
-      if($.trim($("li a").eq(5).text()) == "EMPRESA")
+      if($.trim($("li a").eq(6).text()) == "EMPRESA")
       {
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(6).text(infoEmpresa[datos]["Empresa"]);
+          $("li a").eq(7).text(infoEmpresa[datos]["Empresa"]);
         }
-      }else if($.trim($("li a").eq(5).text()) == "ALUMNO"){
+      }else if($.trim($("li a").eq(6).text()) == "ALUMNO"){
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(6).text(infoAlumno[datos]["Nombre"]);
+          $("li a").eq(7).text(infoAlumno[datos]["Nombre"]);
         }
-      }else if($.trim($("li a").eq(5).text()) == "TUTOR"){
+      }else if($.trim($("li a").eq(6).text()) == "TUTOR"){
         for(var datos in infoEmpresa)
         {
-          $("li a").eq(6).text(infoTutor[datos]["Nombre"]);
+          $("li a").eq(7).text(infoTutor[datos]["Nombre"]);
         }
       }
     }  
