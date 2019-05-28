@@ -100,8 +100,6 @@
                 $contadorfiesta=$contadorf;
 
             }
-            
-            echo "<p> Días: ".$total."</p>";
             echo '<p> Resultado: '.$tiempo." hores.<br>\n
             Finaliza: ".$fechafin." ( hores)</p>";
             $fechainicio = $_POST["fechainicio"];

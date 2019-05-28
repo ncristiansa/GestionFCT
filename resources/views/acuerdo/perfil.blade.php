@@ -1,5 +1,5 @@
 @extends('layouts/general')
-@section('pageTitle', trans('traduccion.perfiltitle'))
+@section('pageTitle', trans('traduccion.compPerfil'))
 @section('content')
 <?php
     $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
