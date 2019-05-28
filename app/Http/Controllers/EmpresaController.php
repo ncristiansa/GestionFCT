@@ -8,6 +8,7 @@ use Illuminate\Routing\Route;
 use Response;
 use App\Acuerdo;
 use App\Persona;
+use App\Seguimiento;
 class EmpresaController extends Controller
 {
     /*
@@ -100,10 +101,17 @@ class EmpresaController extends Controller
 
         if($request->ajax())
         {
+            $idacuerdo = Acuerdo::where('empresa_id', $id)->get(['id']);
             $empresa = Empresa::findOrFail($id);
-            if(!is_null($empresa))
+            $seguimiento = Seguimiento::findOrFail($idacuerdo);
+            $acuerdo = Acuerdo::findOrFail($idacuerdo);
+            if(!is_null($empresa) && !is_null($acuerdo) && !is_null($seguimiento))
             {
-                $empresa->delete();
+                
+                $seguimiento->delete();
+               
+                $acuerdo->delete();
+                 $empresa->delete();
                 return response()->json(['response' => true, 'id'=>$empresa->id]);
             }
             return response()->json(['response' => false]);

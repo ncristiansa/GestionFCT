@@ -57,10 +57,15 @@ class AcuerdoController extends Controller
             
             $acuerdo = Acuerdo::findOrFail($idacuerdo);
             $acuerdotutor= AcuerdoTutor::findOrFail($idacuerdo);
-            if(!is_null($acuerdo) && !is_null($acuerdotutor))
+            $seguimiento = Seguimiento::findOrFail($idacuerdo);
+            $visita = Visita::findOrFail($idacuerdo);
+            if(!is_null($acuerdo) && !is_null($acuerdotutor) && !is_null($seguimiento))
             {
                 $acuerdotutor->delete();
+                $seguimiento->delete();
+                $visita->delete();
                 $acuerdo->delete();
+                
 
                 return response()->json(['response' => true, 'id'=>$acuerdo->id]);
             }

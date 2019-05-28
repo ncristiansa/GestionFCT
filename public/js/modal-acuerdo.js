@@ -13,7 +13,6 @@ $(document).ready(function(){
     
     $("#si-seguro-acuerdo").on("click", function(){
         $('#modal-acuerdo').modal("hide");
-        console.log("hola");
         $.ajax({
             type: $("#form-delete-acuerdo").attr('method'),
             url: $("#form-delete-acuerdo").attr('action'),
